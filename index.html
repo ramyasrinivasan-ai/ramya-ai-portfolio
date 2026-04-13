@@ -7,6 +7,22 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
+  /* FIX PROJECT GRID OVERRIDE */
+.projects-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 28px !important;
+}
+
+.project-card {
+  max-width: 100% !important;
+}
+
+.project-card img {
+  width: 100% !important;
+  height: 200px !important;
+  object-fit: cover !important;
+}
   <style>
     :root {
       --bg: #050505;
@@ -493,7 +509,7 @@
   <div class="eyebrow">Projects</div>
   <h2 class="section-title">Selected Work</h2>
 
-  <div class="projects-grid">
+  <div class="featured-projects-grid">
 
     <a href="project1.html" class="project-card">
       <img src="project-01-ai-odyssey.png" alt="AI Odyssey">
@@ -671,7 +687,7 @@
         <h2 class="section-title">AI, analytics, and solution design work presented with a premium visual case-study feel.</h2>
         <p class="section-subtitle">The images will show once you upload them later.</p>
 
-        <div class="project-grid">
+        <div class="featured-projects-grid">
           <article class="project-card">
             <img src="project-01-ai-odyssey.png" alt="The AI Odyssey" />
             <div class="project-body">
