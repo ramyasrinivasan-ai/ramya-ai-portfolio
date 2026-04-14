@@ -1,376 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI-Powered Retail Support Transformation | Ramya Srinivasan</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    :root{
-      --bg:#060606;
-      --text:#f5f2eb;
-      --muted:#b8b0a1;
-      --line:rgba(215,168,93,0.22);
-      --line-soft:rgba(255,255,255,0.08);
-      --gold:#d7a85d;
-      --shadow:0 24px 60px rgba(0,0,0,0.45);
-      --max:1180px;
-    }
+<title>AI-Powered Retail Support Transformation</title>
 
-    *{box-sizing:border-box;}
-    html{scroll-behavior:smooth;}
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #0a0a0a;
+    color: white;
+}
 
-    body{
-      margin:0;
-      font-family:Inter,system-ui,sans-serif;
-      color:var(--text);
-      background:
-        radial-gradient(circle at top left, rgba(65,120,140,0.10), transparent 22%),
-        radial-gradient(circle at top right, rgba(215,168,93,0.08), transparent 20%),
-        linear-gradient(180deg, #020203 0%, #060606 50%, #080809 100%);
-      line-height:1.7;
-    }
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 60px 20px;
+}
 
-    a{text-decoration:none;color:inherit;}
-    img{display:block;max-width:100%;}
+h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
 
-    .page{
-      width:min(calc(100% - 24px), 1260px);
-      margin:16px auto;
-      border:1px solid var(--line);
-      border-radius:30px;
-      overflow:hidden;
-      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      box-shadow:var(--shadow);
-    }
+.subtitle {
+    font-size: 20px;
+    color: #d4af37;
+    margin-bottom: 40px;
+}
 
-    .container{
-      width:min(calc(100% - 56px), var(--max));
-      margin:0 auto;
-    }
+.section {
+    margin-bottom: 40px;
+}
 
-    .top{
-      position:sticky;
-      top:0;
-      z-index:10;
-      backdrop-filter:blur(14px);
-      background:rgba(5,5,5,0.82);
-      border-bottom:1px solid var(--line-soft);
-    }
+.section h2 {
+    color: #d4af37;
+    margin-bottom: 10px;
+}
 
-    .top-inner{
-      min-height:78px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:16px;
-      flex-wrap:wrap;
-    }
+.section p {
+    line-height: 1.6;
+    color: #ddd;
+}
 
-    .back-link{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      color:var(--gold);
-      font-weight:700;
-    }
+.highlight-box {
+    background: #111;
+    border: 1px solid #333;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
 
-    .hero{
-      padding:54px 0 26px;
-    }
+.pdf-container {
+    margin-top: 50px;
+    border: 1px solid #333;
+    border-radius: 12px;
+    overflow: hidden;
+}
 
-    .eyebrow{
-      display:inline-flex;
-      align-items:center;
-      padding:10px 18px;
-      border-radius:999px;
-      border:1px solid rgba(215,168,93,0.28);
-      color:var(--gold);
-      letter-spacing:0.16em;
-      text-transform:uppercase;
-      font-size:0.76rem;
-      margin-bottom:22px;
-    }
+iframe {
+    width: 100%;
+    height: 700px;
+    border: none;
+}
+</style>
 
-    h1{
-      margin:0 0 14px;
-      font-family:Manrope,Inter,sans-serif;
-      font-size:clamp(2.4rem, 5vw, 4.6rem);
-      line-height:1.02;
-      letter-spacing:-0.04em;
-    }
-
-    .subtitle{
-      margin:0;
-      max-width:920px;
-      color:#d8cec1;
-      font-size:1.08rem;
-    }
-
-    .hero-image{
-      margin-top:30px;
-      padding:18px;
-      border-radius:26px;
-      background:linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.02));
-      border:1px solid rgba(215,168,93,0.18);
-      box-shadow:var(--shadow);
-    }
-
-    .hero-image img{
-      width:100%;
-      height:auto;
-      object-fit:contain;
-      border-radius:18px;
-      border:1px solid var(--line-soft);
-      background:#111;
-    }
-
-    .two-col{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:24px;
-      margin-top:28px;
-    }
-
-    .card{
-      padding:28px;
-      border-radius:24px;
-      background:linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
-      border:1px solid var(--line-soft);
-      box-shadow:var(--shadow);
-    }
-
-    .card h2{
-      margin:0 0 14px;
-      font-size:1.3rem;
-    }
-
-    .card p{
-      margin:0;
-      color:#ddd4c8;
-    }
-
-    .card p + p{
-      margin-top:14px;
-    }
-
-    .pill-row{
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
-      margin-top:18px;
-    }
-
-    .pill{
-      padding:10px 14px;
-      border-radius:999px;
-      border:1px solid rgba(215,168,93,0.22);
-      background:rgba(255,255,255,0.02);
-      color:#efe6da;
-      font-size:0.92rem;
-    }
-
-    .artifact-section{
-      padding:8px 0 60px;
-    }
-
-    .artifact-card{
-      padding:18px;
-      border-radius:26px;
-      background:linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.02));
-      border:1px solid rgba(215,168,93,0.18);
-      box-shadow:var(--shadow);
-    }
-
-    .artifact-top{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:16px;
-      flex-wrap:wrap;
-      padding:8px 8px 18px;
-    }
-
-    .artifact-top h2{
-      margin:0;
-      font-size:1.28rem;
-    }
-
-    .artifact-actions{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-    }
-
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding:12px 18px;
-      border-radius:999px;
-      border:1px solid rgba(215,168,93,0.30);
-      background:linear-gradient(180deg, rgba(215,168,93,0.18), rgba(215,168,93,0.08));
-      font-weight:700;
-    }
-
-    .btn.secondary{
-      border:1px solid var(--line-soft);
-      background:rgba(255,255,255,0.03);
-    }
-
-    .artifact-note{
-      margin:0 0 16px;
-      color:#d8cec1;
-    }
-
-    .pdf-frame{
-      width:100%;
-      height:1200px;
-      border:1px solid var(--line-soft);
-      border-radius:18px;
-      overflow:hidden;
-      background:#111;
-    }
-
-    .pdf-frame iframe{
-      width:100%;
-      height:100%;
-      border:0;
-      display:block;
-      background:#111;
-    }
-
-    @media (max-width: 980px){
-      .two-col{
-        grid-template-columns:1fr;
-      }
-
-      .pdf-frame{
-        height:900px;
-      }
-    }
-
-    @media (max-width: 760px){
-      .page{
-        width:min(calc(100% - 12px), 1260px);
-        border-radius:22px;
-      }
-
-      .container{
-        width:min(calc(100% - 24px), var(--max));
-      }
-
-      .hero{
-        padding:40px 0 18px;
-      }
-
-      .pdf-frame{
-        height:700px;
-      }
-    }
-  </style>
 </head>
+
 <body>
-  <div class="page">
-    <div class="top">
-      <div class="container top-inner">
-        <a class="back-link" href="index.html">← Back to Portfolio</a>
-        <div>Ramya Srinivasan • AI Solutions Architect</div>
-      </div>
+
+<div class="container">
+
+    <h1>AI-Powered Retail Support Transformation</h1>
+    <div class="subtitle">
+        Reducing support load, improving customer experience, and enabling real-time intelligent assistance
     </div>
 
-    <section class="hero">
-      <div class="container">
-        <div class="eyebrow">Project 02</div>
-        <h1>AI-Powered Retail Support Transformation</h1>
-        <p class="subtitle">
-          A solution architecture concept showing how AI-powered NLP, real-time integrations, escalation design, and governance controls can transform retail customer support into a faster, more intelligent service model.
+    <div class="section">
+        <h2>The Problem</h2>
+        <p>
+        Retail customer support teams are overwhelmed with repetitive inquiries such as order status, returns,
+        store hours, and product availability. This leads to delayed responses, increased operational cost,
+        and declining customer satisfaction.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>The Solution</h2>
+        <p>
+        Designed an AI-powered NLP chatbot integrated with backend retail systems to automate customer interactions.
+        The system enables real-time responses, intent recognition, and seamless API integration with inventory,
+        order tracking, and account data.
         </p>
 
-        <div class="hero-image">
-          <img src="project-02-ai-chatbot-assistant.png" alt="AI-powered retail support transformation cover">
+        <div class="highlight-box">
+            ✔ Real-time backend integration (APIs)<br>
+            ✔ 24/7 conversational AI support<br>
+            ✔ Intent-based dialogue system<br>
+            ✔ End-to-end customer journey automation
         </div>
+    </div>
 
-        <div class="two-col">
-          <div class="card">
-            <h2>The Problem</h2>
-            <p>
-              Retail support operations often break under fragmented channels, repetitive customer inquiries, unpredictable demand spikes, and slow manual resolution. This creates higher support cost, delayed responses, and a poor post-purchase experience.
-            </p>
-          </div>
+    <div class="section">
+        <h2>Impact</h2>
+        <p>
+        The solution significantly reduced support workload while improving response speed and customer experience.
+        </p>
 
-          <div class="card">
-            <h2>The Solution</h2>
-            <p>
-              This project proposes an AI-powered retail support model built around intelligent intent recognition, contextual routing, human handoff, live backend synchronization, and always-on customer interaction across digital channels.
-            </p>
-          </div>
+        <div class="highlight-box">
+            🔹 25% reduction in support volume<br>
+            🔹 30% improvement in operational efficiency<br>
+            🔹 Real-time data synchronization across systems<br>
+            🔹 Scalable AI-driven customer engagement
         </div>
+    </div>
 
-        <div class="two-col">
-          <div class="card">
-            <h2>Architecture Thinking</h2>
-            <p>
-              The concept combines omnichannel UI, NLP and orchestration, microservices-based backend integration, enterprise data connectivity, escalation architecture, and continuous context synchronization between customer input, AI logic, and CRM systems.
-            </p>
-            <div class="pill-row">
-              <span class="pill">NLP Orchestration</span>
-              <span class="pill">Intent Design</span>
-              <span class="pill">Escalation Flow</span>
-              <span class="pill">Enterprise Data</span>
-            </div>
-          </div>
+    <div class="section">
+        <h2>Architecture & Design</h2>
+        <p>
+        The system is built on an NLP-driven chatbot framework with structured intent mapping, backend API orchestration,
+        and conversational flow design. It supports fallback handling, context retention, and continuous improvement
+        through feedback loops.
+        </p>
+    </div>
 
-          <div class="card">
-            <h2>Business Impact</h2>
-            <p>
-              The artifact frames support as a strategic value driver rather than a cost center, highlighting outcomes such as lower operational support cost, stronger customer satisfaction, 24/7 availability, and better prediction and routing across support workflows.
-            </p>
-          </div>
-        </div>
+    <!-- PDF VIEWER -->
+    <div class="pdf-container">
+        <iframe src="chatbot.pdf"></iframe>
+    </div>
 
-        <div class="two-col">
-          <div class="card">
-            <h2>Governance & Risk</h2>
-            <p>
-              The solution includes trust and governance measures such as bounded context, hallucination controls, privacy-aware handling, and calibrated language behavior to protect both customer trust and brand integrity.
-            </p>
-          </div>
+</div>
 
-          <div class="card">
-            <h2>Why This Matters</h2>
-            <p>
-              This is not just a chatbot idea. It is a service transformation case study that combines solution architecture, AI design, backend integration, business metrics, and responsible AI thinking in a portfolio-ready format.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="artifact-section">
-      <div class="container">
-        <div class="artifact-card">
-          <div class="artifact-top">
-            <h2>Full Solution Walkthrough</h2>
-            <div class="artifact-actions">
-              <a class="btn" href="retail-support-transformation.pdf" target="_blank">Open PDF</a>
-              <a class="btn secondary" href="index.html">Back to Homepage</a>
-            </div>
-          </div>
-
-          <p class="artifact-note">
-            Scroll through the full visual artifact directly below.
-          </p>
-
-          <div class="pdf-frame">
-            <iframe src="retail-support-transformation.pdf"></iframe>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
 </body>
 </html>
