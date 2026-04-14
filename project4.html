@@ -1,314 +1,714 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Bias in Automotive Systems</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Architecting Fairness: Mitigating AI Bias in Automotive Systems | Ramya Srinivasan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#060606;
+      --paper:#f3f0eb;
+      --paper-text:#292521;
+      --paper-muted:#6b645d;
+      --text:#f5f2eb;
+      --muted:#b8b0a1;
+      --gold:#d7a85d;
+      --line:rgba(215,168,93,0.22);
+      --line-soft:rgba(255,255,255,0.08);
+      --shadow:0 24px 60px rgba(0,0,0,0.45);
+      --max:1180px;
+    }
 
-<style>
+    *{box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
 
-body {
-    margin: 0;
-    font-family: 'Inter', sans-serif;
-    background: #050505;
-    color: #eaeaea;
-    line-height: 1.7;
-}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(65,120,140,0.10), transparent 22%),
+        radial-gradient(circle at top right, rgba(215,168,93,0.08), transparent 20%),
+        linear-gradient(180deg, #020203 0%, #060606 50%, #080809 100%);
+      color:var(--text);
+      line-height:1.7;
+    }
 
-.container {
-    max-width: 1100px;
-    margin: auto;
-    padding: 60px 20px;
-}
+    a{text-decoration:none;color:inherit;}
+    img{display:block;max-width:100%;}
 
-.back {
-    padding: 20px;
-    font-size: 14px;
-}
+    .page{
+      width:min(calc(100% - 32px), 1280px);
+      margin:18px auto;
+      border:1px solid var(--line);
+      border-radius:30px;
+      overflow:hidden;
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      box-shadow:var(--shadow);
+    }
 
-a {
-    color: #f5c76f;
-    text-decoration: none;
-}
+    .container{
+      width:min(calc(100% - 56px), var(--max));
+      margin:0 auto;
+    }
 
-/* HERO */
-.hero {
-    margin-top: 40px;
-}
+    .top{
+      padding:24px 0;
+      border-bottom:1px solid var(--line-soft);
+      background:rgba(0,0,0,0.35);
+    }
 
-h1 {
-    font-size: 56px;
-    line-height: 1.1;
-}
+    .top-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      flex-wrap:wrap;
+    }
 
-.subtitle {
-    margin-top: 20px;
-    color: #bdbdbd;
-    max-width: 700px;
-}
+    .back-link{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      color:var(--gold);
+      font-weight:700;
+    }
 
-/* IMAGE */
-.image-section {
-    margin-top: 60px;
-}
+    .hero{
+      padding:68px 0 58px;
+    }
 
-.image-section img {
-    width: 100%;
-    border-radius: 16px;
-    border: 1px solid rgba(255,255,255,0.08);
-}
+    .hero-meta{
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+      margin-bottom:34px;
+      color:#b88e8e;
+      font-size:0.76rem;
+      letter-spacing:0.16em;
+      text-transform:uppercase;
+    }
 
-/* SECTION */
-.section {
-    margin-top: 80px;
-}
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      padding:10px 18px;
+      border-radius:999px;
+      border:1px solid rgba(215,168,93,0.28);
+      color:var(--gold);
+      letter-spacing:0.16em;
+      text-transform:uppercase;
+      font-size:0.76rem;
+      margin-bottom:24px;
+    }
 
-.section-title {
-    font-size: 14px;
-    letter-spacing: 2px;
-    color: #888;
-    margin-bottom: 10px;
-}
+    h1{
+      margin:0 0 18px;
+      font-family:Manrope,Inter,sans-serif;
+      font-size:clamp(3rem, 7vw, 6rem);
+      line-height:0.95;
+      letter-spacing:-0.06em;
+      max-width:980px;
+    }
 
-.section h2 {
-    font-size: 28px;
-    color: #f5c76f;
-}
+    .hero-subtitle{
+      margin:0 0 22px;
+      max-width:780px;
+      color:#ded5c8;
+      font-size:1.1rem;
+    }
 
-.section p {
-    color: #cfcfcf;
-}
+    .hero-note{
+      max-width:760px;
+      color:var(--muted);
+      font-size:0.98rem;
+    }
 
-/* GRID */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
-    gap: 25px;
-    margin-top: 30px;
-}
+    .hero-pills{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:26px;
+    }
 
-.card {
-    background: rgba(255,255,255,0.03);
-    padding: 25px;
-    border-radius: 14px;
-    border: 1px solid rgba(255,255,255,0.06);
-    transition: 0.3s;
-}
+    .pill{
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid rgba(215,168,93,0.22);
+      background:rgba(255,255,255,0.02);
+      color:#efe6da;
+      font-size:0.92rem;
+    }
 
-.card:hover {
-    transform: translateY(-6px);
-    border-color: rgba(245,199,111,0.4);
-}
+    .divider{
+      height:1px;
+      background:linear-gradient(90deg, transparent, rgba(215,168,93,0.24), transparent);
+    }
 
-/* QUOTE BLOCK */
-.quote {
-    margin-top: 40px;
-    padding: 30px;
-    border-left: 3px solid #f5c76f;
-    background: rgba(255,255,255,0.02);
-    font-style: italic;
-    color: #ccc;
-}
+    .paper{
+      background:var(--paper);
+      color:var(--paper-text);
+    }
 
-</style>
+    .paper-section{
+      padding:82px 0;
+      border-bottom:1px solid rgba(0,0,0,0.08);
+    }
+
+    .section-grid{
+      display:grid;
+      grid-template-columns:110px 1fr;
+      gap:28px;
+      align-items:start;
+    }
+
+    .section-num{
+      font-family:Cormorant Garamond, serif;
+      font-size:3.1rem;
+      line-height:1;
+      color:#d3ccc5;
+      padding-top:8px;
+    }
+
+    .section-label{
+      margin:0 0 10px;
+      font-size:0.74rem;
+      letter-spacing:0.18em;
+      text-transform:uppercase;
+      color:#b38484;
+      font-weight:700;
+    }
+
+    .section-title{
+      margin:0 0 22px;
+      font-family:Cormorant Garamond, serif;
+      font-size:3rem;
+      line-height:0.98;
+      font-weight:600;
+      letter-spacing:-0.02em;
+    }
+
+    .lead{
+      font-size:1.16rem;
+      color:var(--paper-muted);
+      max-width:860px;
+      margin:0 0 28px;
+    }
+
+    .dropcap{
+      font-size:1.06rem;
+      color:#5f5852;
+      max-width:860px;
+    }
+
+    .dropcap::first-letter{
+      float:left;
+      font-family:Cormorant Garamond, serif;
+      font-size:4.4rem;
+      line-height:0.9;
+      padding-right:10px;
+      color:#2e2824;
+    }
+
+    .quote-block{
+      margin:34px 0;
+      padding:26px 28px;
+      background:#eadde0;
+      border-left:3px solid #d8a4ad;
+      font-family:Cormorant Garamond, serif;
+      font-size:1.22rem;
+      line-height:1.6;
+      color:#5c494c;
+    }
+
+    .two-col{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:32px;
+      margin-top:28px;
+    }
+
+    .info-card{
+      background:#fffdfb;
+      border:1px solid rgba(0,0,0,0.08);
+      padding:30px;
+      min-height:100%;
+    }
+
+    .info-card h3{
+      margin:0 0 14px;
+      font-size:1.35rem;
+      color:#231f1c;
+    }
+
+    .info-card p{
+      margin:0;
+      color:#5b5550;
+    }
+
+    .info-card p + p{
+      margin-top:14px;
+    }
+
+    .comparison{
+      margin-top:28px;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:28px;
+    }
+
+    .compare-box{
+      padding:30px;
+      border:1px solid rgba(0,0,0,0.1);
+      background:#fffdfb;
+    }
+
+    .compare-box .tag{
+      display:inline-block;
+      margin-bottom:16px;
+      padding:8px 12px;
+      border:1px solid rgba(0,0,0,0.1);
+      border-radius:999px;
+      font-size:0.78rem;
+      letter-spacing:0.12em;
+      text-transform:uppercase;
+      color:#7d7268;
+    }
+
+    .compare-box h3{
+      margin:0 0 14px;
+      font-size:1.45rem;
+      color:#231f1c;
+    }
+
+    .compare-box ul{
+      margin:0;
+      padding-left:18px;
+      color:#5b5550;
+    }
+
+    .compare-box li + li{
+      margin-top:10px;
+    }
+
+    .center-panel{
+      margin-top:34px;
+      padding:36px;
+      background:#0b0b0d;
+      color:#f5f2eb;
+      border:1px solid rgba(215,168,93,0.2);
+    }
+
+    .center-panel h3{
+      margin:0 0 14px;
+      font-family:Cormorant Garamond, serif;
+      font-size:2rem;
+      font-weight:600;
+    }
+
+    .center-panel p{
+      margin:0;
+      color:#d9d0c4;
+      max-width:860px;
+    }
+
+    .artifact-frame{
+      margin-top:28px;
+      background:#fffdfb;
+      border:1px solid rgba(0,0,0,0.08);
+      padding:22px;
+    }
+
+    .artifact-frame img{
+      width:100%;
+      height:auto;
+      object-fit:contain;
+      border:1px solid rgba(0,0,0,0.08);
+      transition:transform 0.35s ease;
+    }
+
+    .artifact-frame:hover img{
+      transform:scale(1.02);
+    }
+
+    .bottom-nav{
+      text-align:center;
+      margin-top:34px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:14px 22px;
+      border-radius:999px;
+      border:1px solid rgba(215,168,93,0.30);
+      background:linear-gradient(180deg, rgba(215,168,93,0.18), rgba(215,168,93,0.08));
+      color:#f7f0e7;
+      font-weight:700;
+    }
+
+    .btn.secondary{
+      background:#fffdfb;
+      color:#3a332d;
+      border:1px solid rgba(0,0,0,0.12);
+    }
+
+    @media (max-width: 980px){
+      .two-col,
+      .comparison{
+        grid-template-columns:1fr;
+      }
+
+      .section-grid{
+        grid-template-columns:1fr;
+        gap:18px;
+      }
+
+      .section-num{
+        font-size:2.2rem;
+      }
+    }
+
+    @media (max-width: 760px){
+      .page{
+        width:min(calc(100% - 14px), 1280px);
+        border-radius:22px;
+      }
+
+      .container{
+        width:min(calc(100% - 24px), var(--max));
+      }
+
+      .hero{
+        padding:42px 0 46px;
+      }
+
+      .section-title{
+        font-size:2.35rem;
+      }
+
+      h1{
+        font-size:clamp(2.4rem, 13vw, 4rem);
+      }
+
+      .paper-section{
+        padding:58px 0;
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <div class="page">
+    <div class="top">
+      <div class="container top-inner">
+        <a class="back-link" href="index.html">← Back to Portfolio</a>
+        <div>Ramya Srinivasan • AI Solutions Architect</div>
+      </div>
+    </div>
 
-<div class="back">
-<a href="index.html">← Back to Portfolio</a>
-</div>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-meta">
+          <span>Responsible AI Research Artifact</span>
+          <span>2026</span>
+        </div>
 
-<div class="container">
+        <div class="eyebrow">Project 04</div>
 
-<!-- HERO -->
-<div class="hero">
-<h1>Architecting Fairness: Mitigating AI Bias in Automotive Systems</h1>
+        <h1>Architecting Fairness: Mitigating AI Bias in Automotive Systems</h1>
 
-<p class="subtitle">
-A research-driven analysis of bias propagation across the machine learning lifecycle, examining systemic risks in autonomous systems and the architectural strategies required to design fair, accountable, and production-ready AI systems.
-</p>
-</div>
+        <p class="hero-subtitle">
+          A research-driven exploration of how bias enters machine learning systems, how it creates safety, legal, and reputational risk, and how solution architects design guardrails to build fairer and more accountable AI.
+        </p>
 
-<!-- IMAGE -->
-<div class="image-section">
-<img src="project-04-leading-beyond-the-blind-spot.png">
-</div>
+        <p class="hero-note">
+          This artifact focuses on four ML pipeline stages where bias emerges, examines documented real-world failure patterns, and translates responsible AI principles into implementable architectural controls. :contentReference[oaicite:1]{index=1}
+        </p>
 
-<!-- INTRO -->
-<div class="section">
-<div class="section-title">00 — CONTEXT</div>
-<h2>Introduction</h2>
+        <div class="hero-pills">
+          <span class="pill">Responsible AI</span>
+          <span class="pill">Bias Detection</span>
+          <span class="pill">Automotive Systems</span>
+          <span class="pill">Governance Design</span>
+        </div>
+      </div>
+    </section>
 
-<p>
-AI bias is not an isolated defect — it is a systemic artifact of data, modeling assumptions, and deployment environments. In autonomous systems, where machine learning models directly influence physical-world outcomes, bias becomes a safety-critical risk rather than a theoretical concern.
-</p>
+    <div class="divider"></div>
 
-<p>
-Unlike deterministic software failures, bias manifests probabilistically, often remaining undetected until exposed under edge-case conditions. This makes bias particularly dangerous in large-scale deployments where rare conditions can still have severe consequences.
-</p>
+    <main class="paper">
+      <section class="paper-section">
+        <div class="container section-grid">
+          <div class="section-num">00</div>
+          <div>
+            <div class="section-label">Context & Foundation</div>
+            <h2 class="section-title">Introduction</h2>
 
-<div class="quote">
-When a system fails only under specific conditions — darkness, weather, or demographic variance — it reveals not randomness, but structural blind spots embedded during design.
-</div>
-</div>
+            <p class="dropcap">
+              When a self-driving car fails to detect a pedestrian because the training data lacked sufficient diversity in lighting conditions, demographics, or weather scenarios, that is not a software bug. It is bias built into the system long before deployment. :contentReference[oaicite:2]{index=2}
+            </p>
 
-<!-- PIPELINE -->
-<div class="section">
-<div class="section-title">01 — SYSTEM ANALYSIS</div>
-<h2>Bias Across the ML Pipeline</h2>
+            <div class="quote-block">
+              Bias is not a single model defect. It is a pipeline problem, a governance problem, and in safety-critical systems, a systems architecture problem.
+            </div>
 
-<div class="grid">
+            <p class="lead">
+              This artifact examines AI bias as a lifecycle issue rather than a narrow modeling issue. It shows how seemingly minor skew in data collection, annotation, training, or deployment can compound into unequal and potentially dangerous outcomes in real-world automotive systems. :contentReference[oaicite:3]{index=3}
+            </p>
+          </div>
+        </div>
+      </section>
 
-<div class="card">
-<h3>Data Collection</h3>
-<p>
-Bias originates when datasets fail to represent real-world variability, including environmental conditions, population diversity, and rare but critical edge scenarios.
-</p>
-</div>
+      <section class="paper-section">
+        <div class="container section-grid">
+          <div class="section-num">01</div>
+          <div>
+            <div class="section-label">Pipeline Analysis</div>
+            <h2 class="section-title">Where Bias Enters the ML Lifecycle</h2>
 
-<div class="card">
-<h3>Data Labeling</h3>
-<p>
-Human annotation introduces subjective interpretation, embedding implicit cognitive bias into the ground truth used for training.
-</p>
-</div>
+            <div class="comparison">
+              <div class="compare-box">
+                <span class="tag">Stage 1</span>
+                <h3>Data Collection</h3>
+                <ul>
+                  <li>Bias enters when datasets underrepresent certain demographics, road conditions, weather patterns, or edge cases.</li>
+                  <li>Collection gaps create weak coverage that models later mistake for reality.</li>
+                  <li>In automotive systems, this can mean poorer detection performance in night scenes or under unusual environmental conditions.</li>
+                </ul>
+              </div>
 
-<div class="card">
-<h3>Model Training</h3>
-<p>
-Optimization algorithms amplify statistical patterns, reinforcing skewed distributions and encoding bias into learned representations.
-</p>
-</div>
+              <div class="compare-box">
+                <span class="tag">Stage 2</span>
+                <h3>Data Labeling</h3>
+                <ul>
+                  <li>Subjective human annotation can inject assumptions into the ground-truth data.</li>
+                  <li>Annotation inconsistency transforms social or perceptual bias into machine-readable labels.</li>
+                  <li>These distortions are especially harmful when later treated as objective truth during training.</li>
+                </ul>
+              </div>
+            </div>
 
-<div class="card">
-<h3>Deployment</h3>
-<p>
-Distribution shift between training and production environments exposes hidden bias, often leading to degraded performance in real-world scenarios.
-</p>
-</div>
+            <div class="comparison">
+              <div class="compare-box">
+                <span class="tag">Stage 3</span>
+                <h3>Model Training</h3>
+                <ul>
+                  <li>Algorithms amplify repeated patterns in data, including unfair ones.</li>
+                  <li>Small statistical skews can become large decision asymmetries after optimization.</li>
+                  <li>Training can therefore harden bias rather than neutralize it.</li>
+                </ul>
+              </div>
 
-</div>
-</div>
+              <div class="compare-box">
+                <span class="tag">Stage 4</span>
+                <h3>Deployment</h3>
+                <ul>
+                  <li>Bias is often exposed only after launch when real-world distributions differ from training assumptions.</li>
+                  <li>Production drift can reveal disparities invisible in validation datasets.</li>
+                  <li>This makes deployment monitoring a fairness requirement, not just an operations task.</li>
+                </ul>
+              </div>
+            </div>
 
-<!-- FAILURE -->
-<div class="section">
-<div class="section-title">02 — REAL-WORLD IMPACT</div>
-<h2>Observed Failure Modes</h2>
+            <div class="center-panel">
+              <h3>Architectural Reading</h3>
+              <p>
+                Bias does not “appear” at the end. It accumulates through the pipeline. That is why fairness must be designed as an end-to-end system property rather than treated as a final model check. :contentReference[oaicite:4]{index=4}
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-<div class="grid">
+      <section class="paper-section">
+        <div class="container section-grid">
+          <div class="section-num">02</div>
+          <div>
+            <div class="section-label">Failure Patterns</div>
+            <h2 class="section-title">What Happens When Bias Reaches Production</h2>
 
-<div class="card">
-<h3>Autonomous Driving Gaps</h3>
-<p>
-Reduced detection accuracy under low-light or adverse weather conditions, disproportionately impacting vulnerable populations.
-</p>
-</div>
+            <div class="two-col">
+              <div class="info-card">
+                <h3>Autonomous Detection Gaps</h3>
+                <p>
+                  Automotive perception systems have documented drops in performance under rain, darkness, and varied demographic conditions. These are not abstract fairness concerns; they are direct safety risks affecting passengers and pedestrians. :contentReference[oaicite:5]{index=5}
+                </p>
+              </div>
 
-<div class="card">
-<h3>Facial Recognition Disparity</h3>
-<p>
-Higher error rates across demographic groups due to imbalanced training data distributions.
-</p>
-</div>
+              <div class="info-card">
+                <h3>Facial Recognition Inequality</h3>
+                <p>
+                  In-vehicle biometric and recognition systems can fail unevenly across demographic groups when training data lacks representativeness. That creates unequal user experience and undermines trust in AI-enabled vehicle systems. :contentReference[oaicite:6]{index=6}
+                </p>
+              </div>
+            </div>
 
-<div class="card">
-<h3>Decision System Bias</h3>
-<p>
-Historical datasets propagate bias in automated decision systems such as hiring, lending, and risk scoring.
-</p>
-</div>
+            <div class="two-col">
+              <div class="info-card">
+                <h3>Biased Decision Algorithms</h3>
+                <p>
+                  Historical hiring and decision data can cause automated systems to unfairly favor or exclude groups. Although outside core vehicle perception, this shows the same principle: when biased history becomes training input, models reproduce it at scale. :contentReference[oaicite:7]{index=7}
+                </p>
+              </div>
 
-</div>
-</div>
+              <div class="info-card">
+                <h3>Unchecked Impact</h3>
+                <p>
+                  The consequences extend beyond model quality. They include physical safety exposure, legal and regulatory penalties, and lasting reputational damage that can reshape public trust in an automotive brand. :contentReference[oaicite:8]{index=8}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-<!-- SOLUTION -->
-<div class="section">
-<div class="section-title">03 — ARCHITECTURE</div>
-<h2>Designing Responsible AI Systems</h2>
+      <section class="paper-section">
+        <div class="container section-grid">
+          <div class="section-num">03</div>
+          <div>
+            <div class="section-label">Guardrail Design</div>
+            <h2 class="section-title">What a Solution Architect Builds In</h2>
 
-<div class="grid">
+            <div class="two-col">
+              <div class="info-card">
+                <h3>Diverse and Representative Datasets</h3>
+                <p>
+                  Fair systems begin with broader data coverage. A robust data strategy must capture demographic variety, environmental diversity, and meaningful edge cases rather than optimizing only for dominant scenarios. :contentReference[oaicite:9]{index=9}
+                </p>
+              </div>
 
-<div class="card">
-<h3>Data Governance</h3>
-<p>
-Establish pipelines ensuring diversity, traceability, and continuous dataset evaluation across real-world conditions.
-</p>
-</div>
+              <div class="info-card">
+                <h3>Bias Auditing Tooling</h3>
+                <p>
+                  Industry-standard tools such as IBM AI Fairness 360 and the Google What-If Tool provide measurable methods for identifying disparate impact, comparing outcomes across groups, and validating mitigation strategies. :contentReference[oaicite:10]{index=10}
+                </p>
+              </div>
+            </div>
 
-<div class="card">
-<h3>Explainability</h3>
-<p>
-Integrate SHAP, LIME, and feature attribution methods to audit model behavior and ensure transparency.
-</p>
-</div>
+            <div class="two-col">
+              <div class="info-card">
+                <h3>Continuous Post-Deployment Monitoring</h3>
+                <p>
+                  Monitoring must extend beyond uptime and latency. Fairness-sensitive systems require drift detection, outcome analysis, and periodic re-evaluation to catch degradation after release. :contentReference[oaicite:11]{index=11}
+                </p>
+              </div>
 
-<div class="card">
-<h3>Bias Monitoring</h3>
-<p>
-Deploy fairness metrics and continuous evaluation frameworks to detect drift and bias post-deployment.
-</p>
-</div>
+              <div class="info-card">
+                <h3>Human-in-the-Loop Review</h3>
+                <p>
+                  High-stakes or ambiguous decisions need oversight. Human review provides a control point where automated recommendations can be challenged, corrected, or escalated when model confidence is not enough. :contentReference[oaicite:12]{index=12}
+                </p>
+              </div>
+            </div>
 
-<div class="card">
-<h3>Human Oversight</h3>
-<p>
-Introduce human-in-the-loop systems for high-risk decision pathways to ensure accountability.
-</p>
-</div>
+            <div class="center-panel">
+              <h3>Guardrail Logic</h3>
+              <p>
+                These controls are effective because they map back to the pipeline itself: better data at the front, better auditing during development, better monitoring in production, and better human accountability around high-risk outcomes. :contentReference[oaicite:13]{index=13}
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-</div>
-</div>
+      <section class="paper-section">
+        <div class="container section-grid">
+          <div class="section-num">04</div>
+          <div>
+            <div class="section-label">Trade-offs & Governance</div>
+            <h2 class="section-title">The Hard Part Is Not Knowing the Problem — It Is Operationalizing the Response</h2>
 
-<!-- TRADEOFF -->
-<div class="section">
-<div class="section-title">04 — TRADE-OFFS</div>
-<h2>Architectural Trade-offs</h2>
+            <div class="comparison">
+              <div class="compare-box">
+                <span class="tag">Trade-off 1</span>
+                <h3>Accuracy vs Fairness</h3>
+                <ul>
+                  <li>Optimizing purely for average performance can mask unequal outcomes across groups.</li>
+                  <li>Fairness constraints may reduce some benchmark metrics while improving real-world equity.</li>
+                </ul>
+              </div>
 
-<div class="grid">
+              <div class="compare-box">
+                <span class="tag">Trade-off 2</span>
+                <h3>Performance vs Explainability</h3>
+                <ul>
+                  <li>More complex models may improve prediction quality but make bias harder to diagnose.</li>
+                  <li>Architects must balance technical power with regulatory and operational transparency.</li>
+                </ul>
+              </div>
+            </div>
 
-<div class="card">
-<h3>Accuracy vs Fairness</h3>
-<p>
-Maximizing predictive accuracy can reinforce bias, requiring deliberate fairness constraints.
-</p>
-</div>
+            <div class="comparison">
+              <div class="compare-box">
+                <span class="tag">Trade-off 3</span>
+                <h3>Speed vs Governance</h3>
+                <ul>
+                  <li>Fast deployment cycles often pressure teams to postpone fairness work.</li>
+                  <li>In automotive AI, that shortcut can create unacceptable downstream risk.</li>
+                </ul>
+              </div>
 
-<div class="card">
-<h3>Complexity vs Explainability</h3>
-<p>
-Deep models improve performance but reduce interpretability, impacting regulatory compliance.
-</p>
-</div>
+              <div class="compare-box">
+                <span class="tag">Trade-off 4</span>
+                <h3>Local Optimization vs Lifecycle Responsibility</h3>
+                <ul>
+                  <li>A model team can improve one stage while bias persists elsewhere in the pipeline.</li>
+                  <li>That is why fairness requires cross-functional ownership, not isolated fixes.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-<div class="card">
-<h3>Speed vs Governance</h3>
-<p>
-Production-scale systems require balancing deployment velocity with responsible AI safeguards.
-</p>
-</div>
+      <section class="paper-section">
+        <div class="container section-grid">
+          <div class="section-num">05</div>
+          <div>
+            <div class="section-label">Visual Artifact</div>
+            <h2 class="section-title">Architecting Fairness Infographic</h2>
 
-</div>
-</div>
+            <p class="lead">
+              This visual artifact brings together the full argument in one frame: where bias enters, how it appears in real systems, what happens if it is left unchecked, and which architectural guardrails create a more responsible AI lifecycle. :contentReference[oaicite:14]{index=14}
+            </p>
 
-<!-- CONCLUSION -->
-<div class="section">
-<div class="section-title">05 — WHY THIS MATTERS</div>
-<h2>Architect Perspective</h2>
+            <div class="artifact-frame">
+              <img src="project-04-leading-beyond-the-blind-spot.png" alt="Architecting Fairness infographic">
+            </div>
+          </div>
+        </div>
+      </section>
 
-<p>
-Mitigating bias is not a post-processing task — it is an architectural responsibility. Solution architects must design systems that integrate fairness, governance, and explainability as first-class components rather than afterthoughts.
-</p>
+      <section class="paper-section">
+        <div class="container section-grid">
+          <div class="section-num">06</div>
+          <div>
+            <div class="section-label">Final Synthesis</div>
+            <h2 class="section-title">Why This Matters</h2>
 
-<p>
-This artifact demonstrates the ability to connect technical system design with real-world risk, regulatory considerations, and ethical responsibility — a critical capability in enterprise AI leadership.
-</p>
+            <p class="lead">
+              Responsible AI is not achieved by declaring values. It is achieved by embedding those values into data strategy, model evaluation, release governance, and operational oversight.
+            </p>
 
-</div>
+            <div class="center-panel">
+              <h3>Architect Perspective</h3>
+              <p>
+                This artifact demonstrates the ability to translate ethical AI principles into concrete design logic. It connects machine learning bias to systems architecture, compliance risk, and real-world human consequences — which is exactly where responsible AI becomes a leadership responsibility rather than a theoretical discussion. :contentReference[oaicite:15]{index=15}
+              </p>
+            </div>
 
-</div>
-
+            <div class="bottom-nav">
+              <a class="btn secondary" href="index.html">← Back to Homepage</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
 </body>
 </html>
