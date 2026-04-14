@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Bias in Automotive Systems | Ramya Srinivasan</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
+
+<style>
+/* SAME DESIGN SYSTEM AS PROJECT 3 */
+:root{
+  --bg:#060606;
+  --paper:#f3f0eb;
+  --paper-text:#292521;
+  --paper-muted:#6b645d;
+  --text:#f5f2eb;
+  --muted:#b8b0a1;
+  --gold:#d7a85d;
+  --line:rgba(215,168,93,0.22);
+}
+
+body{
+  margin:0;
+  font-family:Inter,sans-serif;
+  background:#060606;
+  color:var(--text);
+}
+
+.container{
+  width:min(1100px,90%);
+  margin:auto;
+}
+
+.top{
+  padding:20px 0;
+  border-bottom:1px solid rgba(255,255,255,0.1);
+}
+
+.top-inner{
+  display:flex;
+  justify-content:space-between;
+}
+
+.back{
+  color:var(--gold);
+  text-decoration:none;
+}
+
+.hero{
+  padding:70px 0;
+}
+
+h1{
+  font-size:56px;
+  line-height:1.05;
+  margin-bottom:20px;
+}
+
+.hero p{
+  color:var(--muted);
+  max-width:700px;
+}
+
+.paper{
+  background:var(--paper);
+  color:var(--paper-text);
+}
+
+.section{
+  padding:80px 0;
+  border-bottom:1px solid rgba(0,0,0,0.08);
+}
+
+h2{
+  font-family:Cormorant Garamond, serif;
+  font-size:40px;
+}
+
+.lead{
+  color:var(--paper-muted);
+  max-width:800px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+  margin-top:30px;
+}
+
+.card{
+  background:white;
+  padding:25px;
+  border:1px solid rgba(0,0,0,0.1);
+}
+
+.artifact{
+  margin-top:40px;
+  background:white;
+  padding:20px;
+}
+
+.artifact img{
+  width:100%;
+  transition:0.3s;
+}
+
+.artifact:hover img{
+  transform:scale(1.02);
+}
+
+.footer{
+  text-align:center;
+  padding:40px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="top">
+  <div class="container top-inner">
+    <a href="index.html" class="back">← Back to Portfolio</a>
+    <div>Ramya Srinivasan • AI Solutions Architect</div>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="container">
+    <h1>Architecting Fairness: Mitigating AI Bias in Automotive Systems</h1>
+    <p>
+      This artifact explores how bias enters machine learning systems, the real-world consequences it creates, and how solution architects design guardrails to ensure fairness, safety, and accountability.
+    </p>
+  </div>
+</section>
+
+<div class="paper">
+
+<!-- INTRO -->
+<div class="section">
+  <div class="container">
+    <h2>Introduction</h2>
+    <p class="lead">
+      When a self-driving car fails to detect a pedestrian because the training data lacked diversity, that is not a bug. That is bias built into the system long before deployment.
+    </p>
+    <p>
+      AI bias is one of the most critical and invisible risks in modern machine learning. It does not fail loudly—it manifests as skewed outcomes, safety risks, and systemic inequality.
+    </p>
+  </div>
+</div>
+
+<!-- PIPELINE -->
+<div class="section">
+  <div class="container">
+    <h2>Where Bias Enters the ML Pipeline</h2>
+
+    <div class="grid">
+      <div class="card"><b>Data Collection</b><br>Bias from missing demographics, weather, or edge cases.</div>
+      <div class="card"><b>Data Labeling</b><br>Human bias introduced through subjective annotation.</div>
+      <div class="card"><b>Model Training</b><br>Algorithms amplify existing patterns in biased data.</div>
+      <div class="card"><b>Deployment</b><br>Bias surfaces in real-world conditions and drift.</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- FAILURES -->
+<div class="section">
+  <div class="container">
+    <h2>Real-World Failure Cases</h2>
+
+    <div class="grid">
+      <div class="card">
+        <b>Autonomous Driving Gaps</b><br>
+        Lower accuracy in detecting darker-skinned pedestrians.
+      </div>
+
+      <div class="card">
+        <b>Facial Recognition Bias</b><br>
+        Performance disparity across demographics.
+      </div>
+
+      <div class="card">
+        <b>Hiring Algorithms</b><br>
+        Bias from historical hiring data.
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- IMPACT -->
+<div class="section">
+  <div class="container">
+    <h2>Impact of Unchecked Bias</h2>
+
+    <div class="grid">
+      <div class="card"><b>Safety Risk</b><br>Direct harm to people in real-world systems.</div>
+      <div class="card"><b>Legal Risk</b><br>GDPR, EEOC violations.</div>
+      <div class="card"><b>Reputation</b><br>Loss of trust and brand damage.</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- GUARDRAILS -->
+<div class="section">
+  <div class="container">
+    <h2>Solution Architect Guardrails</h2>
+
+    <div class="grid">
+      <div class="card">Diverse datasets</div>
+      <div class="card">Bias auditing tools (IBM AI Fairness 360, What-If Tool)</div>
+      <div class="card">Continuous monitoring</div>
+      <div class="card">Human-in-the-loop systems</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- INFOGRAPHIC -->
+<div class="section">
+  <div class="container">
+    <h2>Visual Artifact</h2>
+
+    <div class="artifact">
+      <img src="project4-ai-bias-automotive.png">
+    </div>
+
+  </div>
+</div>
+
+<!-- CONCLUSION -->
+<div class="section">
+  <div class="container">
+    <h2>Why This Matters</h2>
+    <p class="lead">
+      AI systems are not inherently fair. Responsible design is required to ensure ethical, safe, and trustworthy AI.
+    </p>
+
+    <p>
+      This artifact demonstrates the ability to connect technical ML pipeline risks with real-world consequences and implementable architectural solutions.
+    </p>
+  </div>
+</div>
+
+<div class="footer">
+  <a href="index.html">← Back to Portfolio</a>
+</div>
+
+</div>
+
+</body>
+</html>
