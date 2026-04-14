@@ -8,6 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+
 body {
     margin: 0;
     font-family: 'Inter', sans-serif;
@@ -22,41 +23,68 @@ body {
     padding: 60px 20px;
 }
 
+.back {
+    padding: 20px;
+    font-size: 14px;
+}
+
+a {
+    color: #f5c76f;
+    text-decoration: none;
+}
+
+/* HERO */
+.hero {
+    margin-top: 40px;
+}
+
 h1 {
     font-size: 56px;
     line-height: 1.1;
-    margin-bottom: 20px;
 }
 
-h2 {
+.subtitle {
+    margin-top: 20px;
+    color: #bdbdbd;
+    max-width: 700px;
+}
+
+/* IMAGE */
+.image-section {
+    margin-top: 60px;
+}
+
+.image-section img {
+    width: 100%;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* SECTION */
+.section {
     margin-top: 80px;
+}
+
+.section-title {
+    font-size: 14px;
+    letter-spacing: 2px;
+    color: #888;
+    margin-bottom: 10px;
+}
+
+.section h2 {
     font-size: 28px;
     color: #f5c76f;
 }
 
-p {
+.section p {
     color: #cfcfcf;
-    margin-top: 15px;
 }
 
-.hero {
-    padding: 80px 20px 40px;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-}
-
-.subtitle {
-    max-width: 700px;
-    margin-top: 20px;
-    color: #bdbdbd;
-}
-
-.section {
-    margin-top: 60px;
-}
-
-.card-grid {
+/* GRID */
+.grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
     gap: 25px;
     margin-top: 30px;
 }
@@ -70,209 +98,195 @@ p {
 }
 
 .card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-6px);
     border-color: rgba(245,199,111,0.4);
 }
 
-.tag {
-    display: inline-block;
-    padding: 6px 12px;
-    margin-top: 15px;
-    border-radius: 20px;
-    font-size: 12px;
-    border: 1px solid rgba(255,255,255,0.1);
-    color: #aaa;
+/* QUOTE BLOCK */
+.quote {
+    margin-top: 40px;
+    padding: 30px;
+    border-left: 3px solid #f5c76f;
+    background: rgba(255,255,255,0.02);
+    font-style: italic;
+    color: #ccc;
 }
 
-.image-section {
-    margin-top: 50px;
-    text-align: center;
-}
-
-.image-section img {
-    width: 100%;
-    border-radius: 14px;
-    border: 1px solid rgba(255,255,255,0.08);
-}
-
-.back {
-    padding: 20px;
-    font-size: 14px;
-}
-
-a {
-    color: #f5c76f;
-    text-decoration: none;
-}
 </style>
 </head>
 
 <body>
 
 <div class="back">
-    <a href="index.html">← Back to Portfolio</a>
+<a href="index.html">← Back to Portfolio</a>
 </div>
 
 <div class="container">
 
+<!-- HERO -->
 <div class="hero">
 <h1>Architecting Fairness: Mitigating AI Bias in Automotive Systems</h1>
 
 <p class="subtitle">
-A research-driven exploration of how bias enters machine learning systems, the systemic risks it creates in real-world environments, and how solution architects design governance, mitigation strategies, and responsible AI frameworks to ensure safety, fairness, and accountability.
+A research-driven analysis of bias propagation across the machine learning lifecycle, examining systemic risks in autonomous systems and the architectural strategies required to design fair, accountable, and production-ready AI systems.
 </p>
 </div>
 
 <!-- IMAGE -->
 <div class="image-section">
-<img src="project-04-ai-bias-automotive.png" alt="AI Bias Infographic">
+<img src="project-04-leading-beyond-the-blind-spot.png">
 </div>
 
 <!-- INTRO -->
 <div class="section">
+<div class="section-title">00 — CONTEXT</div>
 <h2>Introduction</h2>
 
 <p>
-AI bias is not a surface-level defect — it is a systemic issue embedded across the machine learning lifecycle. In safety-critical systems such as autonomous vehicles, bias can directly translate into real-world harm, disproportionately impacting certain populations under varying environmental conditions.
+AI bias is not an isolated defect — it is a systemic artifact of data, modeling assumptions, and deployment environments. In autonomous systems, where machine learning models directly influence physical-world outcomes, bias becomes a safety-critical risk rather than a theoretical concern.
 </p>
 
 <p>
-Unlike traditional software bugs, bias does not manifest as clear failure states. Instead, it introduces probabilistic inconsistencies that are difficult to detect, explain, and mitigate without deliberate architectural intervention.
+Unlike deterministic software failures, bias manifests probabilistically, often remaining undetected until exposed under edge-case conditions. This makes bias particularly dangerous in large-scale deployments where rare conditions can still have severe consequences.
 </p>
+
+<div class="quote">
+When a system fails only under specific conditions — darkness, weather, or demographic variance — it reveals not randomness, but structural blind spots embedded during design.
+</div>
 </div>
 
 <!-- PIPELINE -->
 <div class="section">
-<h2>Bias Across the Machine Learning Pipeline</h2>
+<div class="section-title">01 — SYSTEM ANALYSIS</div>
+<h2>Bias Across the ML Pipeline</h2>
 
-<div class="card-grid">
+<div class="grid">
 
 <div class="card">
 <h3>Data Collection</h3>
 <p>
-Bias originates at the source when datasets lack diversity across geography, demographics, lighting conditions, and real-world edge cases.
+Bias originates when datasets fail to represent real-world variability, including environmental conditions, population diversity, and rare but critical edge scenarios.
 </p>
-<span class="tag">Representation Risk</span>
 </div>
 
 <div class="card">
 <h3>Data Labeling</h3>
 <p>
-Human annotation introduces subjective interpretation, embedding implicit bias into ground truth labels used for model training.
+Human annotation introduces subjective interpretation, embedding implicit cognitive bias into the ground truth used for training.
 </p>
-<span class="tag">Human Bias</span>
 </div>
 
 <div class="card">
 <h3>Model Training</h3>
 <p>
-Algorithms amplify statistical patterns in data, reinforcing skewed distributions and embedding bias into decision boundaries.
+Optimization algorithms amplify statistical patterns, reinforcing skewed distributions and encoding bias into learned representations.
 </p>
-<span class="tag">Algorithmic Bias</span>
 </div>
 
 <div class="card">
 <h3>Deployment</h3>
 <p>
-Real-world conditions expose unseen bias due to distribution shifts between training and operational environments.
+Distribution shift between training and production environments exposes hidden bias, often leading to degraded performance in real-world scenarios.
 </p>
-<span class="tag">Drift & Exposure</span>
 </div>
 
 </div>
 </div>
 
-<!-- FAILURE CASES -->
+<!-- FAILURE -->
 <div class="section">
-<h2>Real-World Failure Modes</h2>
+<div class="section-title">02 — REAL-WORLD IMPACT</div>
+<h2>Observed Failure Modes</h2>
 
-<div class="card-grid">
+<div class="grid">
 
 <div class="card">
-<h3>Autonomous Detection Gaps</h3>
+<h3>Autonomous Driving Gaps</h3>
 <p>
-Reduced detection accuracy for pedestrians under low-light or adverse weather conditions, leading to safety risks.
+Reduced detection accuracy under low-light or adverse weather conditions, disproportionately impacting vulnerable populations.
 </p>
 </div>
 
 <div class="card">
-<h3>Facial Recognition Inequality</h3>
+<h3>Facial Recognition Disparity</h3>
 <p>
-Disparities in recognition accuracy across demographic groups due to imbalanced training datasets.
+Higher error rates across demographic groups due to imbalanced training data distributions.
 </p>
 </div>
 
 <div class="card">
-<h3>Biased Decision Systems</h3>
+<h3>Decision System Bias</h3>
 <p>
-Historical data patterns introduce bias in automated decisions such as hiring, lending, and risk scoring.
+Historical datasets propagate bias in automated decision systems such as hiring, lending, and risk scoring.
 </p>
 </div>
 
 </div>
 </div>
 
-<!-- ARCHITECT SOLUTION -->
+<!-- SOLUTION -->
 <div class="section">
-<h2>Architectural Guardrails for Responsible AI</h2>
+<div class="section-title">03 — ARCHITECTURE</div>
+<h2>Designing Responsible AI Systems</h2>
 
-<div class="card-grid">
+<div class="grid">
 
 <div class="card">
-<h3>Diverse Data Strategy</h3>
+<h3>Data Governance</h3>
 <p>
-Ensure datasets capture broad real-world variability across demographics, environments, and edge cases.
+Establish pipelines ensuring diversity, traceability, and continuous dataset evaluation across real-world conditions.
 </p>
 </div>
 
 <div class="card">
-<h3>Model Explainability</h3>
+<h3>Explainability</h3>
 <p>
-Use SHAP, LIME, and feature attribution techniques to understand and audit model decisions.
+Integrate SHAP, LIME, and feature attribution methods to audit model behavior and ensure transparency.
 </p>
 </div>
 
 <div class="card">
-<h3>Bias Detection & Auditing</h3>
+<h3>Bias Monitoring</h3>
 <p>
-Implement fairness metrics, bias dashboards, and periodic evaluation pipelines to detect anomalies.
+Deploy fairness metrics and continuous evaluation frameworks to detect drift and bias post-deployment.
 </p>
 </div>
 
 <div class="card">
-<h3>Human-in-the-Loop Systems</h3>
+<h3>Human Oversight</h3>
 <p>
-Introduce review mechanisms for high-risk decisions to ensure accountability and override capability.
+Introduce human-in-the-loop systems for high-risk decision pathways to ensure accountability.
 </p>
 </div>
 
 </div>
 </div>
 
-<!-- TRADEOFFS -->
+<!-- TRADEOFF -->
 <div class="section">
-<h2>Critical Trade-offs in AI System Design</h2>
+<div class="section-title">04 — TRADE-OFFS</div>
+<h2>Architectural Trade-offs</h2>
 
-<div class="card-grid">
+<div class="grid">
 
 <div class="card">
 <h3>Accuracy vs Fairness</h3>
 <p>
-Maximizing predictive performance can sometimes reinforce bias, requiring calibrated fairness constraints.
+Maximizing predictive accuracy can reinforce bias, requiring deliberate fairness constraints.
 </p>
 </div>
 
 <div class="card">
-<h3>Explainability vs Performance</h3>
+<h3>Complexity vs Explainability</h3>
 <p>
-Highly complex models provide accuracy but reduce interpretability, impacting trust and compliance.
+Deep models improve performance but reduce interpretability, impacting regulatory compliance.
 </p>
 </div>
 
 <div class="card">
-<h3>Cost vs Governance</h3>
+<h3>Speed vs Governance</h3>
 <p>
-Bias mitigation introduces additional computational, operational, and organizational overhead.
+Production-scale systems require balancing deployment velocity with responsible AI safeguards.
 </p>
 </div>
 
@@ -281,14 +295,15 @@ Bias mitigation introduces additional computational, operational, and organizati
 
 <!-- CONCLUSION -->
 <div class="section">
-<h2>Why This Matters</h2>
+<div class="section-title">05 — WHY THIS MATTERS</div>
+<h2>Architect Perspective</h2>
 
 <p>
-For solution architects, addressing AI bias is not optional — it is a core responsibility. Designing intelligent systems requires balancing technical performance with ethical integrity, regulatory compliance, and long-term societal impact.
+Mitigating bias is not a post-processing task — it is an architectural responsibility. Solution architects must design systems that integrate fairness, governance, and explainability as first-class components rather than afterthoughts.
 </p>
 
 <p>
-This artifact demonstrates the ability to think beyond model accuracy and design AI systems that are scalable, trustworthy, and aligned with real-world constraints.
+This artifact demonstrates the ability to connect technical system design with real-world risk, regulatory considerations, and ethical responsibility — a critical capability in enterprise AI leadership.
 </p>
 
 </div>
