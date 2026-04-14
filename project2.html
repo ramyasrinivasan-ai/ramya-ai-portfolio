@@ -226,9 +226,30 @@
       color:#d8cec1;
     }
 
+    .pdf-frame{
+      width:100%;
+      height:1200px;
+      border:1px solid var(--line-soft);
+      border-radius:18px;
+      overflow:hidden;
+      background:#111;
+    }
+
+    .pdf-frame iframe{
+      width:100%;
+      height:100%;
+      border:0;
+      display:block;
+      background:#111;
+    }
+
     @media (max-width: 980px){
       .two-col{
         grid-template-columns:1fr;
+      }
+
+      .pdf-frame{
+        height:900px;
       }
     }
 
@@ -244,6 +265,10 @@
 
       .hero{
         padding:40px 0 18px;
+      }
+
+      .pdf-frame{
+        height:700px;
       }
     }
   </style>
@@ -262,25 +287,25 @@
         <div class="eyebrow">Project 02</div>
         <h1>AI-Powered Retail Support Transformation</h1>
         <p class="subtitle">
-          A retail customer experience solution showing how AI-powered NLP, real-time integrations, and dialogue design can reduce support burden while improving operational responsiveness.
+          A solution architecture concept showing how AI-powered NLP, real-time integrations, escalation design, and governance controls can transform retail customer support into a faster, more intelligent service model.
         </p>
 
         <div class="hero-image">
-          <img src="project-02-ai-chatbot-assistant.png" alt="AI-powered retail support transformation project cover">
+          <img src="project-02-ai-chatbot-assistant.png" alt="AI-powered retail support transformation cover">
         </div>
 
         <div class="two-col">
           <div class="card">
             <h2>The Problem</h2>
             <p>
-              Retail support teams often face high volumes of repetitive customer questions around order status, product availability, store hours, and basic troubleshooting. That overload slows response times, strains staff capacity, and negatively affects the customer experience.
+              Retail support operations often break under fragmented channels, repetitive customer inquiries, unpredictable demand spikes, and slow manual resolution. This creates higher support cost, delayed responses, and a poor post-purchase experience.
             </p>
           </div>
 
           <div class="card">
             <h2>The Solution</h2>
             <p>
-              This concept proposes an AI-powered NLP chatbot that can understand customer intent, guide users through structured dialogue flows, and connect to backend systems in real time to deliver accurate, immediate answers across customer touchpoints.
+              This project proposes an AI-powered retail support model built around intelligent intent recognition, contextual routing, human handoff, live backend synchronization, and always-on customer interaction across digital channels.
             </p>
           </div>
         </div>
@@ -289,20 +314,36 @@
           <div class="card">
             <h2>Architecture Thinking</h2>
             <p>
-              The solution combines NLP platform design, chatbot architecture, dialogue flow and intent handling, API-based backend connectivity, and iterative Agile delivery. The focus is not only automation, but also scalable service design and predictable operational value.
+              The concept combines omnichannel UI, NLP and orchestration, microservices-based backend integration, enterprise data connectivity, escalation architecture, and continuous context synchronization between customer input, AI logic, and CRM systems.
             </p>
             <div class="pill-row">
-              <span class="pill">NLP Platform</span>
-              <span class="pill">Chatbot Architecture</span>
-              <span class="pill">Dialogue Flow Design</span>
-              <span class="pill">API Integration</span>
+              <span class="pill">NLP Orchestration</span>
+              <span class="pill">Intent Design</span>
+              <span class="pill">Escalation Flow</span>
+              <span class="pill">Enterprise Data</span>
             </div>
           </div>
 
           <div class="card">
             <h2>Business Impact</h2>
             <p>
-              The artifact highlights measurable outcomes including a 25% reduction in support volume, improved forecast accuracy, 24/7 availability, and real-time data exchange between the conversational interface and backend systems.
+              The artifact frames support as a strategic value driver rather than a cost center, highlighting outcomes such as lower operational support cost, stronger customer satisfaction, 24/7 availability, and better prediction and routing across support workflows.
+            </p>
+          </div>
+        </div>
+
+        <div class="two-col">
+          <div class="card">
+            <h2>Governance & Risk</h2>
+            <p>
+              The solution includes trust and governance measures such as bounded context, hallucination controls, privacy-aware handling, and calibrated language behavior to protect both customer trust and brand integrity.
+            </p>
+          </div>
+
+          <div class="card">
+            <h2>Why This Matters</h2>
+            <p>
+              This is not just a chatbot idea. It is a service transformation case study that combines solution architecture, AI design, backend integration, business metrics, and responsible AI thinking in a portfolio-ready format.
             </p>
           </div>
         </div>
@@ -313,15 +354,20 @@
       <div class="container">
         <div class="artifact-card">
           <div class="artifact-top">
-            <h2>Project Artifact</h2>
+            <h2>Full Solution Walkthrough</h2>
             <div class="artifact-actions">
-              <a class="btn" href="Scaling_Retail_Support_with_AI.pptx" target="_blank">Open PowerPoint</a>
+              <a class="btn" href="retail-support-transformation.pdf" target="_blank">Open PDF</a>
               <a class="btn secondary" href="index.html">Back to Homepage</a>
             </div>
           </div>
+
           <p class="artifact-note">
-            This project page currently presents the written summary and visual concept. The PowerPoint opens in a separate tab from GitHub Pages.
+            Scroll through the full visual artifact directly below.
           </p>
+
+          <div class="pdf-frame">
+            <iframe src="retail-support-transformation.pdf"></iframe>
+          </div>
         </div>
       </div>
     </section>
