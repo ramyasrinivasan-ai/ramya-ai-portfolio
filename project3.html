@@ -1,629 +1,223 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Machine Learning vs. Deep Learning in the Automotive Industry | Ramya Srinivasan</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project 03 | ML vs DL</title>
 
-  <style>
-    :root{
-      --bg:#060606;
-      --paper:#f3f0eb;
-      --paper-text:#2a2623;
-      --paper-muted:#6c655f;
-      --text:#f5f2eb;
-      --muted:#b8b0a1;
-      --gold:#d7a85d;
-      --gold-soft:rgba(215,168,93,0.18);
-      --line:rgba(215,168,93,0.22);
-      --line-soft:rgba(255,255,255,0.08);
-      --shadow:0 24px 60px rgba(0,0,0,0.45);
-      --max:1180px;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    *{box-sizing:border-box;}
-    html{scroll-behavior:smooth;}
-    body{
-      margin:0;
-      font-family:Inter,system-ui,sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(65,120,140,0.10), transparent 22%),
-        radial-gradient(circle at top right, rgba(215,168,93,0.08), transparent 20%),
-        linear-gradient(180deg, #020203 0%, #060606 50%, #080809 100%);
-      color:var(--text);
-      line-height:1.7;
-    }
+<style>
+:root {
+  --bg: #050505;
+  --text: #f5f5f5;
+  --muted: #9ba0a6;
+  --gold: #d7a85d;
+  --card: rgba(255,255,255,0.04);
+  --border: rgba(255,255,255,0.08);
+}
 
-    a{text-decoration:none;color:inherit;}
-    img{display:block;max-width:100%;}
+* { box-sizing: border-box; }
 
-    .page{
-      width:min(calc(100% - 32px), 1280px);
-      margin:18px auto;
-      border:1px solid var(--line);
-      border-radius:30px;
-      overflow:hidden;
-      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      box-shadow:var(--shadow);
-    }
+body {
+  margin: 0;
+  font-family: Inter, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
 
-    .container{
-      width:min(calc(100% - 56px), var(--max));
-      margin:0 auto;
-    }
+.container {
+  max-width: 1300px;
+  margin: auto;
+  padding: 40px 24px;
+}
 
-    .top{
-      padding:24px 0;
-      border-bottom:1px solid var(--line-soft);
-      background:rgba(0,0,0,0.35);
-    }
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
 
-    .top-inner{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:16px;
-      flex-wrap:wrap;
-    }
+.back {
+  color: var(--gold);
+  text-decoration: none;
+}
 
-    .back-link{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      color:var(--gold);
-      font-weight:700;
-    }
+.hero {
+  display: grid;
+  grid-template-columns: 1.1fr 1.4fr;
+  gap: 40px;
+  align-items: center;
+}
 
-    .hero{
-      padding:64px 0 54px;
-      position:relative;
-    }
+/* LEFT TEXT */
+.hero-text h1 {
+  font-size: 64px;
+  line-height: 1.1;
+  margin: 0 0 20px;
+}
 
-    .eyebrow{
-      display:inline-flex;
-      align-items:center;
-      padding:10px 18px;
-      border-radius:999px;
-      border:1px solid rgba(215,168,93,0.28);
-      color:var(--gold);
-      letter-spacing:0.16em;
-      text-transform:uppercase;
-      font-size:0.76rem;
-      margin-bottom:22px;
-    }
+.hero-text p {
+  color: var(--muted);
+  line-height: 1.6;
+}
 
-    .hero-grid{
-      display:grid;
-      grid-template-columns:1.05fr 0.95fr;
-      gap:34px;
-      align-items:start;
-    }
+/* RIGHT IMAGE */
+.hero-art {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 10px;
+  overflow: hidden;
+}
 
-    h1{
-      margin:0 0 16px;
-      font-family:Manrope,Inter,sans-serif;
-      font-size:clamp(2.8rem, 6vw, 5.4rem);
-      line-height:0.98;
-      letter-spacing:-0.05em;
-    }
+.hero-art img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  transition: transform 0.4s ease;
+}
 
-    .hero-subtitle{
-      margin:0;
-      max-width:760px;
-      font-size:1.08rem;
-      color:#d7cdc0;
-    }
+/* HOVER EFFECT */
+.hero-art:hover img {
+  transform: scale(1.08);
+}
 
-    .hero-note{
-      margin-top:26px;
-      max-width:640px;
-      color:var(--muted);
-      font-size:0.98rem;
-    }
+/* FULL WIDTH SECTION (KEY FIX) */
+.full-art {
+  margin-top: 60px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 16px;
+}
 
-    .hero-art{
-      border-radius:26px;
-      overflow:hidden;
-      border:1px solid rgba(215,168,93,0.18);
-      background:rgba(255,255,255,0.03);
-      box-shadow:var(--shadow);
-      padding:14px;
-    }
+.full-art img {
+  width: 100%;
+  border-radius: 12px;
+}
 
-    .hero-art img{
-      width:100%;
-      height:auto;
-      object-fit:contain;
-      border-radius:18px;
-      background:#111;
-    }
+/* CONTENT GRID */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 50px;
+}
 
-    .hero-pills{
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
-      margin-top:20px;
-    }
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 22px;
+}
 
-    .pill{
-      padding:10px 14px;
-      border-radius:999px;
-      border:1px solid rgba(215,168,93,0.22);
-      background:rgba(255,255,255,0.02);
-      color:#efe6da;
-      font-size:0.92rem;
-    }
+.card h3 {
+  margin-top: 0;
+}
 
-    .divider{
-      height:1px;
-      background:linear-gradient(90deg, transparent, rgba(215,168,93,0.28), transparent);
-    }
+.footer {
+  text-align: center;
+  margin-top: 60px;
+}
 
-    .paper{
-      background:var(--paper);
-      color:var(--paper-text);
-      padding:0;
-    }
+.footer a {
+  color: var(--gold);
+  text-decoration: none;
+}
 
-    .paper-section{
-      padding:80px 0;
-      border-bottom:1px solid rgba(0,0,0,0.08);
-    }
+/* RESPONSIVE */
+@media(max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
 
-    .section-grid{
-      display:grid;
-      grid-template-columns:110px 1fr;
-      gap:28px;
-      align-items:start;
-    }
+  .hero-text h1 {
+    font-size: 42px;
+  }
 
-    .section-num{
-      font-family:Cormorant Garamond, serif;
-      font-size:3rem;
-      line-height:1;
-      color:#d1cbc3;
-      padding-top:8px;
-    }
-
-    .section-label{
-      margin:0 0 10px;
-      font-size:0.74rem;
-      letter-spacing:0.18em;
-      text-transform:uppercase;
-      color:#b38484;
-      font-weight:700;
-    }
-
-    .section-title{
-      margin:0 0 22px;
-      font-family:Cormorant Garamond, serif;
-      font-size:3rem;
-      line-height:0.98;
-      font-weight:600;
-      letter-spacing:-0.02em;
-    }
-
-    .lead{
-      font-size:1.18rem;
-      color:#6f675f;
-      max-width:860px;
-      margin:0 0 28px;
-    }
-
-    .dropcap{
-      font-size:1.06rem;
-      color:#5f5852;
-      max-width:860px;
-    }
-
-    .dropcap::first-letter{
-      float:left;
-      font-family:Cormorant Garamond, serif;
-      font-size:4.4rem;
-      line-height:0.9;
-      padding-right:10px;
-      color:#2e2824;
-    }
-
-    .quote-block{
-      margin:34px 0;
-      padding:26px 28px;
-      background:#eadde0;
-      border-left:3px solid #d8a4ad;
-      font-family:Cormorant Garamond, serif;
-      font-size:1.22rem;
-      line-height:1.6;
-      color:#5c494c;
-    }
-
-    .two-col{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:32px;
-      margin-top:26px;
-    }
-
-    .info-card{
-      background:#fffdfb;
-      border:1px solid rgba(0,0,0,0.08);
-      padding:28px;
-      min-height:100%;
-    }
-
-    .info-card h3{
-      margin:0 0 14px;
-      font-size:1.35rem;
-      color:#231f1c;
-    }
-
-    .info-card p{
-      margin:0;
-      color:#5b5550;
-    }
-
-    .info-card p + p{
-      margin-top:14px;
-    }
-
-    .comparison{
-      margin-top:26px;
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:28px;
-    }
-
-    .compare-box{
-      padding:30px;
-      border:1px solid rgba(0,0,0,0.1);
-      background:#fffdfb;
-    }
-
-    .compare-box .tag{
-      display:inline-block;
-      margin-bottom:16px;
-      padding:8px 12px;
-      border:1px solid rgba(0,0,0,0.1);
-      border-radius:999px;
-      font-size:0.78rem;
-      letter-spacing:0.12em;
-      text-transform:uppercase;
-      color:#7d7268;
-    }
-
-    .compare-box h3{
-      margin:0 0 14px;
-      font-size:1.45rem;
-      color:#231f1c;
-    }
-
-    .compare-box ul{
-      margin:0;
-      padding-left:18px;
-      color:#5b5550;
-    }
-
-    .compare-box li + li{
-      margin-top:10px;
-    }
-
-    .center-panel{
-      margin-top:34px;
-      padding:36px;
-      background:#0b0b0d;
-      color:#f5f2eb;
-      border:1px solid rgba(215,168,93,0.2);
-    }
-
-    .center-panel h3{
-      margin:0 0 14px;
-      font-family:Cormorant Garamond, serif;
-      font-size:2rem;
-      font-weight:600;
-    }
-
-    .center-panel p{
-      margin:0;
-      color:#d9d0c4;
-      max-width:860px;
-    }
-
-    .artifact-preview{
-      margin-top:28px;
-      padding:22px;
-      background:#fffdfb;
-      border:1px solid rgba(0,0,0,0.08);
-    }
-
-    .artifact-preview img{
-      width:100%;
-      height:auto;
-      object-fit:contain;
-      border:1px solid rgba(0,0,0,0.08);
-    }
-
-    .bottom-nav{
-      text-align:center;
-      margin-top:34px;
-    }
-
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding:14px 22px;
-      border-radius:999px;
-      border:1px solid rgba(215,168,93,0.30);
-      background:linear-gradient(180deg, rgba(215,168,93,0.18), rgba(215,168,93,0.08));
-      color:#f7f0e7;
-      font-weight:700;
-    }
-
-    .btn.secondary{
-      background:#fffdfb;
-      color:#3a332d;
-      border:1px solid rgba(0,0,0,0.12);
-    }
-
-    @media (max-width: 980px){
-      .hero-grid,
-      .two-col,
-      .comparison{
-        grid-template-columns:1fr;
-      }
-
-      .section-grid{
-        grid-template-columns:1fr;
-        gap:18px;
-      }
-
-      .section-num{
-        font-size:2.2rem;
-      }
-    }
-
-    @media (max-width: 760px){
-      .page{
-        width:min(calc(100% - 14px), 1280px);
-        border-radius:22px;
-      }
-
-      .container{
-        width:min(calc(100% - 24px), var(--max));
-      }
-
-      .hero{
-        padding:42px 0;
-      }
-
-      .section-title{
-        font-size:2.35rem;
-      }
-
-      h1{
-        font-size:clamp(2.4rem, 13vw, 4rem);
-      }
-
-      .paper-section{
-        padding:56px 0;
-      }
-    }
-  </style>
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
 </head>
+
 <body>
-  <div class="page">
-    <div class="top">
-      <div class="container top-inner">
-        <a class="back-link" href="index.html">← Back to Portfolio</a>
-        <div>Ramya Srinivasan • AI Solutions Architect</div>
-      </div>
+
+<div class="container">
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <a href="index.html" class="back">← Back to Portfolio</a>
+    <div>Ramya Srinivasan • AI Solutions Architect</div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+
+    <div class="hero-text">
+      <h1>Machine Learning vs. Deep Learning in the Automotive Industry</h1>
+
+      <p>
+        A real-world comparative case study showing why traditional machine learning fits structured business prediction problems while deep learning becomes essential for raw, sensor-driven autonomy.
+      </p>
+
+      <p>
+        This artifact compares GM OnStar subscriber churn prediction with Waymo autonomous driving to demonstrate how the right AI approach depends on data type, interpretability, and operational context.
+      </p>
     </div>
 
-    <section class="hero">
-      <div class="container hero-grid">
-        <div>
-          <div class="eyebrow">Project 03</div>
-          <h1>Machine Learning vs. Deep Learning in the Automotive Industry</h1>
-          <p class="hero-subtitle">
-            A real-world comparative case study showing why traditional machine learning fits structured business prediction problems while deep learning becomes essential for raw, sensor-driven autonomy.
-          </p>
-          <p class="hero-note">
-            This artifact compares GM OnStar subscriber churn prediction with Waymo autonomous driving to show that the right AI approach depends on data type, interpretability needs, and operational context.
-          </p>
-          <div class="hero-pills">
-            <span class="pill">Traditional ML</span>
-            <span class="pill">Deep Learning</span>
-            <span class="pill">Automotive Case Study</span>
-            <span class="pill">Model Selection</span>
-          </div>
-        </div>
+    <div class="hero-art">
+      <img src="project3-ml-vs-dl.png">
+    </div>
 
-        <div class="hero-art">
-          <img src="project3-ml-vs-dl.png" alt="Machine Learning vs Deep Learning infographic">
-        </div>
-      </div>
-    </section>
-
-    <div class="divider"></div>
-
-    <main class="paper">
-      <section class="paper-section">
-        <div class="container section-grid">
-          <div class="section-num">00</div>
-          <div>
-            <div class="section-label">Context & Foundation</div>
-            <h2 class="section-title">Introduction</h2>
-            <p class="dropcap">
-              Machine learning and deep learning are often discussed as if one has replaced the other. In practice, they solve different classes of problems. This project uses the automotive industry to make that distinction concrete, comparing a structured customer prediction task with a safety-critical autonomous driving task.
-            </p>
-
-            <div class="quote-block">
-              The right model is not the most advanced one — it is the one that best matches the problem, the data, the business need, and the consequences of failure.
-            </div>
-
-            <p class="lead">
-              By pairing GM OnStar churn prediction with Waymo autonomous driving, this artifact moves beyond theory and shows why one approach excels where the other would struggle. Traditional ML performs strongly when inputs are tabular and explainability matters, while deep learning becomes necessary when perception depends on raw, high-dimensional data. 
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section class="paper-section">
-        <div class="container section-grid">
-          <div class="section-num">01</div>
-          <div>
-            <div class="section-label">Comparative Framework</div>
-            <h2 class="section-title">Why One Works Where the Other Does Not</h2>
-
-            <div class="comparison">
-              <div class="compare-box">
-                <span class="tag">Traditional Machine Learning</span>
-                <h3>GM OnStar Churn Prediction</h3>
-                <ul>
-                  <li>Uses structured customer data such as subscription history, usage frequency, billing patterns, and service interactions.</li>
-                  <li>Supports explainable risk scoring that business teams can act on with confidence.</li>
-                  <li>Fits tabular data where domain experts can identify meaningful features in advance.</li>
-                  <li>Works efficiently with lower computational demand and moderate data volume.</li>
-                </ul>
-              </div>
-
-              <div class="compare-box">
-                <span class="tag">Deep Learning</span>
-                <h3>Waymo Autonomous Driving</h3>
-                <ul>
-                  <li>Processes unstructured raw inputs from cameras, LiDAR, and radar.</li>
-                  <li>Learns complex features automatically without depending on manual engineering.</li>
-                  <li>Supports perception and navigation in dynamic environments where rules are not enough.</li>
-                  <li>Requires extremely large data volume, high compute, and sophisticated training pipelines.</li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="center-panel">
-              <h3>Key Comparison</h3>
-              <p>
-                Traditional machine learning is a business-friendly choice when the problem is structured and interpretability matters. Deep learning is the only practical path when the environment is perceptual, unstructured, and too complex for manually engineered features.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="paper-section">
-        <div class="container section-grid">
-          <div class="section-num">02</div>
-          <div>
-            <div class="section-label">Case Study One</div>
-            <h2 class="section-title">Why Traditional ML Fits GM OnStar</h2>
-
-            <div class="two-col">
-              <div class="info-card">
-                <h3>Business Problem</h3>
-                <p>
-                  GM’s OnStar service depends on retaining subscribers across connected vehicle offerings. Predicting churn early allows the business to intervene before customers cancel, protecting recurring revenue and supporting proactive retention strategy.
-                </p>
-              </div>
-
-              <div class="info-card">
-                <h3>Why the Method Fits</h3>
-                <p>
-                  The inputs are structured and well understood: contract length, usage logs, billing patterns, vehicle age, and support history. These are exactly the kinds of fields traditional ML models like SVM and gradient boosting are built to handle effectively.
-                </p>
-              </div>
-            </div>
-
-            <div class="two-col">
-              <div class="info-card">
-                <h3>Interpretability Advantage</h3>
-                <p>
-                  Marketing and operations teams need to understand why a subscriber is considered at risk. Traditional ML provides a level of transparency that supports targeted action, such as incentives, reminders, or personalized retention outreach.
-                </p>
-              </div>
-
-              <div class="info-card">
-                <h3>Why Deep Learning Is Not the Right Fit</h3>
-                <p>
-                  For a structured churn prediction task, deep learning adds complexity without meaningful value. It requires more data and compute, while reducing explainability in a use case where business trust and practical actionability matter.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="paper-section">
-        <div class="container section-grid">
-          <div class="section-num">03</div>
-          <div>
-            <div class="section-label">Case Study Two</div>
-            <h2 class="section-title">Why Deep Learning Fits Waymo</h2>
-
-            <div class="two-col">
-              <div class="info-card">
-                <h3>Autonomous Driving Context</h3>
-                <p>
-                  Waymo operates in an environment where the system must interpret roads, pedestrians, signals, vehicles, and hazards from live sensor input. The problem is not merely predictive — it is perceptual, dynamic, and safety dependent.
-                </p>
-              </div>
-
-              <div class="info-card">
-                <h3>Why the Method Fits</h3>
-                <p>
-                  Deep learning can process high-dimensional raw data from cameras, LiDAR, and radar, learning visual and spatial features automatically. CNNs support perception, while reinforcement learning contributes to navigation and decision behavior in complex driving environments.
-                </p>
-              </div>
-            </div>
-
-            <div class="two-col">
-              <div class="info-card">
-                <h3>Scale & Complexity</h3>
-                <p>
-                  Waymo’s system benefits from millions of real-world miles and billions of simulation miles. That scale is critical because autonomous driving requires exposure to rare edge cases, unpredictable environments, and constantly shifting conditions.
-                </p>
-              </div>
-
-              <div class="info-card">
-                <h3>Why Traditional ML Breaks Down</h3>
-                <p>
-                  Traditional ML depends on manually engineered features. In raw image and sensor streams, that quickly becomes impractical. Too much information is lost in preprocessing, and the system cannot match the richness required for safe real-time perception.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="paper-section">
-        <div class="container section-grid">
-          <div class="section-num">04</div>
-          <div>
-            <div class="section-label">Final Synthesis</div>
-            <h2 class="section-title">The Strategic Takeaway</h2>
-
-            <p class="lead">
-              This comparison matters because AI selection is not about choosing the trendiest model. It is about selecting the method that fits the structure of the data, the need for explanation, the scale of the environment, and the operational stakes involved.
-            </p>
-
-            <div class="center-panel">
-              <h3>What This Artifact Demonstrates</h3>
-              <p>
-                This page shows the ability to move from theory to business application, compare methodologies rigorously, and explain model choice through a real-world industry lens. It is not just a summary of ML and DL — it is a structured argument for why context should drive architecture decisions.
-              </p>
-            </div>
-
-            <div class="artifact-preview">
-              <img src="project3-ml-vs-dl.png" alt="Machine Learning vs Deep Learning infographic">
-            </div>
-
-            <div class="bottom-nav">
-              <a class="btn secondary" href="index.html">← Back to Homepage</a>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
   </div>
+
+  <!-- 🔥 FULL WIDTH INFOGRAPHIC (KEY IMPROVEMENT) -->
+  <div class="full-art">
+    <img src="project3-ml-vs-dl.png">
+  </div>
+
+  <!-- CONTENT -->
+  <div class="grid">
+
+    <div class="card">
+      <h3>Project Overview</h3>
+      <p>
+        This project analyzes how different machine learning approaches apply to real-world automotive scenarios. It contrasts structured prediction problems with unstructured, real-time decision-making environments.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>What This Shows</h3>
+      <p>
+        Demonstrates how choosing the right AI model depends on data structure, interpretability, scalability, and business objectives — not just model complexity.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Tools & Concepts</h3>
+      <p>
+        Traditional ML (SVM, Gradient Boosting), Deep Learning (CNNs, Reinforcement Learning), structured vs unstructured data, and enterprise AI decision frameworks.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Why This Matters</h3>
+      <p>
+        Shows your ability to think like a Solution Architect — aligning AI models with business use cases rather than blindly applying deep learning everywhere.
+      </p>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <a href="index.html">← Back to Portfolio</a>
+  </div>
+
+</div>
+
 </body>
 </html>
