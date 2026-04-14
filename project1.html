@@ -3,19 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The AI Odyssey | Ramya Srinivasan</title>
+  <title>The AI Odyssey: From Theoretical Foundations to the Generative Frontier | Ramya Srinivasan</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root{
       --bg:#060606;
+      --paper:#f3f0eb;
+      --paper-text:#292521;
+      --paper-muted:#6b645d;
       --text:#f5f2eb;
       --muted:#b8b0a1;
+      --gold:#d7a85d;
       --line:rgba(215,168,93,0.22);
       --line-soft:rgba(255,255,255,0.08);
-      --gold:#d7a85d;
       --shadow:0 24px 60px rgba(0,0,0,0.45);
       --max:1180px;
     }
@@ -26,11 +29,11 @@
     body{
       margin:0;
       font-family:Inter,system-ui,sans-serif;
-      color:var(--text);
       background:
         radial-gradient(circle at top left, rgba(65,120,140,0.10), transparent 22%),
         radial-gradient(circle at top right, rgba(215,168,93,0.08), transparent 20%),
         linear-gradient(180deg, #020203 0%, #060606 50%, #080809 100%);
+      color:var(--text);
       line-height:1.7;
     }
 
@@ -38,8 +41,8 @@
     img{display:block;max-width:100%;}
 
     .page{
-      width:min(calc(100% - 24px), 1260px);
-      margin:16px auto;
+      width:min(calc(100% - 32px), 1280px);
+      margin:18px auto;
       border:1px solid var(--line);
       border-radius:30px;
       overflow:hidden;
@@ -53,16 +56,12 @@
     }
 
     .top{
-      position:sticky;
-      top:0;
-      z-index:10;
-      backdrop-filter:blur(14px);
-      background:rgba(5,5,5,0.82);
+      padding:24px 0;
       border-bottom:1px solid var(--line-soft);
+      background:rgba(0,0,0,0.35);
     }
 
     .top-inner{
-      min-height:78px;
       display:flex;
       align-items:center;
       justify-content:space-between;
@@ -79,7 +78,19 @@
     }
 
     .hero{
-      padding:54px 0 26px;
+      padding:68px 0 58px;
+    }
+
+    .hero-meta{
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+      margin-bottom:34px;
+      color:#b88e8e;
+      font-size:0.76rem;
+      letter-spacing:0.16em;
+      text-transform:uppercase;
     }
 
     .eyebrow{
@@ -92,58 +103,36 @@
       letter-spacing:0.16em;
       text-transform:uppercase;
       font-size:0.76rem;
-      margin-bottom:22px;
+      margin-bottom:24px;
     }
 
     h1{
-      margin:0 0 14px;
+      margin:0 0 18px;
       font-family:Manrope,Inter,sans-serif;
-      font-size:clamp(2.6rem, 5vw, 4.8rem);
-      line-height:1.02;
-      letter-spacing:-0.04em;
+      font-size:clamp(3rem, 7vw, 6rem);
+      line-height:0.95;
+      letter-spacing:-0.06em;
+      max-width:980px;
     }
 
-    .subtitle{
-      margin:0;
-      max-width:900px;
-      color:#d8cec1;
-      font-size:1.08rem;
+    .hero-subtitle{
+      margin:0 0 22px;
+      max-width:780px;
+      color:#ded5c8;
+      font-size:1.1rem;
     }
 
-    .two-col{
-      display:grid;
-      grid-template-columns:1.05fr 0.95fr;
-      gap:24px;
-      margin-top:30px;
+    .hero-note{
+      max-width:760px;
+      color:var(--muted);
+      font-size:0.98rem;
     }
 
-    .card{
-      padding:28px;
-      border-radius:24px;
-      background:linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
-      border:1px solid var(--line-soft);
-      box-shadow:var(--shadow);
-    }
-
-    .card h2{
-      margin:0 0 14px;
-      font-size:1.32rem;
-    }
-
-    .card p{
-      margin:0;
-      color:#ddd4c8;
-    }
-
-    .card p + p{
-      margin-top:14px;
-    }
-
-    .pill-row{
+    .hero-pills{
       display:flex;
       flex-wrap:wrap;
       gap:12px;
-      margin-top:18px;
+      margin-top:26px;
     }
 
     .pill{
@@ -155,84 +144,245 @@
       font-size:0.92rem;
     }
 
-    .pdf-section{
-      padding:8px 0 60px;
+    .divider{
+      height:1px;
+      background:linear-gradient(90deg, transparent, rgba(215,168,93,0.24), transparent);
     }
 
-    .pdf-card{
-      padding:18px;
-      border-radius:26px;
-      background:linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.02));
-      border:1px solid rgba(215,168,93,0.18);
-      box-shadow:var(--shadow);
+    .paper{
+      background:var(--paper);
+      color:var(--paper-text);
     }
 
-    .pdf-top{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:16px;
-      flex-wrap:wrap;
-      padding:8px 8px 18px;
+    .paper-section{
+      padding:82px 0;
+      border-bottom:1px solid rgba(0,0,0,0.08);
     }
 
-    .pdf-top h2{
+    .section-grid{
+      display:grid;
+      grid-template-columns:110px 1fr;
+      gap:28px;
+      align-items:start;
+    }
+
+    .section-num{
+      font-family:Cormorant Garamond, serif;
+      font-size:3.1rem;
+      line-height:1;
+      color:#d3ccc5;
+      padding-top:8px;
+    }
+
+    .section-label{
+      margin:0 0 10px;
+      font-size:0.74rem;
+      letter-spacing:0.18em;
+      text-transform:uppercase;
+      color:#b38484;
+      font-weight:700;
+    }
+
+    .section-title{
+      margin:0 0 22px;
+      font-family:Cormorant Garamond, serif;
+      font-size:3rem;
+      line-height:0.98;
+      font-weight:600;
+      letter-spacing:-0.02em;
+    }
+
+    .lead{
+      font-size:1.16rem;
+      color:var(--paper-muted);
+      max-width:860px;
+      margin:0 0 28px;
+    }
+
+    .dropcap{
+      font-size:1.06rem;
+      color:#5f5852;
+      max-width:860px;
+    }
+
+    .dropcap::first-letter{
+      float:left;
+      font-family:Cormorant Garamond, serif;
+      font-size:4.4rem;
+      line-height:0.9;
+      padding-right:10px;
+      color:#2e2824;
+    }
+
+    .quote-block{
+      margin:34px 0;
+      padding:26px 28px;
+      background:#eadde0;
+      border-left:3px solid #d8a4ad;
+      font-family:Cormorant Garamond, serif;
+      font-size:1.22rem;
+      line-height:1.6;
+      color:#5c494c;
+    }
+
+    .two-col{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:32px;
+      margin-top:28px;
+    }
+
+    .info-card{
+      background:#fffdfb;
+      border:1px solid rgba(0,0,0,0.08);
+      padding:30px;
+      min-height:100%;
+    }
+
+    .info-card h3{
+      margin:0 0 14px;
+      font-size:1.35rem;
+      color:#231f1c;
+    }
+
+    .info-card p{
       margin:0;
-      font-size:1.28rem;
+      color:#5b5550;
     }
 
-    .pdf-actions{
+    .info-card p + p{
+      margin-top:14px;
+    }
+
+    .comparison{
+      margin-top:28px;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:28px;
+    }
+
+    .compare-box{
+      padding:30px;
+      border:1px solid rgba(0,0,0,0.1);
+      background:#fffdfb;
+    }
+
+    .compare-box .tag{
+      display:inline-block;
+      margin-bottom:16px;
+      padding:8px 12px;
+      border:1px solid rgba(0,0,0,0.1);
+      border-radius:999px;
+      font-size:0.78rem;
+      letter-spacing:0.12em;
+      text-transform:uppercase;
+      color:#7d7268;
+    }
+
+    .compare-box h3{
+      margin:0 0 14px;
+      font-size:1.45rem;
+      color:#231f1c;
+    }
+
+    .compare-box ul{
+      margin:0;
+      padding-left:18px;
+      color:#5b5550;
+    }
+
+    .compare-box li + li{
+      margin-top:10px;
+    }
+
+    .center-panel{
+      margin-top:34px;
+      padding:36px;
+      background:#0b0b0d;
+      color:#f5f2eb;
+      border:1px solid rgba(215,168,93,0.2);
+    }
+
+    .center-panel h3{
+      margin:0 0 14px;
+      font-family:Cormorant Garamond, serif;
+      font-size:2rem;
+      font-weight:600;
+    }
+
+    .center-panel p{
+      margin:0;
+      color:#d9d0c4;
+      max-width:860px;
+    }
+
+    .artifact-actions{
       display:flex;
       gap:12px;
       flex-wrap:wrap;
+      margin-top:22px;
     }
 
     .btn{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      padding:12px 18px;
+      padding:14px 22px;
       border-radius:999px;
       border:1px solid rgba(215,168,93,0.30);
       background:linear-gradient(180deg, rgba(215,168,93,0.18), rgba(215,168,93,0.08));
+      color:#f7f0e7;
       font-weight:700;
     }
 
     .btn.secondary{
-      border:1px solid var(--line-soft);
-      background:rgba(255,255,255,0.03);
+      background:#fffdfb;
+      color:#3a332d;
+      border:1px solid rgba(0,0,0,0.12);
     }
 
     .pdf-frame{
-      width:100%;
-      height:1200px;
-      border:1px solid var(--line-soft);
-      border-radius:18px;
-      overflow:hidden;
-      background:#111;
+      margin-top:28px;
+      background:#fffdfb;
+      border:1px solid rgba(0,0,0,0.08);
+      padding:22px;
     }
 
     .pdf-frame iframe{
       width:100%;
-      height:100%;
-      border:0;
-      display:block;
-      background:#111;
+      height:1050px;
+      border:1px solid rgba(0,0,0,0.08);
+      background:#fff;
+    }
+
+    .bottom-nav{
+      text-align:center;
+      margin-top:34px;
     }
 
     @media (max-width: 980px){
-      .two-col{
+      .two-col,
+      .comparison{
         grid-template-columns:1fr;
       }
 
-      .pdf-frame{
-        height:900px;
+      .section-grid{
+        grid-template-columns:1fr;
+        gap:18px;
+      }
+
+      .section-num{
+        font-size:2.2rem;
+      }
+
+      .pdf-frame iframe{
+        height:760px;
       }
     }
 
     @media (max-width: 760px){
       .page{
-        width:min(calc(100% - 12px), 1260px);
+        width:min(calc(100% - 14px), 1280px);
         border-radius:22px;
       }
 
@@ -241,11 +391,23 @@
       }
 
       .hero{
-        padding:40px 0 18px;
+        padding:42px 0 46px;
       }
 
-      .pdf-frame{
-        height:700px;
+      .section-title{
+        font-size:2.35rem;
+      }
+
+      h1{
+        font-size:clamp(2.4rem, 13vw, 4rem);
+      }
+
+      .paper-section{
+        padding:58px 0;
+      }
+
+      .pdf-frame iframe{
+        height:640px;
       }
     }
   </style>
@@ -261,78 +423,264 @@
 
     <section class="hero">
       <div class="container">
-        <div class="eyebrow">Project 01</div>
-        <h1>The AI Odyssey</h1>
-        <p class="subtitle">
-          A visual research timeline tracing artificial intelligence from foundational milestones through expert systems, AI winters, deep learning breakthroughs, and the generative AI frontier.
-        </p>
-
-        <div class="two-col">
-          <div class="card">
-            <h2>Project Overview</h2>
-            <p>
-              This artifact presents the evolution of artificial intelligence as a polished visual narrative rather than a conventional report. It organizes major eras of AI into a structured timeline, making complex technical history easier to understand and more compelling to explore.
-            </p>
-            <p>
-              The project spans early milestones such as the Turing Test, Dartmouth Conference, and Perceptron, then moves through expert systems, the two AI winters, deep learning breakthroughs, transformers, foundation models, and the 2020–2025 generative AI explosion.
-            </p>
-          </div>
-
-          <div class="card">
-            <h2>What This Artifact Shows</h2>
-            <p>
-              The timeline highlights the rise, decline, and rebirth of AI across multiple decades. It also profiles key researchers, major companies shaping modern AI, Narrow AI versus AGI, and the infrastructure shifts that made deep learning successful when it did.
-            </p>
-            <div class="pill-row">
-              <span class="pill">AI History</span>
-              <span class="pill">Visual Research</span>
-              <span class="pill">Timeline Design</span>
-              <span class="pill">Generative AI Era</span>
-            </div>
-          </div>
+        <div class="hero-meta">
+          <span>AI History & Systems Evolution Artifact</span>
+          <span>2026</span>
         </div>
 
-        <div class="two-col">
-          <div class="card">
-            <h2>Tools & Methods</h2>
-            <p>
-              This piece combines research synthesis, visual communication, and portfolio presentation. Instead of summarizing AI history in long paragraphs, it communicates the story through structured design, milestone grouping, and clear thematic sections.
-            </p>
-            <div class="pill-row">
-              <span class="pill">Figma</span>
-              <span class="pill">NotebookLM</span>
-              <span class="pill">Research Synthesis</span>
-              <span class="pill">Portfolio Design</span>
-            </div>
-          </div>
+        <div class="eyebrow">Project 01</div>
 
-          <div class="card">
-            <h2>Why This Matters</h2>
-            <p>
-              In a professional portfolio, the ability to explain technical evolution clearly is just as valuable as technical depth itself. This artifact shows not only understanding of AI history, but also the ability to transform research into an executive-friendly visual asset.
-            </p>
-          </div>
+        <h1>The AI Odyssey: From Theoretical Foundations to the Generative Frontier</h1>
+
+        <p class="hero-subtitle">
+          A research-driven visual and analytical study of how artificial intelligence evolved from symbolic reasoning and early neural concepts to deep learning, foundation models, and the modern generative AI era.
+        </p>
+
+        <p class="hero-note">
+          This project treats AI history not as trivia, but as architectural context. Each era of AI reflects changing assumptions about knowledge representation, compute, data, scalability, and system capability.
+        </p>
+
+        <div class="hero-pills">
+          <span class="pill">AI History</span>
+          <span class="pill">Systems Evolution</span>
+          <span class="pill">Foundation Models</span>
+          <span class="pill">Architectural Thinking</span>
         </div>
       </div>
     </section>
 
-    <section class="pdf-section">
-      <div class="container">
-        <div class="pdf-card">
-          <div class="pdf-top">
-            <h2>Full Artifact View</h2>
-            <div class="pdf-actions">
+    <div class="divider"></div>
+
+    <main class="paper">
+      <section class="paper-section">
+        <div class="container section-grid">
+          <div class="section-num">00</div>
+          <div>
+            <div class="section-label">Context & Foundation</div>
+            <h2 class="section-title">Introduction</h2>
+
+            <p class="dropcap">
+              Artificial intelligence did not emerge fully formed in the age of large language models. It evolved through multiple paradigms, each shaped by the limitations and opportunities of its time: symbolic reasoning, expert systems, neural revival, deep learning, and foundation-scale generative models. Understanding that progression is essential because modern AI systems still inherit design logic from each of these earlier eras.
+            </p>
+
+            <div class="quote-block">
+              The story of AI is not simply one of increasing intelligence. It is a story of changing system design assumptions — what should be encoded by humans, what should be learned from data, and what trade-offs must be accepted to scale capability.
+            </div>
+
+            <p class="lead">
+              This artifact traces the major turning points from 1950 to 2025, showing how theoretical ideas, infrastructure shifts, model architectures, and commercial adoption converged to shape contemporary AI. The value of this history is practical: it reveals why today’s systems look the way they do, and why future AI decisions are still constrained by familiar tensions between explainability, scale, and control.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="paper-section">
+        <div class="container section-grid">
+          <div class="section-num">01</div>
+          <div>
+            <div class="section-label">Historical Framework</div>
+            <h2 class="section-title">How AI Progressed Across Distinct Eras</h2>
+
+            <div class="comparison">
+              <div class="compare-box">
+                <span class="tag">1950–1970</span>
+                <h3>Foundational Thinking</h3>
+                <ul>
+                  <li>The Turing Test and Dartmouth Conference defined AI as both a conceptual and formal research field.</li>
+                  <li>Early systems focused on symbolic reasoning and rule-based logic.</li>
+                  <li>The Perceptron introduced the first connectionist path toward neural computation.</li>
+                </ul>
+              </div>
+
+              <div class="compare-box">
+                <span class="tag">1970–1995</span>
+                <h3>Expert Systems and AI Winters</h3>
+                <ul>
+                  <li>Rule-based expert systems achieved narrow commercial success in domains like medicine and chemistry.</li>
+                  <li>But brittle systems, weak scalability, and hardware constraints triggered two major AI winters.</li>
+                  <li>This era showed that narrow success does not automatically generalize to robust intelligence.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="comparison">
+              <div class="compare-box">
+                <span class="tag">1996–2019</span>
+                <h3>Deep Learning and Infrastructure Acceleration</h3>
+                <ul>
+                  <li>Deep Blue, backpropagation revival, AlexNet, and AlphaGo marked the transition from theory to practical high-performance AI.</li>
+                  <li>GPU compute, cloud infrastructure, and web-scale data unlocked model training at previously impossible scale.</li>
+                  <li>The Transformer fundamentally changed how sequence and language modeling could be performed.</li>
+                </ul>
+              </div>
+
+              <div class="compare-box">
+                <span class="tag">2020–2025</span>
+                <h3>Foundation Models and Generative AI</h3>
+                <ul>
+                  <li>GPT-3, multimodal systems, RLHF, and enterprise cloud AI democratized access to advanced models.</li>
+                  <li>AI moved from specialized prediction tools toward general-purpose interaction and generation systems.</li>
+                  <li>The focus shifted from isolated models to AI as infrastructure embedded across industries.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="center-panel">
+              <h3>Strategic Reading</h3>
+              <p>
+                The AI timeline is best understood not as a series of disconnected breakthroughs, but as a sequence of architecture transitions: rules to learning, handcrafted features to representation learning, narrow systems to foundation models, and standalone models to platform-level AI ecosystems.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="paper-section">
+        <div class="container section-grid">
+          <div class="section-num">02</div>
+          <div>
+            <div class="section-label">Architectural Evolution</div>
+            <h2 class="section-title">What Changed at the Systems Level</h2>
+
+            <div class="two-col">
+              <div class="info-card">
+                <h3>From Rules to Learning</h3>
+                <p>
+                  Early AI depended on human-authored logic. This made systems interpretable but rigid. The shift to machine learning transferred part of the knowledge burden from human designers to data-driven statistical learning.
+                </p>
+              </div>
+
+              <div class="info-card">
+                <h3>From Features to Representations</h3>
+                <p>
+                  Traditional ML still relied heavily on manual feature engineering. Deep learning changed that by learning latent representations directly from raw data, making it far more suitable for perception, language, and multimodal tasks.
+                </p>
+              </div>
+            </div>
+
+            <div class="two-col">
+              <div class="info-card">
+                <h3>From Models to Infrastructure</h3>
+                <p>
+                  AI capability expanded not only because algorithms improved, but because GPUs, cloud computing, TPUs, and web-scale data made large-scale training economically and operationally feasible.
+                </p>
+              </div>
+
+              <div class="info-card">
+                <h3>From Prediction to Generation</h3>
+                <p>
+                  The modern shift toward generative AI transformed expectations. Systems are no longer judged only by classification accuracy, but by reasoning style, language fluency, multimodal competence, controllability, and tool-use ability.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="paper-section">
+        <div class="container section-grid">
+          <div class="section-num">03</div>
+          <div>
+            <div class="section-label">Trade-offs</div>
+            <h2 class="section-title">The Recurring Tensions That Still Shape AI Design</h2>
+
+            <div class="comparison">
+              <div class="compare-box">
+                <span class="tag">Trade-off 1</span>
+                <h3>Interpretability vs Performance</h3>
+                <ul>
+                  <li>Rule-based systems and simpler models were easier to explain but weaker in capability.</li>
+                  <li>Modern deep and generative systems are more powerful yet often harder to interpret.</li>
+                </ul>
+              </div>
+
+              <div class="compare-box">
+                <span class="tag">Trade-off 2</span>
+                <h3>Scalability vs Control</h3>
+                <ul>
+                  <li>Larger models scale capability across tasks.</li>
+                  <li>But as systems generalize, governance, output reliability, and behavioral control become harder problems.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="comparison">
+              <div class="compare-box">
+                <span class="tag">Trade-off 3</span>
+                <h3>Data Dependence vs Knowledge Encoding</h3>
+                <ul>
+                  <li>Symbolic systems relied on explicit human structure.</li>
+                  <li>Learning-based systems rely on large, high-quality datasets — which introduces new concerns around quality, cost, and bias.</li>
+                </ul>
+              </div>
+
+              <div class="compare-box">
+                <span class="tag">Trade-off 4</span>
+                <h3>Capability vs Trust</h3>
+                <ul>
+                  <li>As AI systems become more autonomous and generative, trust depends less on raw capability and more on alignment, evaluation, and operational safeguards.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="center-panel">
+              <h3>Architect Perspective</h3>
+              <p>
+                These trade-offs are not historical leftovers. They remain active design constraints in modern AI architecture. Model choice is still a balancing act between accuracy, explainability, cost, scalability, and acceptable operational risk.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="paper-section">
+        <div class="container section-grid">
+          <div class="section-num">04</div>
+          <div>
+            <div class="section-label">Artifact View</div>
+            <h2 class="section-title">Full Research Timeline</h2>
+
+            <p class="lead">
+              The full artifact below presents the visual timeline from foundational milestones through expert systems, AI winters, deep learning, Transformers, foundation models, and the generative AI explosion. It also highlights key researchers, major players, and the distinction between Narrow AI and AGI. :contentReference[oaicite:1]{index=1}
+            </p>
+
+            <div class="artifact-actions">
               <a class="btn" href="ai-odyssey.pdf" target="_blank">Open PDF</a>
               <a class="btn secondary" href="index.html">Back to Homepage</a>
             </div>
-          </div>
 
-          <div class="pdf-frame">
-            <iframe src="ai-odyssey.pdf"></iframe>
+            <div class="pdf-frame">
+              <iframe src="ai-odyssey.pdf"></iframe>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <section class="paper-section">
+        <div class="container section-grid">
+          <div class="section-num">05</div>
+          <div>
+            <div class="section-label">Final Synthesis</div>
+            <h2 class="section-title">Why This Matters</h2>
+
+            <p class="lead">
+              AI history matters because every modern system inherits decisions made across prior eras: what to hard-code, what to learn, what to optimize for, and what risks emerge as capability scales.
+            </p>
+
+            <div class="center-panel">
+              <h3>Portfolio Value</h3>
+              <p>
+                This project demonstrates more than historical awareness. It shows the ability to interpret AI evolution through an architectural lens, connect breakthroughs to system design patterns, and reason about why today’s AI stacks look the way they do. That perspective is critical for anyone designing modern enterprise AI solutions.
+              </p>
+            </div>
+
+            <div class="bottom-nav">
+              <a class="btn secondary" href="index.html">← Back to Homepage</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
   </div>
 </body>
 </html>
