@@ -6,30 +6,34 @@
   <title>AI-Powered Retail Support Transformation | Ramya Srinivasan</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root{
       --bg:#060606;
-      --panel:rgba(255,255,255,0.04);
+      --paper:#f3f0eb;
+      --paper-text:#292521;
+      --paper-muted:#6b645d;
       --text:#f5f2eb;
       --muted:#b8b0a1;
+      --gold:#d7a85d;
       --line:rgba(215,168,93,0.22);
       --line-soft:rgba(255,255,255,0.08);
-      --gold:#d7a85d;
       --shadow:0 24px 60px rgba(0,0,0,0.45);
-      --max:1100px;
+      --max:1180px;
     }
 
     *{box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+
     body{
       margin:0;
       font-family:Inter,system-ui,sans-serif;
-      color:var(--text);
       background:
         radial-gradient(circle at top left, rgba(65,120,140,0.10), transparent 22%),
         radial-gradient(circle at top right, rgba(215,168,93,0.08), transparent 20%),
         linear-gradient(180deg, #020203 0%, #060606 50%, #080809 100%);
+      color:var(--text);
       line-height:1.7;
     }
 
@@ -37,7 +41,7 @@
     img{display:block;max-width:100%;}
 
     .page{
-      width:min(calc(100% - 32px), 1180px);
+      width:min(calc(100% - 32px), 1280px);
       margin:18px auto;
       border:1px solid var(--line);
       border-radius:30px;
@@ -74,7 +78,19 @@
     }
 
     .hero{
-      padding:56px 0 40px;
+      padding:68px 0 58px;
+    }
+
+    .hero-meta{
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+      margin-bottom:34px;
+      color:#b88e8e;
+      font-size:0.76rem;
+      letter-spacing:0.16em;
+      text-transform:uppercase;
     }
 
     .eyebrow{
@@ -87,65 +103,36 @@
       letter-spacing:0.16em;
       text-transform:uppercase;
       font-size:0.76rem;
-      margin-bottom:20px;
+      margin-bottom:24px;
     }
 
     h1{
-      margin:0 0 14px;
+      margin:0 0 18px;
       font-family:Manrope,Inter,sans-serif;
-      font-size:clamp(2.4rem, 5vw, 4.5rem);
-      line-height:1.02;
-      letter-spacing:-0.04em;
+      font-size:clamp(3rem, 7vw, 6rem);
+      line-height:0.95;
+      letter-spacing:-0.06em;
+      max-width:980px;
     }
 
-    .subtitle{
-      color:#d7cdc0;
-      font-size:1.08rem;
-      max-width:900px;
-      margin:0;
+    .hero-subtitle{
+      margin:0 0 22px;
+      max-width:780px;
+      color:#ded5c8;
+      font-size:1.1rem;
     }
 
-    .content{
-      padding:12px 0 24px;
-      display:grid;
-      gap:22px;
+    .hero-note{
+      max-width:760px;
+      color:var(--muted);
+      font-size:0.98rem;
     }
 
-    .two-col{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:32px; /* increase spacing */
-  margin-bottom:32px; /* adds space between rows */
-      
-    }
-
-    .card{
-      padding:28px;
-      border-radius:24px;
-      background:linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
-      border:1px solid var(--line-soft);
-      box-shadow:var(--shadow);
-    }
-
-    .card h2{
-      margin:0 0 14px;
-      font-size:1.35rem;
-    }
-
-    .card p{
-      margin:0;
-      color:#ddd4c8;
-    }
-
-    .card p + p{
-      margin-top:14px;
-    }
-
-    .pill-row{
+    .hero-pills{
       display:flex;
       flex-wrap:wrap;
       gap:12px;
-      margin-top:16px;
+      margin-top:26px;
     }
 
     .pill{
@@ -157,89 +144,245 @@
       font-size:0.92rem;
     }
 
-    .pdf-section{
-      padding:12px 0 60px;
+    .divider{
+      height:1px;
+      background:linear-gradient(90deg, transparent, rgba(215,168,93,0.24), transparent);
     }
 
-    .pdf-card{
-      padding:18px;
-      border-radius:26px;
-      background:linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.02));
-      border:1px solid rgba(215,168,93,0.18);
-      box-shadow:var(--shadow);
+    .paper{
+      background:var(--paper);
+      color:var(--paper-text);
     }
 
-    .pdf-top{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:16px;
-      flex-wrap:wrap;
-      padding:8px 8px 18px;
+    .paper-section{
+      padding:82px 0;
+      border-bottom:1px solid rgba(0,0,0,0.08);
     }
 
-    .pdf-top h2{
+    .section-grid{
+      display:grid;
+      grid-template-columns:110px 1fr;
+      gap:28px;
+      align-items:start;
+    }
+
+    .section-num{
+      font-family:Cormorant Garamond, serif;
+      font-size:3.1rem;
+      line-height:1;
+      color:#d3ccc5;
+      padding-top:8px;
+    }
+
+    .section-label{
+      margin:0 0 10px;
+      font-size:0.74rem;
+      letter-spacing:0.18em;
+      text-transform:uppercase;
+      color:#b38484;
+      font-weight:700;
+    }
+
+    .section-title{
+      margin:0 0 22px;
+      font-family:Cormorant Garamond, serif;
+      font-size:3rem;
+      line-height:0.98;
+      font-weight:600;
+      letter-spacing:-0.02em;
+    }
+
+    .lead{
+      font-size:1.16rem;
+      color:var(--paper-muted);
+      max-width:860px;
+      margin:0 0 28px;
+    }
+
+    .dropcap{
+      font-size:1.06rem;
+      color:#5f5852;
+      max-width:860px;
+    }
+
+    .dropcap::first-letter{
+      float:left;
+      font-family:Cormorant Garamond, serif;
+      font-size:4.4rem;
+      line-height:0.9;
+      padding-right:10px;
+      color:#2e2824;
+    }
+
+    .quote-block{
+      margin:34px 0;
+      padding:26px 28px;
+      background:#eadde0;
+      border-left:3px solid #d8a4ad;
+      font-family:Cormorant Garamond, serif;
+      font-size:1.22rem;
+      line-height:1.6;
+      color:#5c494c;
+    }
+
+    .two-col{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:32px;
+      margin-top:28px;
+    }
+
+    .info-card{
+      background:#fffdfb;
+      border:1px solid rgba(0,0,0,0.08);
+      padding:30px;
+      min-height:100%;
+    }
+
+    .info-card h3{
+      margin:0 0 14px;
+      font-size:1.35rem;
+      color:#231f1c;
+    }
+
+    .info-card p{
       margin:0;
-      font-size:1.28rem;
+      color:#5b5550;
     }
 
-    .pdf-actions{
+    .info-card p + p{
+      margin-top:14px;
+    }
+
+    .comparison{
+      margin-top:28px;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:28px;
+    }
+
+    .compare-box{
+      padding:30px;
+      border:1px solid rgba(0,0,0,0.1);
+      background:#fffdfb;
+    }
+
+    .compare-box .tag{
+      display:inline-block;
+      margin-bottom:16px;
+      padding:8px 12px;
+      border:1px solid rgba(0,0,0,0.1);
+      border-radius:999px;
+      font-size:0.78rem;
+      letter-spacing:0.12em;
+      text-transform:uppercase;
+      color:#7d7268;
+    }
+
+    .compare-box h3{
+      margin:0 0 14px;
+      font-size:1.45rem;
+      color:#231f1c;
+    }
+
+    .compare-box ul{
+      margin:0;
+      padding-left:18px;
+      color:#5b5550;
+    }
+
+    .compare-box li + li{
+      margin-top:10px;
+    }
+
+    .center-panel{
+      margin-top:34px;
+      padding:36px;
+      background:#0b0b0d;
+      color:#f5f2eb;
+      border:1px solid rgba(215,168,93,0.2);
+    }
+
+    .center-panel h3{
+      margin:0 0 14px;
+      font-family:Cormorant Garamond, serif;
+      font-size:2rem;
+      font-weight:600;
+    }
+
+    .center-panel p{
+      margin:0;
+      color:#d9d0c4;
+      max-width:860px;
+    }
+
+    .artifact-actions{
       display:flex;
       gap:12px;
       flex-wrap:wrap;
+      margin-top:22px;
     }
 
     .btn{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      padding:14px 20px;
+      padding:14px 22px;
       border-radius:999px;
       border:1px solid rgba(215,168,93,0.30);
       background:linear-gradient(180deg, rgba(215,168,93,0.18), rgba(215,168,93,0.08));
+      color:#f7f0e7;
       font-weight:700;
     }
 
     .btn.secondary{
-      border:1px solid var(--line-soft);
-      background:rgba(255,255,255,0.03);
+      background:#fffdfb;
+      color:#3a332d;
+      border:1px solid rgba(0,0,0,0.12);
     }
 
     .pdf-frame{
-      width:100%;
-      height:1200px;
-      border:1px solid var(--line-soft);
-      border-radius:18px;
-      overflow:hidden;
-      background:#111;
+      margin-top:28px;
+      background:#fffdfb;
+      border:1px solid rgba(0,0,0,0.08);
+      padding:22px;
     }
 
     .pdf-frame iframe{
       width:100%;
-      height:100%;
-      border:0;
-      display:block;
-      background:#111;
+      height:1050px;
+      border:1px solid rgba(0,0,0,0.08);
+      background:#fff;
     }
 
     .bottom-nav{
       text-align:center;
-      margin-top:22px;
+      margin-top:34px;
     }
 
     @media (max-width: 980px){
-      .two-col{
+      .two-col,
+      .comparison{
         grid-template-columns:1fr;
       }
 
-      .pdf-frame{
-        height:900px;
+      .section-grid{
+        grid-template-columns:1fr;
+        gap:18px;
+      }
+
+      .section-num{
+        font-size:2.2rem;
+      }
+
+      .pdf-frame iframe{
+        height:760px;
       }
     }
 
     @media (max-width: 760px){
       .page{
-        width:min(calc(100% - 14px), 1180px);
+        width:min(calc(100% - 14px), 1280px);
         border-radius:22px;
       }
 
@@ -248,11 +391,23 @@
       }
 
       .hero{
-        padding:40px 0 24px;
+        padding:42px 0 46px;
       }
 
-      .pdf-frame{
-        height:700px;
+      .section-title{
+        font-size:2.35rem;
+      }
+
+      h1{
+        font-size:clamp(2.4rem, 13vw, 4rem);
+      }
+
+      .paper-section{
+        padding:58px 0;
+      }
+
+      .pdf-frame iframe{
+        height:640px;
       }
     }
   </style>
@@ -268,86 +423,346 @@
 
     <section class="hero">
       <div class="container">
+        <div class="hero-meta">
+          <span>Enterprise Conversational AI Case Study</span>
+          <span>2026</span>
+        </div>
+
         <div class="eyebrow">Project 02</div>
+
         <h1>AI-Powered Retail Support Transformation</h1>
-        <p class="subtitle">
-          A solution architecture case study showing how AI-powered NLP, real-time data integration, escalation design, and governance controls can transform retail support into a faster, more intelligent service model.
+
+        <p class="hero-subtitle">
+          A research-backed solution architecture case study showing how conversational AI, intent orchestration, and real-time enterprise integration can reduce support burden while improving customer experience at scale.
         </p>
-      </div>
-    </section>
 
-    <section class="content">
-      <div class="container">
-        <div class="two-col">
-          <div class="card">
-            <h2>Project Overview</h2>
-            <p>
-              This project reimagines retail support as an intelligent service capability rather than a reactive help desk function. It addresses fragmented channels, repetitive inquiries, slow manual handling, and inconsistent customer experience by introducing an AI-powered support model.
-            </p>
-            <p>
-              The concept focuses on transforming post-purchase and service interactions through conversational AI, live backend connectivity, and structured decision flows that improve both operational efficiency and customer satisfaction.
-            </p>
-          </div>
+        <p class="hero-note">
+          This project reframes the chatbot not as a simple interface feature, but as an operational support system that sits between customer inquiry, business workflow, and service resolution.
+        </p>
 
-          <div class="card">
-            <h2>What This Artifact Shows</h2>
-            <p>
-              The artifact presents the full transformation story: retail support failure patterns, customer friction, intelligent support engine design, escalation flow, cloud architecture, context synchronization, intent translation, business impact, implementation roadmap, governance, and future-state opportunities.
-            </p>
-            <div class="pill-row">
-              <span class="pill">Retail AI</span>
-              <span class="pill">NLP Architecture</span>
-              <span class="pill">API Integration</span>
-              <span class="pill">Service Transformation</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="two-col">
-          <div class="card">
-            <h2>Tools & Methods</h2>
-            <p>
-              This work combines solution architecture thinking, business problem framing, visual storytelling, AI service design, and responsible AI planning. It uses a polished consulting-style narrative to explain how conversational intelligence, orchestration, and enterprise connectivity can work together in a real-world retail setting.
-            </p>
-            <div class="pill-row">
-              <span class="pill">Solution Design</span>
-              <span class="pill">Visual Strategy</span>
-              <span class="pill">Customer Journey</span>
-              <span class="pill">Enterprise Architecture</span>
-            </div>
-          </div>
-
-          <div class="card">
-            <h2>Why This Matters</h2>
-            <p>
-              This artifact demonstrates more than chatbot knowledge. It shows the ability to connect business pain points, AI design, integration architecture, governance controls, and implementation planning into a cohesive solution story. That makes it especially strong for an AI solutions architect portfolio.
-            </p>
-          </div>
+        <div class="hero-pills">
+          <span class="pill">Conversational AI</span>
+          <span class="pill">NLP Orchestration</span>
+          <span class="pill">Retail Operations</span>
+          <span class="pill">API Integration</span>
         </div>
       </div>
     </section>
 
-    <section class="pdf-section">
-      <div class="container">
-        <div class="pdf-card">
-          <div class="pdf-top">
-            <h2>Full Artifact View</h2>
-            <div class="pdf-actions">
+    <div class="divider"></div>
+
+    <main class="paper">
+      <section class="paper-section">
+        <div class="container section-grid">
+          <div class="section-num">00</div>
+          <div>
+            <div class="section-label">Context & Foundation</div>
+            <h2 class="section-title">Introduction</h2>
+
+            <p class="dropcap">
+              Retail customer service is often overloaded by repetitive questions that are operationally simple but high in volume: order status, product availability, store hours, return windows, account assistance, and basic troubleshooting. These interactions consume staff capacity, increase wait times, and degrade the customer experience when handled manually at scale.
+            </p>
+
+            <div class="quote-block">
+              The real value of conversational AI is not that it can “chat.” It is that it can convert recurring service demand into structured, consistent, and scalable operational response.
+            </div>
+
+            <p class="lead">
+              This project examines conversational AI as an enterprise support layer. Instead of presenting a chatbot as a front-end convenience tool, it frames the system as a service transformation mechanism that connects user intent, backend data, workflow logic, and human escalation into a single support architecture.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="paper-section">
+        <div class="container section-grid">
+          <div class="section-num">01</div>
+          <div>
+            <div class="section-label">Problem Analysis</div>
+            <h2 class="section-title">Why Retail Support Becomes a Systems Problem</h2>
+
+            <div class="comparison">
+              <div class="compare-box">
+                <span class="tag">Operational Pressure</span>
+                <h3>High-Volume Repetitive Inquiries</h3>
+                <ul>
+                  <li>Retail support teams repeatedly handle the same inquiry categories across multiple channels.</li>
+                  <li>This creates avoidable labor cost and inconsistent service quality.</li>
+                  <li>Manual handling scales poorly during peaks such as holidays, promotions, or delivery disruption periods.</li>
+                </ul>
+              </div>
+
+              <div class="compare-box">
+                <span class="tag">Customer Friction</span>
+                <h3>Slow Resolution and Fragmented Experience</h3>
+                <ul>
+                  <li>Customers expect immediate answers for routine questions.</li>
+                  <li>Delays in response create frustration even when the underlying issue is simple.</li>
+                  <li>Support becomes fragmented when order history, inventory, and account data live in separate systems.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="center-panel">
+              <h3>Architectural Reading</h3>
+              <p>
+                This is not only a staffing issue. It is a systems orchestration issue. The challenge exists because customer intent, business logic, and operational data are disconnected at the moment of service interaction.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="paper-section">
+        <div class="container section-grid">
+          <div class="section-num">02</div>
+          <div>
+            <div class="section-label">Solution Logic</div>
+            <h2 class="section-title">Why Conversational AI Fits This Use Case</h2>
+
+            <div class="two-col">
+              <div class="info-card">
+                <h3>Intent-Based Resolution</h3>
+                <p>
+                  Retail support questions tend to cluster into repeatable intent classes: order tracking, return policies, store lookup, inventory availability, account access, and product support. That makes them well suited to conversational AI systems that can classify input, trigger the right workflow, and respond consistently.
+                </p>
+              </div>
+
+              <div class="info-card">
+                <h3>24/7 Service Layer</h3>
+                <p>
+                  An AI support layer extends availability beyond staffed hours, improving responsiveness without requiring support headcount to scale linearly with demand. This matters most for digital commerce environments where customer inquiry happens continuously.
+                </p>
+              </div>
+            </div>
+
+            <div class="two-col">
+              <div class="info-card">
+                <h3>Consistency at Scale</h3>
+                <p>
+                  A well-designed conversational system provides uniform resolution logic across channels, reducing dependency on individual agent interpretation and creating a more predictable customer support experience.
+                </p>
+              </div>
+
+              <div class="info-card">
+                <h3>Data-Connected Service</h3>
+                <p>
+                  The value increases significantly when the AI is not limited to scripted FAQs, but connected to real-time systems such as order databases, CRM records, inventory services, and customer account platforms.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="paper-section">
+        <div class="container section-grid">
+          <div class="section-num">03</div>
+          <div>
+            <div class="section-label">Architecture Design</div>
+            <h2 class="section-title">How the Support System Should Be Structured</h2>
+
+            <div class="comparison">
+              <div class="compare-box">
+                <span class="tag">Layer 1</span>
+                <h3>Interaction Layer</h3>
+                <ul>
+                  <li>Customer enters through web, mobile, chat widget, or messaging interface.</li>
+                  <li>The system captures free-text questions and interaction context.</li>
+                  <li>Session continuity matters because repeated clarification is itself a customer pain point.</li>
+                </ul>
+              </div>
+
+              <div class="compare-box">
+                <span class="tag">Layer 2</span>
+                <h3>NLP & Intent Orchestration</h3>
+                <ul>
+                  <li>User input is classified into intent categories.</li>
+                  <li>Dialogue flow determines whether the issue can be resolved directly, requires additional prompts, or should escalate.</li>
+                  <li>Context retention is essential for multi-turn resolution.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="comparison">
+              <div class="compare-box">
+                <span class="tag">Layer 3</span>
+                <h3>Business Logic & API Integration</h3>
+                <ul>
+                  <li>The support engine connects to order systems, inventory data, return policy logic, and customer account services.</li>
+                  <li>Responses should be grounded in live operational data rather than static text where possible.</li>
+                  <li>This is what transforms the chatbot from informational to actionable.</li>
+                </ul>
+              </div>
+
+              <div class="compare-box">
+                <span class="tag">Layer 4</span>
+                <h3>Escalation & Human Handoff</h3>
+                <ul>
+                  <li>Not every issue should be automated.</li>
+                  <li>Complex, emotionally sensitive, or exception-based cases need clean transfer to human agents.</li>
+                  <li>Escalation should pass context forward rather than restart the conversation from zero.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="center-panel">
+              <h3>Core Design Principle</h3>
+              <p>
+                A support chatbot should not be treated as a self-contained UI feature. It should be treated as a service orchestration layer between customer inquiry and enterprise workflow execution.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="paper-section">
+        <div class="container section-grid">
+          <div class="section-num">04</div>
+          <div>
+            <div class="section-label">Business Outcomes</div>
+            <h2 class="section-title">What Changes When This Is Implemented Well</h2>
+
+            <div class="two-col">
+              <div class="info-card">
+                <h3>Reduced Support Burden</h3>
+                <p>
+                  Routine inquiries can be deflected from human agents, allowing staff to focus on exceptions, high-value interactions, and cases requiring judgment.
+                </p>
+              </div>
+
+              <div class="info-card">
+                <h3>Improved Service Speed</h3>
+                <p>
+                  Customers receive immediate responses for operationally simple questions, which reduces perceived effort and improves support satisfaction.
+                </p>
+              </div>
+            </div>
+
+            <div class="two-col">
+              <div class="info-card">
+                <h3>Operational Predictability</h3>
+                <p>
+                  Standardized interaction flows generate cleaner support metrics and more predictable inquiry handling, improving planning and service analytics.
+                </p>
+              </div>
+
+              <div class="info-card">
+                <h3>Always-On Experience</h3>
+                <p>
+                  Conversational AI extends resolution capability beyond standard support hours, which is especially important in multi-region or always-open digital commerce environments.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="paper-section">
+        <div class="container section-grid">
+          <div class="section-num">05</div>
+          <div>
+            <div class="section-label">Risk & Governance</div>
+            <h2 class="section-title">What Must Be Controlled</h2>
+
+            <div class="comparison">
+              <div class="compare-box">
+                <span class="tag">Risk 1</span>
+                <h3>Incorrect or Hallucinated Answers</h3>
+                <ul>
+                  <li>Support systems should not invent policy, pricing, or account-specific facts.</li>
+                  <li>High-trust deployment requires bounded responses and controlled data access.</li>
+                </ul>
+              </div>
+
+              <div class="compare-box">
+                <span class="tag">Risk 2</span>
+                <h3>Privacy and Customer Data Handling</h3>
+                <ul>
+                  <li>Interactions involving account details, payment context, and personal data need clear access controls and secure system boundaries.</li>
+                  <li>Data minimization matters in support design.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="comparison">
+              <div class="compare-box">
+                <span class="tag">Risk 3</span>
+                <h3>Escalation Failure</h3>
+                <ul>
+                  <li>A bot that cannot recognize its limits creates worse service, not better service.</li>
+                  <li>Confidence thresholds and fallback rules should be explicit.</li>
+                </ul>
+              </div>
+
+              <div class="compare-box">
+                <span class="tag">Risk 4</span>
+                <h3>Operational Drift</h3>
+                <ul>
+                  <li>Retail policies, catalog data, and support workflows change frequently.</li>
+                  <li>The conversational system must be monitored and updated as business rules evolve.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="center-panel">
+              <h3>Architect Perspective</h3>
+              <p>
+                Responsible conversational AI is defined as much by its boundaries as by its capabilities. Good system design includes what the assistant should refuse, escalate, or verify before responding.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="paper-section">
+        <div class="container section-grid">
+          <div class="section-num">06</div>
+          <div>
+            <div class="section-label">Visual Artifact</div>
+            <h2 class="section-title">Retail Support Transformation Deck</h2>
+
+            <p class="lead">
+              The full artifact below presents the transformation visually, showing the business problem, solution architecture, operating model, and support impact in a consulting-style format.
+            </p>
+
+            <div class="artifact-actions">
               <a class="btn" href="retail-support-transformation.pdf" target="_blank">Open PDF</a>
               <a class="btn secondary" href="index.html">Back to Homepage</a>
             </div>
-          </div>
 
-          <div class="pdf-frame">
-            <iframe src="retail-support-transformation.pdf"></iframe>
-          </div>
-
-          <div class="bottom-nav">
-            <a class="btn secondary" href="index.html">← Back to Homepage</a>
+            <div class="pdf-frame">
+              <iframe src="retail-support-transformation.pdf"></iframe>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <section class="paper-section">
+        <div class="container section-grid">
+          <div class="section-num">07</div>
+          <div>
+            <div class="section-label">Final Synthesis</div>
+            <h2 class="section-title">Why This Matters</h2>
+
+            <p class="lead">
+              This project demonstrates that conversational AI is most valuable when treated as an enterprise service system rather than a surface-level chat interface. The real transformation happens when intent, workflow logic, operational data, and escalation design are connected in a purposeful architecture.
+            </p>
+
+            <div class="center-panel">
+              <h3>Portfolio Value</h3>
+              <p>
+                This artifact shows the ability to connect customer experience design with backend integration, operational scalability, AI workflow thinking, and governance controls. That makes it far more than a chatbot demo — it becomes a practical solution architecture case study.
+              </p>
+            </div>
+
+            <div class="bottom-nav">
+              <a class="btn secondary" href="index.html">← Back to Homepage</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
   </div>
 </body>
 </html>
