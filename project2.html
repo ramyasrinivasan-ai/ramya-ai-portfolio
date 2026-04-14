@@ -20,13 +20,26 @@ body {
     padding: 60px 20px;
 }
 
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.back {
+    color: #d4af37;
+    text-decoration: none;
+    font-weight: bold;
+}
+
 h1 {
-    font-size: 48px;
+    font-size: 42px;
     margin-bottom: 10px;
 }
 
 .subtitle {
-    font-size: 20px;
+    font-size: 18px;
     color: #d4af37;
     margin-bottom: 40px;
 }
@@ -65,6 +78,27 @@ iframe {
     height: 700px;
     border: none;
 }
+
+/* Bottom navigation */
+.bottom-nav {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.bottom-nav a {
+    display: inline-block;
+    padding: 12px 24px;
+    border: 1px solid #d4af37;
+    border-radius: 30px;
+    color: #d4af37;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.bottom-nav a:hover {
+    background: #d4af37;
+    color: black;
+}
 </style>
 
 </head>
@@ -73,7 +107,14 @@ iframe {
 
 <div class="container">
 
+    <!-- TOP NAV -->
+    <div class="top-bar">
+        <a href="index.html" class="back">← Back to Portfolio</a>
+        <div>Ramya Srinivasan • AI Solutions Architect</div>
+    </div>
+
     <h1>AI-Powered Retail Support Transformation</h1>
+
     <div class="subtitle">
         Reducing support load, improving customer experience, and enabling real-time intelligent assistance
     </div>
@@ -81,18 +122,17 @@ iframe {
     <div class="section">
         <h2>The Problem</h2>
         <p>
-        Retail customer support teams are overwhelmed with repetitive inquiries such as order status, returns,
-        store hours, and product availability. This leads to delayed responses, increased operational cost,
-        and declining customer satisfaction.
+        Retail customer support teams are overwhelmed with repetitive inquiries such as order status,
+        returns, store hours, and product availability. This leads to delayed responses, increased
+        operational cost, and declining customer satisfaction.
         </p>
     </div>
 
     <div class="section">
         <h2>The Solution</h2>
         <p>
-        Designed an AI-powered NLP chatbot integrated with backend retail systems to automate customer interactions.
-        The system enables real-time responses, intent recognition, and seamless API integration with inventory,
-        order tracking, and account data.
+        Designed an AI-powered NLP chatbot integrated with backend retail systems to automate
+        customer interactions with real-time response capability.
         </p>
 
         <div class="highlight-box">
@@ -106,29 +146,34 @@ iframe {
     <div class="section">
         <h2>Impact</h2>
         <p>
-        The solution significantly reduced support workload while improving response speed and customer experience.
+        The solution significantly reduced support workload while improving response speed and
+        customer experience.
         </p>
 
         <div class="highlight-box">
             🔹 25% reduction in support volume<br>
             🔹 30% improvement in operational efficiency<br>
-            🔹 Real-time data synchronization across systems<br>
-            🔹 Scalable AI-driven customer engagement
+            🔹 Real-time data synchronization<br>
+            🔹 Scalable AI-driven engagement
         </div>
     </div>
 
     <div class="section">
         <h2>Architecture & Design</h2>
         <p>
-        The system is built on an NLP-driven chatbot framework with structured intent mapping, backend API orchestration,
-        and conversational flow design. It supports fallback handling, context retention, and continuous improvement
-        through feedback loops.
+        Built using NLP, API integrations, and conversational flow design with intelligent routing
+        and escalation handling.
         </p>
     </div>
 
-    <!-- PDF VIEWER -->
+    <!-- PDF -->
     <div class="pdf-container">
-        <iframe src="chatbot.pdf"></iframe>
+        <iframe src="retail-support-transformation.pdf"></iframe>
+    </div>
+
+    <!-- BOTTOM NAV -->
+    <div class="bottom-nav">
+        <a href="index.html">← Back to Home</a>
     </div>
 
 </div>
