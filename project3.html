@@ -81,6 +81,18 @@
       padding:68px 0 58px;
     }
 
+    .hero-meta{
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+      margin-bottom:34px;
+      color:#b88e8e;
+      font-size:0.76rem;
+      letter-spacing:0.16em;
+      text-transform:uppercase;
+    }
+
     .eyebrow{
       display:inline-flex;
       align-items:center;
@@ -94,36 +106,24 @@
       margin-bottom:24px;
     }
 
-    .hero-meta{
-      display:flex;
-      justify-content:space-between;
-      gap:20px;
-      flex-wrap:wrap;
-      margin-bottom:34px;
-      color:#b88e8e;
-      font-size:0.76rem;
-      letter-spacing:0.16em;
-      text-transform:uppercase;
-    }
-
     h1{
       margin:0 0 18px;
       font-family:Manrope,Inter,sans-serif;
       font-size:clamp(3rem, 7vw, 6rem);
       line-height:0.95;
       letter-spacing:-0.06em;
-      max-width:900px;
+      max-width:980px;
     }
 
     .hero-subtitle{
       margin:0 0 22px;
-      max-width:760px;
+      max-width:780px;
       color:#ded5c8;
       font-size:1.1rem;
     }
 
     .hero-note{
-      max-width:700px;
+      max-width:760px;
       color:var(--muted);
       font-size:0.98rem;
     }
@@ -414,7 +414,7 @@
     <section class="hero">
       <div class="container">
         <div class="hero-meta">
-          <span>Comparative Analysis Document</span>
+          <span>Comparative AI Analysis Artifact</span>
           <span>2026</span>
         </div>
 
@@ -423,18 +423,18 @@
         <h1>Machine Learning vs. Deep Learning in the Automotive Industry</h1>
 
         <p class="hero-subtitle">
-          A real-world comparative case study showing why traditional machine learning fits structured business prediction problems while deep learning becomes essential for raw, sensor-driven autonomy.
+          A research-driven comparative case study showing why traditional machine learning is better suited to structured business prediction tasks while deep learning becomes essential for raw, sensor-heavy, perception-driven systems.
         </p>
 
         <p class="hero-note">
-          This artifact compares GM OnStar subscriber churn prediction with Waymo autonomous driving to show that the right AI approach depends on data type, interpretability needs, computational demands, and operational context.
+          This project uses GM OnStar churn prediction and Waymo autonomous driving to demonstrate a central AI design principle: model choice should be driven by data structure, interpretability requirements, infrastructure constraints, and operational context.
         </p>
 
         <div class="hero-pills">
           <span class="pill">Traditional ML</span>
           <span class="pill">Deep Learning</span>
           <span class="pill">Automotive Industry</span>
-          <span class="pill">Case Study Analysis</span>
+          <span class="pill">Model Selection</span>
         </div>
       </div>
     </section>
@@ -450,15 +450,15 @@
             <h2 class="section-title">Introduction</h2>
 
             <p class="dropcap">
-              Machine learning and deep learning are often grouped together as if one naturally replaces the other. In practice, they serve different purposes. This artifact uses the automotive industry to make that distinction concrete by comparing a structured business prediction problem with a raw-sensor autonomous driving problem.
+              Machine learning and deep learning are often discussed as if one naturally supersedes the other. In practice, they solve fundamentally different classes of problems. The distinction becomes clearer when examined through real-world use cases rather than abstract model definitions.
             </p>
 
             <div class="quote-block">
-              The strongest AI decision is not choosing the most advanced model. It is choosing the model that best fits the data, the business objective, the need for explainability, and the consequence of failure.
+              The strongest AI decision is not selecting the most advanced model. It is selecting the model that best fits the data, the business objective, the need for explainability, and the consequences of failure.
             </div>
 
             <p class="lead">
-              By pairing GM OnStar churn prediction with Waymo autonomous driving, this project moves beyond abstract theory. It demonstrates that traditional machine learning and deep learning are each powerful in the right context, but ineffective when applied to the wrong one.
+              This project uses the automotive industry as a comparative lens. GM OnStar churn prediction illustrates how traditional machine learning excels with structured business data, while Waymo autonomous driving demonstrates why deep learning becomes necessary when the system must interpret raw, high-dimensional sensor input in real time.
             </p>
           </div>
         </div>
@@ -476,10 +476,10 @@
                 <span class="tag">Traditional Machine Learning</span>
                 <h3>GM OnStar Churn Prediction</h3>
                 <ul>
-                  <li>Works with structured customer records such as usage frequency, billing patterns, and subscription history.</li>
-                  <li>Supports explainability, which helps business teams understand why a customer is marked at risk.</li>
-                  <li>Requires moderate data volume and lower compute cost.</li>
-                  <li>Fits retention and classification problems where features can be clearly defined.</li>
+                  <li>Uses structured customer data such as contract terms, billing patterns, feature usage, and service history.</li>
+                  <li>Works well when domain experts can identify meaningful features ahead of time.</li>
+                  <li>Provides explainable outputs that business teams can act on with confidence.</li>
+                  <li>Requires moderate data volume and lower computational cost.</li>
                 </ul>
               </div>
 
@@ -487,10 +487,10 @@
                 <span class="tag">Deep Learning</span>
                 <h3>Waymo Autonomous Driving</h3>
                 <ul>
-                  <li>Processes raw, unstructured data from cameras, LiDAR, and radar.</li>
-                  <li>Learns useful features automatically instead of relying on manual engineering.</li>
-                  <li>Needs massive data volume and high computational power.</li>
-                  <li>Fits perception-heavy tasks where real-time interpretation of complex environments is essential.</li>
+                  <li>Processes raw and unstructured input from cameras, LiDAR, and radar.</li>
+                  <li>Learns useful features automatically from high-dimensional sensor streams.</li>
+                  <li>Supports perception-heavy tasks where manual feature engineering is not realistic.</li>
+                  <li>Requires very large training data volume, high compute, and advanced infrastructure.</li>
                 </ul>
               </div>
             </div>
@@ -498,7 +498,7 @@
             <div class="center-panel">
               <h3>Strategic Distinction</h3>
               <p>
-                Traditional ML is strongest when the data is structured and decisions must be explainable. Deep learning becomes necessary when the environment is perceptual, dynamic, and too information-rich for human-engineered features.
+                Traditional machine learning is strongest when the problem is structured and explainability matters. Deep learning is strongest when the environment is perceptual, complex, and too information-rich for manually engineered features.
               </p>
             </div>
           </div>
@@ -516,14 +516,14 @@
               <div class="info-card">
                 <h3>Business Problem</h3>
                 <p>
-                  GM’s OnStar connected vehicle service depends on recurring subscribers. Predicting churn before cancellation allows GM to take proactive retention action and protect revenue.
+                  GM’s OnStar subscription business depends on retaining connected-service users over time. Churn prediction allows the company to identify high-risk subscribers early and intervene before cancellation, supporting recurring revenue and customer retention strategy.
                 </p>
               </div>
 
               <div class="info-card">
                 <h3>Why the Method Fits</h3>
                 <p>
-                  The available inputs are structured and tabular: contract terms, usage frequency, service history, billing activity, and vehicle information. These are exactly the conditions where traditional ML methods such as SVM and gradient boosting perform effectively.
+                  The available inputs are structured and tabular: service usage, billing history, contract details, support interactions, and vehicle attributes. These are precisely the conditions where traditional machine learning methods such as SVM and gradient boosting are effective.
                 </p>
               </div>
             </div>
@@ -532,14 +532,14 @@
               <div class="info-card">
                 <h3>Interpretability Advantage</h3>
                 <p>
-                  Business teams need more than a prediction. They need a reason they can act on. Traditional ML supports that need by making churn drivers easier to explain and connect to retention strategy.
+                  Business stakeholders need more than a prediction. They need a reason they can act on. Traditional ML provides a degree of transparency that supports targeted retention actions such as outreach, incentives, or service reminders.
                 </p>
               </div>
 
               <div class="info-card">
-                <h3>Why Deep Learning Is Not Ideal Here</h3>
+                <h3>Why Deep Learning Is Not the Better Choice</h3>
                 <p>
-                  Deep learning would introduce more complexity, higher computational cost, and reduced explainability without meaningful benefit for a structured churn prediction task.
+                  Deep learning adds complexity, infrastructure cost, and reduced explainability without delivering proportional benefit for a structured churn prediction use case. In this context, the added sophistication does not improve decision quality enough to justify the trade-off.
                 </p>
               </div>
             </div>
@@ -558,30 +558,30 @@
               <div class="info-card">
                 <h3>Autonomous Driving Context</h3>
                 <p>
-                  Waymo operates in complex environments where the system must interpret roads, people, signals, vehicles, and hazards from live sensor streams with no human intervention.
+                  Waymo operates in environments where the system must continuously interpret roads, pedestrians, vehicles, traffic signals, and obstacles from live sensor streams. The challenge is not simply predictive — it is perceptual, dynamic, and safety-critical.
                 </p>
               </div>
 
               <div class="info-card">
                 <h3>Why the Method Fits</h3>
                 <p>
-                  Deep learning can extract meaningful patterns from raw visual and spatial data, enabling object recognition, scene understanding, and real-time navigation decisions in ways traditional ML cannot scale to match.
+                  Deep learning can extract patterns directly from raw visual and spatial input, making it suitable for scene understanding, object detection, and real-time decision support. CNNs and reinforcement learning approaches align naturally with this type of problem.
                 </p>
               </div>
             </div>
 
             <div class="two-col">
               <div class="info-card">
-                <h3>Scale & Complexity</h3>
+                <h3>Scale and Learning Capacity</h3>
                 <p>
-                  Autonomous driving requires training on millions of real-world miles and billions of simulated miles, because edge cases and rare conditions are critical to safety. Deep learning improves as that scale grows.
+                  Autonomous driving systems improve through exposure to large volumes of real and simulated driving data. This scale is essential because edge cases, environmental variability, and rare events must all be represented if the system is to perform safely without human intervention.
                 </p>
               </div>
 
               <div class="info-card">
                 <h3>Why Traditional ML Breaks Down</h3>
                 <p>
-                  Traditional ML depends on manually engineered features. In raw sensor environments, that approach cannot capture the complexity of real-world driving without major information loss and reduced reliability.
+                  Traditional ML depends heavily on manually engineered features. In raw sensor environments, that approach becomes impractical because too much information must be abstracted before learning even begins, leading to loss of richness and weaker real-world performance.
                 </p>
               </div>
             </div>
@@ -593,15 +593,54 @@
         <div class="container section-grid">
           <div class="section-num">04</div>
           <div>
-            <div class="section-label">Visual Artifact</div>
-            <h2 class="section-title">Comparative Infographic</h2>
+            <div class="section-label">Trade-offs</div>
+            <h2 class="section-title">What This Comparison Reveals About AI Design</h2>
 
-            <p class="lead">
-              This visual artifact summarizes the core comparison: structured versus unstructured data, interpretability, compute demands, and why each method succeeds in one automotive use case while failing in the other.
-            </p>
+            <div class="comparison">
+              <div class="compare-box">
+                <span class="tag">Trade-off 1</span>
+                <h3>Interpretability vs Capability</h3>
+                <ul>
+                  <li>Traditional ML tends to be more transparent and easier to explain.</li>
+                  <li>Deep learning often delivers higher capability in unstructured domains but with reduced interpretability.</li>
+                </ul>
+              </div>
 
-            <div class="artifact-frame">
-              <img src="project3-ml-vs-dl.png" alt="Machine Learning versus Deep Learning infographic">
+              <div class="compare-box">
+                <span class="tag">Trade-off 2</span>
+                <h3>Feature Engineering vs Representation Learning</h3>
+                <ul>
+                  <li>Traditional ML requires humans to identify relevant features in advance.</li>
+                  <li>Deep learning shifts that burden into the model itself by learning representations automatically.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="comparison">
+              <div class="compare-box">
+                <span class="tag">Trade-off 3</span>
+                <h3>Infrastructure Cost vs Problem Fit</h3>
+                <ul>
+                  <li>Deep learning needs larger data volume, stronger compute, and more complex training pipelines.</li>
+                  <li>Those costs are justified only when the problem actually requires that level of modeling power.</li>
+                </ul>
+              </div>
+
+              <div class="compare-box">
+                <span class="tag">Trade-off 4</span>
+                <h3>Operational Stakes</h3>
+                <ul>
+                  <li>Churn prediction influences business strategy.</li>
+                  <li>Autonomous driving influences physical safety. That difference changes how model choices must be evaluated and governed.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="center-panel">
+              <h3>Architect Perspective</h3>
+              <p>
+                The choice between traditional machine learning and deep learning is not a matter of capability alone. It is a matter of alignment with data structure, interpretability requirements, infrastructure constraints, and operational risk.
+              </p>
             </div>
           </div>
         </div>
@@ -611,17 +650,35 @@
         <div class="container section-grid">
           <div class="section-num">05</div>
           <div>
-            <div class="section-label">Final Synthesis</div>
-            <h2 class="section-title">The Real Takeaway</h2>
+            <div class="section-label">Visual Artifact</div>
+            <h2 class="section-title">Comparative Infographic</h2>
 
             <p class="lead">
-              This artifact shows that AI selection should be driven by problem structure, data characteristics, explainability requirements, and operational stakes. In practice, the best solution is rarely the most fashionable one — it is the one that fits.
+              This visual artifact summarizes the full comparison through an automotive lens, showing how different model classes become appropriate under different technical and business conditions.
+            </p>
+
+            <div class="artifact-frame">
+              <img src="project3-ml-vs-dl.png" alt="Machine Learning vs Deep Learning infographic">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="paper-section">
+        <div class="container section-grid">
+          <div class="section-num">06</div>
+          <div>
+            <div class="section-label">Final Synthesis</div>
+            <h2 class="section-title">Why This Matters</h2>
+
+            <p class="lead">
+              This project shows that AI model selection should not be driven by trend, complexity, or hype. It should be driven by the nature of the problem, the form of the data, the business need for explanation, and the infrastructure required to support the solution responsibly.
             </p>
 
             <div class="center-panel">
-              <h3>Why This Matters in a Portfolio</h3>
+              <h3>Portfolio Value</h3>
               <p>
-                This project demonstrates the ability to compare methods critically, translate theory into real-world industry context, and explain model selection through business and architectural reasoning rather than surface-level AI terminology.
+                This artifact demonstrates the ability to compare methodologies critically, connect technical model choices to industry use cases, and reason about AI architecture through the lens of practical problem fit. That is exactly the mindset required for real-world solution design.
               </p>
             </div>
 
