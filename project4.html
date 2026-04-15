@@ -427,7 +427,7 @@
         </p>
 
         <p class="hero-note">
-          This artifact focuses on four ML pipeline stages where bias emerges, examines documented real-world failure patterns, and translates responsible AI principles into implementable architectural controls. :contentReference[oaicite:1]{index=1}
+          This artifact focuses on four machine learning pipeline stages where bias emerges, examines documented real-world failure patterns, and translates responsible AI principles into implementable architectural controls.
         </p>
 
         <div class="hero-pills">
@@ -450,7 +450,7 @@
             <h2 class="section-title">Introduction</h2>
 
             <p class="dropcap">
-              When a self-driving car fails to detect a pedestrian because the training data lacked sufficient diversity in lighting conditions, demographics, or weather scenarios, that is not a software bug. It is bias built into the system long before deployment. :contentReference[oaicite:2]{index=2}
+              When a self-driving car fails to detect a pedestrian because the training data lacked sufficient diversity in lighting conditions, demographics, or weather scenarios, that is not a software bug. It is bias built into the system long before deployment.
             </p>
 
             <div class="quote-block">
@@ -458,7 +458,7 @@
             </div>
 
             <p class="lead">
-              This artifact examines AI bias as a lifecycle issue rather than a narrow modeling issue. It shows how seemingly minor skew in data collection, annotation, training, or deployment can compound into unequal and potentially dangerous outcomes in real-world automotive systems. :contentReference[oaicite:3]{index=3}
+              This artifact examines AI bias as a lifecycle issue rather than a narrow modeling issue. It shows how seemingly minor skew in data collection, annotation, training, or deployment can compound into unequal and potentially dangerous outcomes in real-world automotive systems.
             </p>
           </div>
         </div>
@@ -518,7 +518,7 @@
             <div class="center-panel">
               <h3>Architectural Reading</h3>
               <p>
-                Bias does not “appear” at the end. It accumulates through the pipeline. That is why fairness must be designed as an end-to-end system property rather than treated as a final model check. :contentReference[oaicite:4]{index=4}
+                Bias does not appear only at the end. It accumulates through the pipeline. That is why fairness must be designed as an end-to-end system property rather than treated as a final model check.
               </p>
             </div>
           </div>
@@ -536,30 +536,30 @@
               <div class="info-card">
                 <h3>Autonomous Detection Gaps</h3>
                 <p>
-                  Automotive perception systems have documented drops in performance under rain, darkness, and varied demographic conditions. These are not abstract fairness concerns; they are direct safety risks affecting passengers and pedestrians. :contentReference[oaicite:5]{index=5}
+                  Automotive perception systems can show drops in performance under rain, darkness, and varied demographic conditions. These are not abstract fairness concerns; they are direct safety risks affecting passengers and pedestrians.
                 </p>
               </div>
 
               <div class="info-card">
                 <h3>Facial Recognition Inequality</h3>
                 <p>
-                  In-vehicle biometric and recognition systems can fail unevenly across demographic groups when training data lacks representativeness. That creates unequal user experience and undermines trust in AI-enabled vehicle systems. :contentReference[oaicite:6]{index=6}
+                  In-vehicle biometric and recognition systems can fail unevenly across demographic groups when training data lacks representativeness. That creates unequal user experience and undermines trust in AI-enabled vehicle systems.
                 </p>
               </div>
             </div>
 
             <div class="two-col">
               <div class="info-card">
-                <h3>Biased Decision Algorithms</h3>
+                <h3>Biased Predictive Maintenance or Risk Scoring</h3>
                 <p>
-                  Historical hiring and decision data can cause automated systems to unfairly favor or exclude groups. Although outside core vehicle perception, this shows the same principle: when biased history becomes training input, models reproduce it at scale. :contentReference[oaicite:7]{index=7}
+                  Bias can also appear in automotive-adjacent decision systems such as predictive maintenance prioritization, driver risk scoring, or insurance-related pricing models when historical data systematically overrepresents or underrepresents certain conditions or populations.
                 </p>
               </div>
 
               <div class="info-card">
                 <h3>Unchecked Impact</h3>
                 <p>
-                  The consequences extend beyond model quality. They include physical safety exposure, legal and regulatory penalties, and lasting reputational damage that can reshape public trust in an automotive brand. :contentReference[oaicite:8]{index=8}
+                  The consequences extend beyond model quality. They include physical safety exposure, legal and regulatory risk, and long-term reputational damage that can reshape public trust in an automotive brand.
                 </p>
               </div>
             </div>
@@ -578,14 +578,14 @@
               <div class="info-card">
                 <h3>Diverse and Representative Datasets</h3>
                 <p>
-                  Fair systems begin with broader data coverage. A robust data strategy must capture demographic variety, environmental diversity, and meaningful edge cases rather than optimizing only for dominant scenarios. :contentReference[oaicite:9]{index=9}
+                  Fair systems begin with broader data coverage. A robust data strategy must capture demographic variety, environmental diversity, and meaningful edge cases rather than optimizing only for dominant scenarios.
                 </p>
               </div>
 
               <div class="info-card">
                 <h3>Bias Auditing Tooling</h3>
                 <p>
-                  Industry-standard tools such as IBM AI Fairness 360 and the Google What-If Tool provide measurable methods for identifying disparate impact, comparing outcomes across groups, and validating mitigation strategies. :contentReference[oaicite:10]{index=10}
+                  Industry-standard tools such as IBM AI Fairness 360 and the Google What-If Tool provide measurable methods for identifying disparate impact, comparing outcomes across groups, and validating mitigation strategies.
                 </p>
               </div>
             </div>
@@ -594,14 +594,14 @@
               <div class="info-card">
                 <h3>Continuous Post-Deployment Monitoring</h3>
                 <p>
-                  Monitoring must extend beyond uptime and latency. Fairness-sensitive systems require drift detection, outcome analysis, and periodic re-evaluation to catch degradation after release. :contentReference[oaicite:11]{index=11}
+                  Monitoring must extend beyond uptime and latency. Fairness-sensitive systems require drift detection, outcome analysis, and periodic re-evaluation to catch degradation after release.
                 </p>
               </div>
 
               <div class="info-card">
                 <h3>Human-in-the-Loop Review</h3>
                 <p>
-                  High-stakes or ambiguous decisions need oversight. Human review provides a control point where automated recommendations can be challenged, corrected, or escalated when model confidence is not enough. :contentReference[oaicite:12]{index=12}
+                  High-stakes or ambiguous decisions need oversight. Human review provides a control point where automated recommendations can be challenged, corrected, or escalated when model confidence is not enough.
                 </p>
               </div>
             </div>
@@ -609,7 +609,7 @@
             <div class="center-panel">
               <h3>Guardrail Logic</h3>
               <p>
-                These controls are effective because they map back to the pipeline itself: better data at the front, better auditing during development, better monitoring in production, and better human accountability around high-risk outcomes. :contentReference[oaicite:13]{index=13}
+                These controls are effective because they map back to the pipeline itself: better data at the front, better auditing during development, better monitoring in production, and better human accountability around high-risk outcomes.
               </p>
             </div>
           </div>
@@ -674,11 +674,11 @@
             <h2 class="section-title">Architecting Fairness Infographic</h2>
 
             <p class="lead">
-              This visual artifact brings together the full argument in one frame: where bias enters, how it appears in real systems, what happens if it is left unchecked, and which architectural guardrails create a more responsible AI lifecycle. :contentReference[oaicite:14]{index=14}
+              This visual artifact brings together the full argument in one frame: where bias enters, how it appears in real systems, what happens if it is left unchecked, and which architectural guardrails create a more responsible AI lifecycle.
             </p>
 
             <div class="artifact-frame">
-              <img src="project4-ai-bias-infographic.png" alt="AI Bias Infographic">
+              <img src="project-04-leading-beyond-the-blind-spot.png" alt="Architecting Fairness infographic">
             </div>
           </div>
         </div>
@@ -698,7 +698,7 @@
             <div class="center-panel">
               <h3>Architect Perspective</h3>
               <p>
-                This artifact demonstrates the ability to translate ethical AI principles into concrete design logic. It connects machine learning bias to systems architecture, compliance risk, and real-world human consequences — which is exactly where responsible AI becomes a leadership responsibility rather than a theoretical discussion. :contentReference[oaicite:15]{index=15}
+                This artifact demonstrates the ability to translate ethical AI principles into concrete design logic. It connects machine learning bias to systems architecture, compliance risk, and real-world human consequences — which is exactly where responsible AI becomes a leadership responsibility rather than a theoretical discussion.
               </p>
             </div>
 
