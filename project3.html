@@ -479,7 +479,7 @@
                   <li>Uses structured customer data such as contract terms, billing patterns, feature usage, and service history.</li>
                   <li>Works well when domain experts can identify meaningful features ahead of time.</li>
                   <li>Provides explainable outputs that business teams can act on with confidence.</li>
-                  <li>Requires moderate data volume and lower computational cost.</li>
+                  <li>Gradient boosting models are especially effective in this setting because they perform strongly on tabular data, handle nonlinear feature interactions well, and remain practical even when the dataset is incomplete or moderately sized.</li>
                 </ul>
               </div>
 
@@ -490,7 +490,7 @@
                   <li>Processes raw and unstructured input from cameras, LiDAR, and radar.</li>
                   <li>Learns useful features automatically from high-dimensional sensor streams.</li>
                   <li>Supports perception-heavy tasks where manual feature engineering is not realistic.</li>
-                  <li>Requires very large training data volume, high compute, and advanced infrastructure.</li>
+                  <li>Convolutional neural networks are critical here because they learn spatial feature hierarchies directly from raw visual data, which manual engineering cannot reproduce at the fidelity required for autonomous systems.</li>
                 </ul>
               </div>
             </div>
@@ -523,7 +523,7 @@
               <div class="info-card">
                 <h3>Why the Method Fits</h3>
                 <p>
-                  The available inputs are structured and tabular: service usage, billing history, contract details, support interactions, and vehicle attributes. These are precisely the conditions where traditional machine learning methods such as SVM and gradient boosting are effective.
+                  The available inputs are structured and tabular: service usage, billing history, contract details, support interactions, and vehicle attributes. These are precisely the conditions where traditional machine learning methods such as gradient boosting, SVMs, and related tabular classifiers perform effectively.
                 </p>
               </div>
             </div>
