@@ -17,6 +17,7 @@
       --text:#f5f2eb;
       --muted:#b8b0a1;
       --gold:#d7a85d;
+      --gold-deep:#b88432;
       --line:rgba(215,168,93,0.22);
       --line-soft:rgba(255,255,255,0.08);
       --shadow:0 24px 60px rgba(0,0,0,0.45);
@@ -348,26 +349,52 @@
       justify-content:center;
       padding:14px 22px;
       border-radius:999px;
-      border:1px solid rgba(215,168,93,0.30);
-      background:linear-gradient(180deg, rgba(215,168,93,0.18), rgba(215,168,93,0.08));
-      color:#f7f0e7;
-      font-weight:700;
-      transition:transform 0.25s ease, border-color 0.25s ease;
+      border:1px solid var(--gold-deep);
+      background:linear-gradient(180deg, #d7a85d 0%, #b88432 100%);
+      color:#111111;
+      font-weight:800;
+      letter-spacing:0.01em;
+      transition:transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+      box-shadow:0 10px 24px rgba(0,0,0,0.18);
     }
 
     .btn:hover{
       transform:translateY(-2px);
-      border-color:rgba(215,168,93,0.55);
+      border-color:#9f742d;
+      box-shadow:0 14px 30px rgba(0,0,0,0.22);
     }
 
     .btn.secondary{
       background:#fffdfb;
-      color:#3a332d;
-      border:1px solid rgba(0,0,0,0.12);
+      color:#2f2924;
+      border:1px solid rgba(0,0,0,0.16);
+      box-shadow:none;
     }
 
     .btn.secondary:hover{
-      border-color:rgba(0,0,0,0.24);
+      border-color:rgba(0,0,0,0.26);
+    }
+
+    .pdf-frame{
+      margin-top:28px;
+      background:#fffdfb;
+      border:1px solid rgba(0,0,0,0.08);
+      padding:14px;
+    }
+
+    .pdf-frame embed,
+    .pdf-frame iframe{
+      display:block;
+      width:100%;
+      height:980px;
+      border:1px solid rgba(0,0,0,0.08);
+      background:#ffffff;
+    }
+
+    .pdf-note{
+      margin-top:14px;
+      color:#6b645d;
+      font-size:0.95rem;
     }
 
     .bottom-nav{
@@ -415,6 +442,11 @@
 
       .paper-section{
         padding:58px 0;
+      }
+
+      .pdf-frame embed,
+      .pdf-frame iframe{
+        height:720px;
       }
     }
   </style>
@@ -816,15 +848,21 @@
             </p>
 
             <div class="artifact-frame">
-              <!-- CHANGE THIS IMAGE FILENAME IF NEEDED -->
               <img src="project5-watson-infographic.png" alt="IBM Watson healthcare AI infographic">
             </div>
 
             <div class="button-row">
-              <!-- CHANGE THIS PDF FILENAME IF NEEDED -->
-              <a class="btn" href="project5-watson-deck.pdf" target="_blank" rel="noopener noreferrer">Open PDF</a>
+              <a class="btn" href="project5-watson-deck.pdf" target="_blank" rel="noopener noreferrer">Open PDF in New Tab</a>
               <a class="btn secondary" href="index.html">← Back to Homepage</a>
             </div>
+
+            <div class="pdf-frame">
+              <embed src="project5-watson-deck.pdf" type="application/pdf">
+            </div>
+
+            <p class="pdf-note">
+              If the PDF does not render on your browser or mobile device, use the “Open PDF in New Tab” button above.
+            </p>
           </div>
         </div>
       </section>
