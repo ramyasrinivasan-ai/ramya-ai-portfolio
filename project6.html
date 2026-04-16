@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data Analytics for Streaming Strategy and Content Intelligence | Ramya Srinivasan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#060606;
+      --paper:#f3f0eb;
+      --paper-text:#292521;
+      --paper-muted:#6b645d;
+      --text:#f5f2eb;
+      --muted:#b8b0a1;
+      --gold:#d7a85d;
+      --gold-deep:#b88432;
+      --line:rgba(215,168,93,0.22);
+      --line-soft:rgba(255,255,255,0.08);
+      --shadow:0 24px 60px rgba(0,0,0,0.45);
+      --max:1180px;
+    }
+
+    *{box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+
+    body{
+      margin:0;
+      font-family:Inter,system-ui,sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(175,25,35,0.12), transparent 22%),
+        radial-gradient(circle at top right, rgba(215,168,93,0.08), transparent 20%),
+        linear-gradient(180deg, #020203 0%, #060606 50%, #080809 100%);
+      color:var(--text);
+      line-height:1.7;
+    }
+
+    a{text-decoration:none;color:inherit;}
+    img{display:block;max-width:100%;}
+
+    .page{
+      width:min(calc(100% - 32px), 1280px);
+      margin:18px auto;
+      border:1px solid var(--line);
+      border-radius:30px;
+      overflow:hidden;
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      box-shadow:var(--shadow);
+    }
+
+    .container{
+      width:min(calc(100% - 56px), var(--max));
+      margin:0 auto;
+    }
+
+    .top{
+      padding:24px 0;
+      border-bottom:1px solid var(--line-soft);
+      background:rgba(0,0,0,0.35);
+    }
+
+    .top-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+
+    .back-link{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      color:var(--gold);
+      font-weight:700;
+    }
+
+    .hero{
+      padding:68px 0 58px;
+    }
+
+    .hero-meta{
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+      margin-bottom:34px;
+      color:#b28787;
+      font-size:0.76rem;
+      letter-spacing:0.16em;
+      text-transform:uppercase;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      padding:10px 18px;
+      border-radius:999px;
+      border:1px solid rgba(215,168,93,0.28);
+      color:var(--gold);
+      letter-spacing:0.16em;
+      text-transform:uppercase;
+      font-size:0.76rem;
+      margin-bottom:24px;
+    }
+
+    h1{
+      margin:0 0 18px;
+      font-family:Manrope,Inter,sans-serif;
+      font-size:clamp(3rem, 7vw, 6rem);
+      line-height:0.95;
+      letter-spacing:-0.06em;
+      max-width:1080px;
+    }
+
+    .hero-subtitle{
+      margin:0 0 22px;
+      max-width:840px;
+      color:#ded5c8;
+      font-size:1.1rem;
+    }
+
+    .hero-note{
+      max-width:800px;
+      color:var(--muted);
+      font-size:0.98rem;
+    }
+
+    .hero-pills{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:26px;
+    }
+
+    .pill{
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid rgba(215,168,93,0.22);
+      background:rgba(255,255,255,0.02);
+      color:#efe6da;
+      font-size:0.92rem;
+    }
+
+    .divider{
+      height:1px;
+      background:linear-gradient(90deg, transparent, rgba(215,168,93,0.24), transparent);
+    }
+
+    .paper{
+      background:var(--paper);
+      color:var(--paper-text);
+    }
+
+    .paper-section{
+      padding:82px 0;
+      border-bottom:1px solid rgba(0,0,0,0.08);
+    }
+
+    .section-grid{
+      display:grid;
+      grid-template-columns:110px 1fr;
+      gap:28px;
+      align-items:start;
+    }
+
+    .section-num{
+      font-family:Cormorant Garamond, serif;
+      font-size:3.1rem;
+      line-height:1;
+      color:#d3ccc5;
+      padding-top:8px;
+    }
+
+    .section-label{
+      margin:0 0 10px;
+      font-size:0.74rem;
+      letter-spacing:0.18em;
+      text-transform:uppercase;
+      color:#aa6d76;
+      font-weight:700;
+    }
+
+    .section-title{
+      margin:0 0 22px;
+      font-family:Cormorant Garamond, serif;
+      font-size:3rem;
+      line-height:0.98;
+      font-weight:600;
+      letter-spacing:-0.02em;
+    }
+
+    .lead{
+      font-size:1.16rem;
+      color:var(--paper-muted);
+      max-width:890px;
+      margin:0 0 28px;
+    }
+
+    .dropcap{
+      font-size:1.06rem;
+      color:#5f5852;
+      max-width:890px;
+    }
+
+    .dropcap::first-letter{
+      float:left;
+      font-family:Cormorant Garamond, serif;
+      font-size:4.4rem;
+      line-height:0.9;
+      padding-right:10px;
+      color:#2e2824;
+    }
+
+    .quote-block{
+      margin:34px 0;
+      padding:26px 28px;
+      background:#efe3e3;
+      border-left:3px solid #b64c58;
+      font-family:Cormorant Garamond, serif;
+      font-size:1.22rem;
+      line-height:1.6;
+      color:#6a3f45;
+    }
+
+    .two-col{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:32px;
+      margin-top:28px;
+    }
+
+    .info-card{
+      background:#fffdfb;
+      border:1px solid rgba(0,0,0,0.08);
+      padding:30px;
+      min-height:100%;
+    }
+
+    .info-card h3{
+      margin:0 0 14px;
+      font-size:1.35rem;
+      color:#231f1c;
+    }
+
+    .info-card p{
+      margin:0;
+      color:#5b5550;
+    }
+
+    .info-card p + p{
+      margin-top:14px;
+    }
+
+    .comparison{
+      margin-top:28px;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:28px;
+    }
+
+    .compare-box{
+      padding:30px;
+      border:1px solid rgba(0,0,0,0.1);
+      background:#fffdfb;
+    }
+
+    .compare-box .tag{
+      display:inline-block;
+      margin-bottom:16px;
+      padding:8px 12px;
+      border:1px solid rgba(0,0,0,0.1);
+      border-radius:999px;
+      font-size:0.78rem;
+      letter-spacing:0.12em;
+      text-transform:uppercase;
+      color:#7d7268;
+    }
+
+    .compare-box h3{
+      margin:0 0 14px;
+      font-size:1.45rem;
+      color:#231f1c;
+    }
+
+    .compare-box ul{
+      margin:0;
+      padding-left:18px;
+      color:#5b5550;
+    }
+
+    .compare-box li + li{
+      margin-top:10px;
+    }
+
+    .center-panel{
+      margin-top:34px;
+      padding:36px;
+      background:#0b0b0d;
+      color:#f5f2eb;
+      border:1px solid rgba(215,168,93,0.2);
+    }
+
+    .center-panel h3{
+      margin:0 0 14px;
+      font-family:Cormorant Garamond, serif;
+      font-size:2rem;
+      font-weight:600;
+    }
+
+    .center-panel p{
+      margin:0;
+      color:#d9d0c4;
+      max-width:860px;
+    }
+
+    .artifact-frame{
+      margin-top:28px;
+      background:#fffdfb;
+      border:1px solid rgba(0,0,0,0.08);
+      padding:22px;
+    }
+
+    .artifact-frame img{
+      width:100%;
+      height:auto;
+      object-fit:contain;
+      border:1px solid rgba(0,0,0,0.08);
+      transition:transform 0.35s ease;
+    }
+
+    .artifact-frame:hover img{
+      transform:scale(1.01);
+    }
+
+    .button-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+      margin-top:26px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:14px 22px;
+      border-radius:999px;
+      border:1px solid var(--gold-deep);
+      background:linear-gradient(180deg, #d7a85d 0%, #b88432 100%);
+      color:#111111;
+      font-weight:800;
+      letter-spacing:0.01em;
+      transition:transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+      box-shadow:0 10px 24px rgba(0,0,0,0.18);
+    }
+
+    .btn:hover{
+      transform:translateY(-2px);
+      border-color:#9f742d;
+      box-shadow:0 14px 30px rgba(0,0,0,0.22);
+    }
+
+    .btn.secondary{
+      background:#fffdfb;
+      color:#2f2924;
+      border:1px solid rgba(0,0,0,0.16);
+      box-shadow:none;
+    }
+
+    .btn.secondary:hover{
+      border-color:rgba(0,0,0,0.26);
+    }
+
+    .pdf-frame{
+      margin-top:28px;
+      background:#fffdfb;
+      border:1px solid rgba(0,0,0,0.08);
+      padding:14px;
+    }
+
+    .pdf-frame embed,
+    .pdf-frame iframe{
+      display:block;
+      width:100%;
+      height:980px;
+      border:1px solid rgba(0,0,0,0.08);
+      background:#ffffff;
+    }
+
+    .pdf-note{
+      margin-top:14px;
+      color:#6b645d;
+      font-size:0.95rem;
+    }
+
+    .bottom-nav{
+      text-align:center;
+      margin-top:34px;
+    }
+
+    @media (max-width: 980px){
+      .two-col,
+      .comparison{
+        grid-template-columns:1fr;
+      }
+
+      .section-grid{
+        grid-template-columns:1fr;
+        gap:18px;
+      }
+
+      .section-num{
+        font-size:2.2rem;
+      }
+    }
+
+    @media (max-width: 760px){
+      .page{
+        width:min(calc(100% - 14px), 1280px);
+        border-radius:22px;
+      }
+
+      .container{
+        width:min(calc(100% - 24px), var(--max));
+      }
+
+      .hero{
+        padding:42px 0 46px;
+      }
+
+      .section-title{
+        font-size:2.35rem;
+      }
+
+      h1{
+        font-size:clamp(2.4rem, 13vw, 4rem);
+      }
+
+      .paper-section{
+        padding:58px 0;
+      }
+
+      .pdf-frame embed,
+      .pdf-frame iframe{
+        height:720px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="top">
+      <div class="container top-inner">
+        <a class="back-link" href="index.html">← Back to Portfolio</a>
+        <div>Ramya Srinivasan • AI Solutions Architect</div>
+      </div>
+    </div>
+
+    <section class="hero">
+      <div class="container">
+        <div class="hero-meta">
+          <span>Streaming Analytics & Content Strategy</span>
+          <span>2026</span>
+        </div>
+
+        <div class="eyebrow">Project 06</div>
+
+        <h1>Data Analytics for Streaming Strategy and Content Intelligence</h1>
+
+        <p class="hero-subtitle">
+          A Netflix case study showing how structured content data, analytical discipline, and visualization-driven reasoning can inform strategic decisions around personalization, content mix, global growth, and subscriber retention.
+        </p>
+
+        <p class="hero-note">
+          This project treats data analytics as a decision system rather than a charting exercise. Starting from Netflix’s content catalog, it moves through cleaning, exploratory analysis, visual storytelling, and business recommendations to show how data-backed insight can influence real platform strategy.
+        </p>
+
+        <div class="hero-pills">
+          <span class="pill">Netflix</span>
+          <span class="pill">Data Analytics</span>
+          <span class="pill">Streaming Strategy</span>
+          <span class="pill">Content Intelligence</span>
+          <span class="pill">Business Recommendations</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <main class="paper">
+      <section class="paper-section">
+        <div class="container section-grid">
+          <div class="section-num">00</div>
+          <div>
+            <div class="section-label">Context & Foundation</div>
+            <h2 class="section-title">Introduction</h2>
+
+            <p class="dropcap">
+              Netflix is often discussed as a streaming platform, but operationally it is also a large-scale analytics organization. With a global subscriber base, an enormous content library, and constant competitive pressure, Netflix cannot rely on intuition alone when deciding what to produce, what to promote, and how to retain audience attention over time. The platform’s advantage comes from its ability to convert data into decisions at scale.
+            </p>
+
+            <div class="quote-block">
+              Strong analytics work does more than describe what happened. It identifies which patterns matter, why they matter, and what an organization should do differently because of them.
+            </div>
+
+            <p class="lead">
+              This project applies the complete data analytics lifecycle to Netflix’s public content catalog, beginning with dataset review and preparation, moving through targeted visual analysis, and ending with recommendations tied directly to business strategy. The result is not just a set of charts, but a structured argument about how data can guide content investment, international expansion, and subscriber retention decisions.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="paper-section">
+        <div class="container section-grid">
+          <div class="section-num">01</div>
+          <div>
+            <div class="section-label">The Business Problem</div>
+            <h2 class="section-title">Why Content Scale Alone Is Not a Strategy</h2>
+
+            <div class="two-col">
+              <div class="info-card">
+                <h3>The Strategic Tension</h3>
+                <p>
+                  Netflix operates in an environment shaped by subscriber churn, rising competition, content saturation, and increasing production cost. In that context, simply adding more titles is not enough. The platform needs sharper decisions about what kinds of content drive loyalty, where investment creates the most value, and how programming choices support long-term growth rather than short-term volume.
+                </p>
+              </div>
+
+              <div class="info-card">
+                <h3>Why Analytics Matters</h3>
+                <p>
+                  Data becomes essential because the underlying questions are strategic: which content categories hold attention, which markets show the strongest growth potential, how content mix influences retention, and where the platform may be under-serving important audience segments. These are exactly the types of questions that analytics should resolve.
+                </p>
+              </div>
+            </div>
+
+            <div class="two-col">
+              <div class="info-card">
+                <h3>Industry Framing</h3>
+                <p>
+                  Streaming businesses do not compete only on quantity. They compete on personalization, portfolio design, global relevance, and the ability to invest in titles that create durable audience value. That is why the quality of decision-making around content matters as much as the content itself.
+                </p>
+              </div>
+
+              <div class="info-card">
+                <h3>Portfolio Perspective</h3>
+                <p>
+                  This artifact demonstrates how analytics can be used to move from descriptive platform data to strategic recommendations. It shows not only the ability to analyze a dataset, but the ability to connect analytical findings to a real commercial operating model.
+                </p>
+              </div>
+            </div>
+
+            <div class="center-panel">
+              <h3>Strategic Framing</h3>
+              <p>
+                In streaming, the real question is not whether content exists. The real question is whether the content portfolio is structured in a way that supports retention, growth, and efficient investment over time.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="paper-section">
+        <div class="container section-grid">
+          <div class="section-num">02</div>
+          <div>
+            <div class="section-label">Dataset & Scope</div>
+            <h2 class="section-title">Building an Analytical View of Netflix’s Content Portfolio</h2>
+
+            <div class="comparison">
+              <div class="compare-box">
+                <span class="tag">Dataset Snapshot</span>
+                <h3>What Was Analyzed</h3>
+                <ul>
+                  <li>The source dataset contains 8,807 Netflix titles spanning both movies and TV shows.</li>
+                  <li>It includes fields such as title, type, country, rating, listed genre, date added, and release year.</li>
+                  <li>That structure makes it suitable for content mix analysis, trend analysis, and portfolio-level business interpretation.</li>
+                </ul>
+              </div>
+
+              <div class="compare-box">
+                <span class="tag">Business Usefulness</span>
+                <h3>Why This Dataset Matters</h3>
+                <ul>
+                  <li>The dataset is large enough to reveal meaningful distribution patterns across genre, format, and time.</li>
+                  <li>It supports questions that are directly relevant to streaming strategy, including content balance, expansion trends, and audience targeting.</li>
+                  <li>Because Netflix is widely understood as a data-driven company, the case study carries more professional credibility than an abstract sample dataset.</li>
+                </ul>
+              </div>
+            </div>
+
+            <p class="lead">
+              The analytical scope in this project is intentionally focused. Rather than attempting to answer every possible question in the dataset, the work concentrates on the business issues most relevant to streaming decisions: portfolio composition, genre concentration, expansion patterns over time, and the kinds of recommendations that follow from those findings.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="paper-section">
+        <div class="container section-grid">
+          <div class="section-num">03</div>
+          <div>
+            <div class="section-label">Data Cleaning & Preparation</div>
+            <h2 class="section-title">Why Analytical Credibility Starts Before Visualization</h2>
+
+            <div class="two-col">
+              <div class="info-card">
+                <h3>Cleaning Operations</h3>
+                <p>
+                  The dataset was reviewed for missing fields, duplicate identifiers, inconsistent date formatting, and unnecessary columns that would not contribute to the final analysis. Missing values in key fields were handled intentionally, date formats were standardized, and a helper field was created to support year-based trend analysis.
+                </p>
+              </div>
+
+              <div class="info-card">
+                <h3>Methodological Discipline</h3>
+                <p>
+                  This stage matters because weak preparation leads to misleading charts. Analytical rigor begins with making transparent decisions about what is cleaned, what is excluded, what is transformed, and why those choices support the business questions being asked.
+                </p>
+              </div>
+            </div>
+
+            <div class="two-col">
+              <div class="info-card">
+                <h3>Question-First Approach</h3>
+                <p>
+                  One of the strongest aspects of this project is that the visualizations were not selected for decoration. Each one was chosen because it answered a specific decision-oriented question. That analytical discipline is what differentiates business intelligence work from presentation-only reporting.
+                </p>
+              </div>
+
+              <div class="info-card">
+                <h3>Important Limitation</h3>
+                <p>
+                  For Excel manageability, the working dataset was reduced from the full 8,807 rows to 1,000 rows for analysis. That makes the artifact practical and well-scoped for the assignment, but it also means the resulting insights should be treated as directional and validated against the complete dataset before being used for high-stakes investment decisions.
+                </p>
+              </div>
+            </div>
+
+            <div class="center-panel">
+              <h3>Analyst Perspective</h3>
+              <p>
+                Strong dashboards are built on strong preparation. When cleaning decisions are transparent and tied to business purpose, the final visuals become far more trustworthy and useful.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="paper-section">
+        <div class="container section-grid">
+          <div class="section-num">04</div>
+          <div>
+            <div class="section-label">Visualization-Driven Findings</div>
+            <h2 class="section-title">What the Data Reveals About Netflix’s Content Strategy</h2>
+
+            <div class="comparison">
+              <div class="compare-box">
+                <span class="tag">Finding 1</span>
+                <h3>A Movie-Heavy Library</h3>
+                <ul>
+                  <li>Nearly 70% of the catalog consists of movies, while TV shows represent roughly 30%.</li>
+                  <li>This matters because movies are valuable for one-time consumption, but multi-season series tend to support longer engagement and stronger subscriber habit formation.</li>
+                  <li>The result raises a strategic question about whether the portfolio mix is fully optimized for retention.</li>
+                </ul>
+              </div>
+
+              <div class="compare-box">
+                <span class="tag">Finding 2</span>
+                <h3>International Content Dominance</h3>
+                <ul>
+                  <li>International Movies and International TV rank among the most prominent genre categories in the dataset.</li>
+                  <li>This supports the view that Netflix’s growth strategy is deeply tied to global content and regional audience appeal.</li>
+                  <li>The finding also suggests that international programming is not a niche layer but a central pillar of the platform’s portfolio design.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="comparison">
+              <div class="compare-box">
+                <span class="tag">Finding 3</span>
+                <h3>Peak Expansion in 2019</h3>
+                <ul>
+                  <li>Content additions accelerated sharply between 2016 and 2019, then slowed in 2020 and 2021.</li>
+                  <li>This trend aligns with the broader production disruptions caused by COVID-19, which affected filming and release pipelines globally.</li>
+                  <li>The pattern shows how platform growth is shaped not only by demand, but also by external production constraints.</li>
+                </ul>
+              </div>
+
+              <div class="compare-box">
+                <span class="tag">Finding 4</span>
+                <h3>Mature Ratings Dominate</h3>
+                <ul>
+                  <li>The dataset indicates that mature-rated content occupies a significant portion of the library.</li>
+                  <li>That suggests Netflix is strongly positioned toward adult audiences, while potentially leaving family-focused household segments underdeveloped.</li>
+                  <li>From a strategy perspective, that imbalance may represent both a concentration risk and a growth opportunity.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="center-panel">
+              <h3>Interpretation</h3>
+              <p>
+                The findings do more than describe the catalog. Together, they reveal a platform that has scaled aggressively, invested heavily in global content, and built strong adult-oriented depth — while also exposing opportunities to refine content mix in ways that could better support retention and segment expansion.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="paper-section">
+        <div class="container section-grid">
+          <div class="section-num">05</div>
+          <div>
+            <div class="section-label">Strategic Recommendations</div>
+            <h2 class="section-title">From Descriptive Analytics to Actionable Decisions</h2>
+
+            <div class="comparison">
+              <div class="compare-box">
+                <span class="tag">Recommendation 1</span>
+                <h3>Invest More in Original TV Series</h3>
+                <ul>
+                  <li>Because TV shows often drive longer watch sessions and recurring engagement, expanding original multi-season series could strengthen subscriber loyalty more effectively than relying too heavily on one-time movie volume.</li>
+                  <li>This recommendation connects directly to retention logic rather than simple catalog expansion.</li>
+                </ul>
+              </div>
+
+              <div class="compare-box">
+                <span class="tag">Recommendation 2</span>
+                <h3>Deepen International Partnerships</h3>
+                <ul>
+                  <li>Since international content already ranks at the top of the catalog mix, Netflix should continue expanding co-productions and regional partnerships in high-growth markets.</li>
+                  <li>This supports both local relevance and global differentiation.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="comparison">
+              <div class="compare-box">
+                <span class="tag">Recommendation 3</span>
+                <h3>Expand Family-Friendly Programming</h3>
+                <ul>
+                  <li>The dominance of mature-rated content suggests an underserved opportunity in household and family segments.</li>
+                  <li>Adding more TV-G and PG-oriented originals could improve plan retention across shared household accounts and diversify the platform’s audience base.</li>
+                </ul>
+              </div>
+
+              <div class="compare-box">
+                <span class="tag">Recommendation 4</span>
+                <h3>Formalize Data-Driven Greenlighting</h3>
+                <ul>
+                  <li>Genre demand patterns should play a stronger role in deciding which titles move forward in the content investment pipeline.</li>
+                  <li>Categories showing strong engagement potential at relatively lower production cost, such as documentaries and thrillers, may represent efficient return-on-investment opportunities.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="center-panel">
+              <h3>Business Value</h3>
+              <p>
+                This is where analytics becomes operationally meaningful. The point of the charts is not visual description. The point is to guide platform strategy, shape better investment choices, and improve how the company aligns content decisions with audience behavior and competitive positioning.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="paper-section">
+        <div class="container section-grid">
+          <div class="section-num">06</div>
+          <div>
+            <div class="section-label">Why This Artifact Is Strong</div>
+            <h2 class="section-title">What This Work Demonstrates Professionally</h2>
+
+            <div class="two-col">
+              <div class="info-card">
+                <h3>Analytical Depth</h3>
+                <p>
+                  This project demonstrates the ability to move through the full analytics lifecycle: dataset review, cleaning, transformation, visualization, interpretation, and recommendation. That end-to-end flow is much closer to real analytical work than a simple chart-building exercise.
+                </p>
+              </div>
+
+              <div class="info-card">
+                <h3>Decision Orientation</h3>
+                <p>
+                  The strongest quality of the artifact is that it remains tied to business questions throughout. Each visual exists to answer something strategically relevant, and each recommendation follows from observed patterns rather than unsupported opinion.
+                </p>
+              </div>
+            </div>
+
+            <div class="two-col">
+              <div class="info-card">
+                <h3>Communication Quality</h3>
+                <p>
+                  The presentation format is also a strength. The insights are organized clearly enough for a business audience, which matters because analytics only creates value when the findings can be understood and acted on by decision-makers.
+                </p>
+              </div>
+
+              <div class="info-card">
+                <h3>Portfolio Relevance</h3>
+                <p>
+                  In a portfolio context, this project shows more than technical familiarity with Excel or dashboards. It shows analytical thinking, recommendation logic, and the ability to interpret data through the lens of platform strategy and competitive business outcomes.
+                </p>
+              </div>
+            </div>
+
+            <div class="center-panel">
+              <h3>Key Takeaway</h3>
+              <p>
+                Good analytics is not just about finding patterns. It is about translating those patterns into decisions that improve performance, reduce waste, and strengthen strategic direction.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="paper-section">
+        <div class="container section-grid">
+          <div class="section-num">07</div>
+          <div>
+            <div class="section-label">Visual Artifact</div>
+            <h2 class="section-title">Infographic & Presentation Deck</h2>
+
+            <p class="lead">
+              This visual artifact captures the end-to-end Netflix analysis through a business storytelling lens, connecting dataset structure, chart-driven findings, and strategic recommendations into a presentation format designed for professional communication.
+            </p>
+
+            <div class="artifact-frame">
+              <img src="project6-netflix-infographic.png" alt="Netflix data analytics infographic">
+            </div>
+
+            <div class="button-row">
+              <a class="btn" href="project6-netflix-deck.pdf" target="_blank" rel="noopener noreferrer">Open PDF in New Tab</a>
+              <a class="btn secondary" href="index.html">← Back to Homepage</a>
+            </div>
+
+            <div class="pdf-frame">
+              <embed src="project6-netflix-deck.pdf" type="application/pdf">
+            </div>
+
+            <p class="pdf-note">
+              If the PDF does not render on your browser or mobile device, use the “Open PDF in New Tab” button above.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="paper-section">
+        <div class="container section-grid">
+          <div class="section-num">08</div>
+          <div>
+            <div class="section-label">Final Synthesis</div>
+            <h2 class="section-title">Why This Matters</h2>
+
+            <p class="lead">
+              This project shows that data analytics becomes powerful when it is used as a bridge between raw information and business judgment. In the Netflix case, the value lies not just in understanding the catalog, but in seeing how content composition, global programming, release patterns, and audience targeting can be translated into smarter strategy.
+            </p>
+
+            <div class="center-panel">
+              <h3>Portfolio Value</h3>
+              <p>
+                This artifact demonstrates the ability to analyze a real dataset, apply disciplined preparation methods, choose visualizations based on business questions, and convert findings into strategic recommendations. That combination of analytical rigor and decision-oriented communication is exactly what gives data work professional weight.
+              </p>
+            </div>
+
+            <div class="bottom-nav">
+              <a class="btn secondary" href="index.html">← Back to Homepage</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
