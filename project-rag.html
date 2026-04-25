@@ -7,18 +7,19 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root{
       --bg:#050506;
       --paper:#f3f0eb;
       --paper-text:#292521;
-      --paper-muted:#6b645d;
+      --paper-muted:#625b53;
       --text:#f5f2eb;
       --muted:#b8b0a1;
       --gold:#ffd21f;
       --gold-soft:#d7a85d;
+      --gold-deep:#9d741d;
       --blue:#0d2c5c;
       --line:rgba(255,210,31,0.24);
       --line-soft:rgba(255,255,255,0.08);
@@ -33,8 +34,8 @@
       margin:0;
       font-family:Inter,system-ui,sans-serif;
       background:
-        radial-gradient(circle at top left, rgba(255,210,31,0.10), transparent 20%),
-        radial-gradient(circle at top right, rgba(13,44,92,0.35), transparent 26%),
+        radial-gradient(circle at top left, rgba(255,210,31,0.11), transparent 21%),
+        radial-gradient(circle at top right, rgba(13,44,92,0.38), transparent 28%),
         linear-gradient(180deg, #020203 0%, #050506 52%, #080809 100%);
       color:var(--text);
       line-height:1.7;
@@ -75,18 +76,16 @@
 
     .back-link{
       color:var(--gold);
-      font-weight:800;
+      font-weight:900;
+    }
+
+    .top-role{
+      color:#d9d0c4;
+      font-size:0.95rem;
     }
 
     .hero{
       padding:58px 0 66px;
-    }
-
-    .hero-grid{
-      display:grid;
-      grid-template-columns:0.96fr 1.04fr;
-      gap:34px;
-      align-items:center;
     }
 
     .hero-meta{
@@ -99,6 +98,14 @@
       font-size:0.76rem;
       letter-spacing:0.16em;
       text-transform:uppercase;
+      font-weight:800;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:0.92fr 1.08fr;
+      gap:34px;
+      align-items:center;
     }
 
     .eyebrow{
@@ -113,6 +120,7 @@
       font-size:0.76rem;
       margin-bottom:22px;
       background:rgba(255,210,31,0.05);
+      font-weight:900;
     }
 
     h1{
@@ -128,13 +136,13 @@
 
     .hero-subtitle{
       margin:0 0 18px;
-      max-width:820px;
+      max-width:830px;
       color:#e5ddd0;
       font-size:1.12rem;
     }
 
     .hero-note{
-      max-width:800px;
+      max-width:820px;
       color:var(--muted);
       font-size:0.98rem;
     }
@@ -205,7 +213,7 @@
       letter-spacing:0.18em;
       text-transform:uppercase;
       color:#9a782e;
-      font-weight:800;
+      font-weight:900;
     }
 
     .section-title{
@@ -213,21 +221,21 @@
       font-family:Cormorant Garamond, serif;
       font-size:3rem;
       line-height:0.98;
-      font-weight:600;
+      font-weight:700;
       letter-spacing:-0.02em;
     }
 
     .lead{
       font-size:1.16rem;
       color:var(--paper-muted);
-      max-width:900px;
+      max-width:920px;
       margin:0 0 28px;
     }
 
     .dropcap{
-      font-size:1.06rem;
+      font-size:1.07rem;
       color:#5f5852;
-      max-width:900px;
+      max-width:920px;
     }
 
     .dropcap::first-letter{
@@ -245,7 +253,7 @@
       background:#efe5c7;
       border-left:3px solid #c89c21;
       font-family:Cormorant Garamond, serif;
-      font-size:1.24rem;
+      font-size:1.26rem;
       line-height:1.6;
       color:#5a4510;
     }
@@ -290,6 +298,7 @@
       letter-spacing:0.12em;
       text-transform:uppercase;
       color:#7d7268;
+      font-weight:800;
     }
 
     .compare-box ul{
@@ -339,27 +348,37 @@
       margin:0 0 14px;
       font-family:Cormorant Garamond, serif;
       font-size:2rem;
-      font-weight:600;
+      font-weight:700;
     }
 
     .center-panel p{
       margin:0;
       color:#d9d0c4;
-      max-width:900px;
+      max-width:920px;
     }
 
-    .artifact-frame{
+    .stack-list{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0,1fr));
+      gap:18px;
       margin-top:28px;
+    }
+
+    .stack-item{
       background:#fffdfb;
       border:1px solid rgba(0,0,0,0.08);
-      padding:22px;
+      padding:24px;
     }
 
-    .artifact-frame img{
-      width:100%;
-      height:auto;
-      object-fit:contain;
-      border:1px solid rgba(0,0,0,0.08);
+    .stack-item strong{
+      display:block;
+      color:#231f1c;
+      margin-bottom:8px;
+      font-size:1.08rem;
+    }
+
+    .stack-item span{
+      color:#5b5550;
     }
 
     .button-row{
@@ -406,12 +425,6 @@
       background:#ffffff;
     }
 
-    .pdf-note{
-      margin-top:14px;
-      color:#6b645d;
-      font-size:0.95rem;
-    }
-
     .bottom-nav{
       text-align:center;
       margin-top:34px;
@@ -421,7 +434,8 @@
       .hero-grid,
       .two-col,
       .comparison,
-      .metrics{
+      .metrics,
+      .stack-list{
         grid-template-columns:1fr;
       }
 
@@ -469,7 +483,7 @@
     <div class="top">
       <div class="container top-inner">
         <a class="back-link" href="index.html">← Back to Portfolio</a>
-        <div>Ramya Srinivasan • AI Solutions Architect</div>
+        <div class="top-role">Ramya Srinivasan • AI Solutions Architect</div>
       </div>
     </div>
 
@@ -482,15 +496,15 @@
 
         <div class="hero-grid">
           <div>
-            <div class="eyebrow">Featured Project</div>
+            <div class="eyebrow">Flagship Project</div>
             <h1>Ford Recall <span>Readiness Co-Pilot</span></h1>
 
             <p class="hero-subtitle">
-              An Agentic RAG-based warranty risk intelligence system designed to help Ford detect recall-worthy failure patterns earlier using warranty claims, Technical Service Bulletins, NHTSA complaint signals, and structured component risk scoring.
+              A decision-intelligence system that transforms fragmented warranty, service, and regulatory signals into early recall readiness assessments.
             </p>
 
             <p class="hero-note">
-              This project is framed as an enterprise AI architecture case study: business problem first, technology second. The system retrieves evidence, reasons across multiple data layers, generates confidence-scored recall recommendations, and keeps every output grounded, cited, and human-reviewable.
+              This project presents an Agentic RAG architecture for proactive automotive recall support. It retrieves evidence from warranty policy, Technical Service Bulletins, historical claim summaries, recall decision rules, component risk registries, and NHTSA-style complaint signals, then produces grounded recommendations with confidence scoring and human-review boundaries.
             </p>
 
             <div class="hero-pills">
@@ -503,7 +517,7 @@
           </div>
 
           <div class="hero-art">
-            <img src="project-rag-hero.png" alt="Ford Recall Readiness Co-Pilot hero card">
+            <img src="project-rag-hero.png" alt="Ford Recall Readiness Co-Pilot system overview">
           </div>
         </div>
       </div>
@@ -520,16 +534,23 @@
             <h2 class="section-title">A Business-First AI System for Recall Readiness</h2>
 
             <p class="dropcap">
-              The Ford Recall Readiness Co-Pilot is designed to solve a high-cost enterprise problem: recall-worthy vehicle failure patterns often emerge across fragmented systems long before they become formal recall decisions. Warranty claims, Technical Service Bulletins, NHTSA complaints, engineering notes, and component risk registries may each contain part of the signal, but no single layer synthesizes them into an actionable view fast enough.
+              The Ford Recall Readiness Co-Pilot is designed around a serious enterprise problem: vehicle failure signals often emerge across many disconnected systems long before they become formal recall decisions. Warranty claims, Technical Service Bulletins, NHTSA complaints, engineering notes, and component risk registries may each contain part of the truth, but no single intelligence layer synthesizes them into a fast, evidence-backed recall readiness view.
             </p>
 
             <div class="quote-block">
-              This project demonstrates the shift from chatbot thinking to enterprise AI architecture: retrieval, reasoning, confidence scoring, governance, and decision support working together.
+              This system is designed for evidence synthesis, not answer generation. Its purpose is to compress the distance between fragmented signals and defensible recall decision support.
             </div>
 
             <p class="lead">
-              The system uses Agentic RAG to retrieve and reason across three evidence layers: a static document corpus, live NHTSA-style complaint signals, and structured warranty claim data. GPT-4o then synthesizes a grounded output with risk level, confidence score, key signals, and a specific recommendation.
+              The project demonstrates a three-layer Agentic RAG architecture that retrieves from a static technical corpus, live regulatory-style complaint signals, and structured claim data. The system then generates a structured risk report with recall readiness level, confidence score, trend direction, key evidence, and a recommendation for engineering review.
             </p>
+
+            <div class="center-panel">
+              <h3>System Scope</h3>
+              <p>
+                This design focuses on signal detection, evidence synthesis, and decision support. Final recall authority remains with engineering, legal, safety, and executive governance bodies. The Co-Pilot strengthens human decision-making; it does not replace regulated recall judgment.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -542,17 +563,17 @@
             <h2 class="section-title">The Hidden Cost of Reactive Recall Management</h2>
 
             <p class="lead">
-              The capstone deck frames Ford’s recall challenge around fragmented signals, slow detection, and costly reactive escalation. The current-state problem includes warranty data, NHTSA complaints, TSB patterns, and claim clusters living across disconnected systems, requiring manual analyst effort before a recall readiness decision can be formed.
+              The capstone scenario frames Ford’s recall challenge around fragmented signal detection, slow escalation, and costly reactive decision-making. Warranty engineering and quality teams must interpret claim patterns, TSB activity, customer complaints, and regulatory triggers from separate systems before forming a recall readiness position.
             </p>
 
             <div class="metrics">
               <div class="metric">
                 <strong>$3.4B</strong>
-                <span>Annual warranty cost cited in the project scenario.</span>
+                <span>Annual warranty cost in the project scenario.</span>
               </div>
               <div class="metric">
                 <strong>18–24</strong>
-                <span>Months from early signal to recall decision in the reactive model.</span>
+                <span>Months from field signal to recall decision in the reactive model.</span>
               </div>
               <div class="metric">
                 <strong>50K+</strong>
@@ -560,14 +581,14 @@
               </div>
               <div class="metric">
                 <strong>$100M+</strong>
-                <span>Estimated cost exposure per major reactive recall event.</span>
+                <span>Estimated exposure per major reactive recall event.</span>
               </div>
             </div>
 
             <div class="center-panel">
               <h3>Strategic Interpretation</h3>
               <p>
-                This is not merely a document-search problem. It is a decision-intelligence problem. The value comes from connecting scattered evidence into a structured recall readiness assessment before regulatory escalation, brand damage, or large-scale remediation costs increase.
+                This is not a document search problem. It is a decision-intelligence problem. The value comes from connecting scattered evidence into a structured recall readiness assessment before regulatory escalation, brand damage, or large-scale remediation costs increase.
               </p>
             </div>
           </div>
@@ -584,21 +605,21 @@
             <div class="comparison">
               <div class="compare-box">
                 <span class="tag">Traditional ML Limitation</span>
-                <h3>Stale and Hard to Explain</h3>
+                <h3>Static, Retrospective, and Hard to Defend</h3>
                 <ul>
-                  <li>Traditional ML depends on fixed historical training data.</li>
-                  <li>Recall signals evolve continuously as new claims, complaints, and TSB updates appear.</li>
-                  <li>Prediction without retrieved evidence is difficult to defend in safety, legal, and engineering contexts.</li>
+                  <li>Traditional ML models rely on fixed historical training data and can become stale as new complaints, claims, and TSBs emerge.</li>
+                  <li>Safety decisions require current evidence, not only pattern recognition from old data.</li>
+                  <li>A risk score without source traceability is difficult to defend across engineering, legal, and compliance review.</li>
                 </ul>
               </div>
 
               <div class="compare-box">
                 <span class="tag">Agentic RAG Advantage</span>
-                <h3>Current, Grounded, and Traceable</h3>
+                <h3>Current, Grounded, and Auditable</h3>
                 <ul>
-                  <li>Agentic RAG retrieves fresh context at query time.</li>
-                  <li>It reasons across multiple evidence layers before generation.</li>
-                  <li>Every recommendation can be tied back to source material, confidence, and signal strength.</li>
+                  <li>Agentic RAG retrieves current context at query time instead of relying only on model memory.</li>
+                  <li>It decomposes a query, searches multiple evidence layers, ranks retrieved material, and synthesizes only from grounded context.</li>
+                  <li>The result is not just an answer; it is a traceable decision-support artifact.</li>
                 </ul>
               </div>
             </div>
@@ -606,7 +627,7 @@
             <div class="center-panel">
               <h3>Design Principle</h3>
               <p>
-                Recall intelligence requires freshness, explainability, and source grounding. RAG is not chosen because it is trendy; it is chosen because the decision environment changes constantly and every output must be auditable.
+                Recall intelligence requires freshness, explainability, and source grounding. RAG is not chosen because it is fashionable. It is chosen because the decision environment changes continuously and every recommendation must be auditable.
               </p>
             </div>
           </div>
@@ -620,48 +641,47 @@
             <div class="section-label">Architecture</div>
             <h2 class="section-title">An Azure-Native Agentic RAG Pipeline</h2>
 
-            <div class="comparison">
-              <div class="compare-box">
-                <span class="tag">Retrieval Foundation</span>
-                <h3>Chunk, Embed, and Index</h3>
-                <ul>
-                  <li>Raw documents are chunked into 512-token segments with overlap.</li>
-                  <li>Embeddings are generated using Azure OpenAI embedding models.</li>
-                  <li>Azure AI Search stores the vector index and supports semantic retrieval.</li>
-                </ul>
+            <p class="lead">
+              The architecture follows a staged enterprise pipeline: source ingestion, chunking, embedding, vector indexing, multi-source retrieval, grounded synthesis, and structured risk output. The design is intentionally Azure-native so it can align with enterprise identity, observability, security, and deployment patterns.
+            </p>
+
+            <div class="stack-list">
+              <div class="stack-item">
+                <strong>Azure OpenAI</strong>
+                <span>GPT-4o synthesis and embedding generation for grounded recall intelligence.</span>
               </div>
 
-              <div class="compare-box">
-                <span class="tag">Reasoning Layer</span>
-                <h3>Agentic Retriever</h3>
-                <ul>
-                  <li>The agent decomposes user queries into sub-tasks.</li>
-                  <li>It retrieves from static documents, live complaint signals, and structured claim data.</li>
-                  <li>It ranks passages by relevance, confidence, and recency before synthesis.</li>
-                </ul>
+              <div class="stack-item">
+                <strong>Azure AI Search</strong>
+                <span>Vector and semantic retrieval over warranty, TSB, recall, and risk documents.</span>
+              </div>
+
+              <div class="stack-item">
+                <strong>Agentic Retriever</strong>
+                <span>Query decomposition, multi-source search, relevance ranking, and context aggregation.</span>
+              </div>
+
+              <div class="stack-item">
+                <strong>Structured Claim Store</strong>
+                <span>SQL-style retrieval over claim rates, model years, component categories, and trend direction.</span>
+              </div>
+
+              <div class="stack-item">
+                <strong>NHTSA Signal Layer</strong>
+                <span>Live regulatory-style complaint and recall signal retrieval for freshness.</span>
+              </div>
+
+              <div class="stack-item">
+                <strong>Human Review Layer</strong>
+                <span>Engineer validation, override capture, and feedback into retrieval scoring.</span>
               </div>
             </div>
 
-            <div class="comparison">
-              <div class="compare-box">
-                <span class="tag">Synthesis</span>
-                <h3>GPT-4o Grounded Response</h3>
-                <ul>
-                  <li>The model synthesizes only from retrieved context.</li>
-                  <li>If evidence is insufficient, the system should return manual review rather than inventing an answer.</li>
-                  <li>This prevents unsupported recall recommendations.</li>
-                </ul>
-              </div>
-
-              <div class="compare-box">
-                <span class="tag">Enterprise Fit</span>
-                <h3>Azure Ecosystem Integration</h3>
-                <ul>
-                  <li>Warranty engineering portal integration through Azure Bot Service.</li>
-                  <li>Power BI risk-score tiles for quality dashboards.</li>
-                  <li>REST API feed into warranty or ERP systems with Teams/mobile alerts.</li>
-                </ul>
-              </div>
+            <div class="center-panel">
+              <h3>Failure Handling</h3>
+              <p>
+                If retrieval confidence is low, evidence is conflicting, or the supporting context is insufficient, the system defaults to “insufficient signal” and routes the case to human review instead of generating a forced conclusion.
+              </p>
             </div>
           </div>
         </div>
@@ -671,29 +691,47 @@
         <div class="container section-grid">
           <div class="section-num">04</div>
           <div>
-            <div class="section-label">Data Corpus</div>
-            <h2 class="section-title">Five Synthetic Ford Documents as the Grounding Layer</h2>
-
-            <p class="lead">
-              The project corpus includes synthetic but structurally realistic Ford documents: warranty policy reference, TSB collection, historical warranty claim summary, recall decision framework, and a component risk registry. These provide the domain-specific knowledge base needed for grounded recall reasoning.
-            </p>
+            <div class="section-label">Agent Reasoning</div>
+            <h2 class="section-title">How the Agent Moves from Query to Evidence</h2>
 
             <div class="comparison">
               <div class="compare-box">
-                <span class="tag">Policy Layer</span>
-                <h3>Warranty & Recall Rules</h3>
+                <span class="tag">Step 1</span>
+                <h3>Query Decomposition</h3>
                 <ul>
-                  <li>Warranty eligibility, coverage duration, exclusions, and claim submission requirements.</li>
-                  <li>Recall readiness thresholds such as claim-rate triggers, NHTSA complaint spikes, and similarity to prior recalls.</li>
+                  <li>The agent breaks a user question into sub-tasks such as component lookup, claim trend search, complaint retrieval, historical recall comparison, and TSB correlation.</li>
+                  <li>This prevents the system from treating a recall question as a simple keyword search.</li>
                 </ul>
               </div>
 
               <div class="compare-box">
-                <span class="tag">Evidence Layer</span>
-                <h3>Claims, TSBs, and Component Risk</h3>
+                <span class="tag">Step 2</span>
+                <h3>Parallel Multi-Source Retrieval</h3>
                 <ul>
-                  <li>TSB records describe symptoms, root causes, repair procedures, and NHTSA complaint references.</li>
-                  <li>Risk registry records active high-watch components, composite scores, trend direction, and threshold distance to recall trigger.</li>
+                  <li>Static corpus passages are retrieved through vector search.</li>
+                  <li>Structured claim records are queried for rates, trends, and model-year cohorts.</li>
+                  <li>Regulatory-style complaint signals are retrieved for external signal confirmation.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="comparison">
+              <div class="compare-box">
+                <span class="tag">Step 3</span>
+                <h3>Context Aggregation and Ranking</h3>
+                <ul>
+                  <li>Retrieved passages are merged into a unified evidence set.</li>
+                  <li>Relevance, recency, severity, and source consistency determine which evidence is passed into synthesis.</li>
+                </ul>
+              </div>
+
+              <div class="compare-box">
+                <span class="tag">Step 4</span>
+                <h3>Grounded Synthesis</h3>
+                <ul>
+                  <li>GPT-4o synthesizes a structured report using only retrieved evidence.</li>
+                  <li>Unsupported claims are rejected by the system design.</li>
+                  <li>The output becomes a reviewable decision-support artifact.</li>
                 </ul>
               </div>
             </div>
@@ -706,28 +744,32 @@
           <div class="section-num">05</div>
           <div>
             <div class="section-label">Decision Output</div>
-            <h2 class="section-title">From Evidence Retrieval to Recall Recommendation</h2>
+            <h2 class="section-title">A Recall Intelligence Report, Not a Chatbot Answer</h2>
+
+            <p class="lead">
+              Every response is structured to support decision review. The Co-Pilot returns recall readiness risk, confidence score, trend direction, key signals, evidence references, and a specific recommendation. This format is intentionally designed for engineering committees, quality teams, legal review, and executive escalation.
+            </p>
 
             <div class="two-col">
               <div class="info-card">
-                <h3>Structured Output</h3>
+                <h3>Auditability</h3>
                 <p>
-                  Every Co-Pilot response is designed to return a repeatable intelligence report: recall readiness risk, trend direction, confidence score, key signals detected, and a specific recommendation for engineering or committee review.
+                  Outputs are structured to support auditability, including traceable evidence references, signal weighting rationale, and reproducible reasoning paths. A recommendation is only useful if reviewers can inspect why it was generated.
                 </p>
               </div>
 
               <div class="info-card">
-                <h3>Why This Matters</h3>
+                <h3>Decision Readiness</h3>
                 <p>
-                  Recall decisions involve safety, legal exposure, brand trust, and cost. A vague answer is not enough. The system must provide structured decision support that leaders can inspect, challenge, and validate.
+                  The system does not simply summarize documents. It converts scattered operational signals into a repeatable intelligence format that can support recall readiness discussions, investigation prioritization, and proactive escalation decisions.
                 </p>
               </div>
             </div>
 
             <div class="center-panel">
-              <h3>Example Decision Logic</h3>
+              <h3>Example Logic</h3>
               <p>
-                A high-risk output may combine rising NHTSA complaints, a matching historical recall pattern, increasing warranty claims, and an active TSB that has not reduced incident rates. The recommendation is then grounded in converging signals rather than a single isolated metric.
+                A high-risk output may combine rising NHTSA complaints, a matching historical recall pattern, increasing warranty claims, and an active TSB that has not reduced incident rates. The recommendation is grounded in converging signals rather than a single isolated metric.
               </p>
             </div>
           </div>
@@ -738,35 +780,38 @@
         <div class="container section-grid">
           <div class="section-num">06</div>
           <div>
-            <div class="section-label">Validation & Responsible AI</div>
-            <h2 class="section-title">Trust Is Built Into the Architecture</h2>
+            <div class="section-label">Grounding Corpus</div>
+            <h2 class="section-title">A Synthetic but Enterprise-Realistic Ford Evidence Layer</h2>
+
+            <p class="lead">
+              The project corpus is built from synthetic but structurally realistic Ford documents designed to simulate how enterprise knowledge would support recall readiness reasoning. The corpus includes warranty policy, TSBs, historical warranty claims, recall decision rules, and a component risk registry.
+            </p>
 
             <div class="comparison">
               <div class="compare-box">
-                <span class="tag">Grounding</span>
-                <h3>Grounded Generation Constraint</h3>
+                <span class="tag">Policy & Decision Layer</span>
+                <h3>Warranty and Recall Governance</h3>
                 <ul>
-                  <li>Responses are restricted to retrieved context.</li>
-                  <li>Unsupported claims are blocked by architecture, not just by prompt wording.</li>
-                  <li>Low-evidence cases are routed to manual review.</li>
+                  <li>Warranty policy defines coverage boundaries, eligibility rules, exclusions, and claim submission requirements.</li>
+                  <li>Recall decision rules define claim-rate thresholds, complaint spike triggers, similarity to prior recall patterns, and legal escalation conditions.</li>
                 </ul>
               </div>
 
               <div class="compare-box">
-                <span class="tag">Human Oversight</span>
-                <h3>Engineer-in-the-Loop</h3>
+                <span class="tag">Technical Evidence Layer</span>
+                <h3>TSBs, Claim Trends, and Risk Registry</h3>
                 <ul>
-                  <li>High-risk recommendations require warranty engineer validation.</li>
-                  <li>Overrides and validation outcomes feed back into relevance scoring.</li>
-                  <li>Monthly audits compare Co-Pilot recommendations against actual recall outcomes.</li>
+                  <li>TSBs provide symptoms, root causes, repair procedures, claim trends, and NHTSA references.</li>
+                  <li>Claim summaries provide vehicle-family trends, component rates, and historical recall correlations.</li>
+                  <li>Risk registry records component watch status, composite risk score, trend direction, and threshold distance to recall trigger.</li>
                 </ul>
               </div>
             </div>
 
             <div class="center-panel">
-              <h3>Responsible AI Positioning</h3>
+              <h3>Why the Corpus Matters</h3>
               <p>
-                The system is not designed to replace recall committees or safety engineers. It is designed to compress evidence gathering, improve signal visibility, and make human review faster, more traceable, and more consistent.
+                A RAG system is only as strong as the knowledge structure behind it. This corpus gives the Co-Pilot a realistic grounding layer for policy interpretation, technical symptom matching, component risk comparison, and recall readiness classification.
               </p>
             </div>
           </div>
@@ -776,6 +821,45 @@
       <section class="paper-section">
         <div class="container section-grid">
           <div class="section-num">07</div>
+          <div>
+            <div class="section-label">Validation & Responsible AI</div>
+            <h2 class="section-title">Trust Is Built Into the Architecture</h2>
+
+            <div class="comparison">
+              <div class="compare-box">
+                <span class="tag">Grounded Generation</span>
+                <h3>Unsupported Claims Are Blocked</h3>
+                <ul>
+                  <li>The system enforces grounded generation by restricting outputs to retrieved context.</li>
+                  <li>If the retrieved evidence is insufficient, the system returns a manual review state instead of inventing a conclusion.</li>
+                  <li>This mitigates hallucination at the architecture level, not only at the prompt level.</li>
+                </ul>
+              </div>
+
+              <div class="compare-box">
+                <span class="tag">Human Oversight</span>
+                <h3>Engineer-in-the-Loop Review</h3>
+                <ul>
+                  <li>High-risk recommendations require warranty engineer validation.</li>
+                  <li>Overrides and validation outcomes can feed back into relevance scoring.</li>
+                  <li>Periodic audits compare recommendations against actual recall outcomes and committee decisions.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="center-panel">
+              <h3>Responsible AI Positioning</h3>
+              <p>
+                The Co-Pilot is not designed to replace recall committees, legal counsel, or safety engineers. It is designed to compress evidence gathering, improve signal visibility, and make human review faster, more traceable, and more consistent.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="paper-section">
+        <div class="container section-grid">
+          <div class="section-num">08</div>
           <div>
             <div class="section-label">ROI & Enterprise Value</div>
             <h2 class="section-title">Faster Decisions, Safer Vehicles, Lower Costs</h2>
@@ -802,7 +886,7 @@
             <div class="center-panel">
               <h3>Business Value</h3>
               <p>
-                The business value is not only cost avoidance. The stronger value is recall readiness maturity: earlier detection, more consistent signal interpretation, audit-ready recommendations, and decision confidence across engineering, quality, legal, and compliance stakeholders.
+                The primary value is not automation. The primary value is decision acceleration with higher confidence and traceability across engineering, quality, legal, and safety stakeholders. The system helps leaders act earlier, with better evidence and clearer accountability.
               </p>
             </div>
           </div>
@@ -811,46 +895,64 @@
 
       <section class="paper-section">
         <div class="container section-grid">
-          <div class="section-num">08</div>
+          <div class="section-num">09</div>
           <div>
-            <div class="section-label">Capstone Deck</div>
-            <h2 class="section-title">Embedded Presentation Artifact</h2>
+            <div class="section-label">Capstone Artifact</div>
+            <h2 class="section-title">Ford Recall Readiness Co-Pilot Presentation</h2>
 
             <p class="lead">
-              The full deck is embedded below as the formal presentation artifact. It walks through the business problem, RAG architecture, data sources, agent reasoning, validation methods, ROI, live demo framing, and future roadmap.
+              The capstone deck presents the complete system: business problem, generative AI use case, Agentic RAG architecture, data-source strategy, reasoning workflow, decision output, validation model, integration pattern, ROI, live demo framing, and future roadmap.
             </p>
 
             <div class="button-row">
-              <a class="btn" href="ford-recall-readiness-copilot.pdf" target="_blank" rel="noopener noreferrer">Open PDF in New Tab</a>
+              <a class="btn" href="ford-recall-readiness-copilot.pdf" target="_blank" rel="noopener noreferrer">Open Capstone Deck</a>
               <a class="btn secondary" href="index.html">← Back to Homepage</a>
             </div>
 
             <div class="pdf-frame">
               <embed src="ford-recall-readiness-copilot.pdf" type="application/pdf">
             </div>
-
-            <p class="pdf-note">
-              If the PDF does not render on your browser or mobile device, use the “Open PDF in New Tab” button above.
-            </p>
           </div>
         </div>
       </section>
 
       <section class="paper-section">
         <div class="container section-grid">
-          <div class="section-num">09</div>
+          <div class="section-num">10</div>
           <div>
-            <div class="section-label">Final Synthesis</div>
+            <div class="section-label">What This Demonstrates</div>
             <h2 class="section-title">Why This Is the Flagship Portfolio Project</h2>
 
             <p class="lead">
               This project demonstrates the strongest version of enterprise AI solution design: a real business problem, a defensible technical architecture, a grounded retrieval strategy, governance controls, human oversight, and measurable operational value.
             </p>
 
+            <div class="comparison">
+              <div class="compare-box">
+                <span class="tag">Architectural Capability</span>
+                <h3>System Design Beyond Model Usage</h3>
+                <ul>
+                  <li>Translates an ambiguous enterprise problem into a structured AI system.</li>
+                  <li>Designs a multi-layer retrieval architecture using Agentic RAG.</li>
+                  <li>Connects Azure OpenAI, Azure AI Search, structured retrieval, and human validation into one solution pattern.</li>
+                </ul>
+              </div>
+
+              <div class="compare-box">
+                <span class="tag">Enterprise Judgment</span>
+                <h3>Governance, Risk, and Decision Quality</h3>
+                <ul>
+                  <li>Balances automation with human oversight and regulated decision boundaries.</li>
+                  <li>Delivers outputs that are auditable, defensible, and stakeholder-ready.</li>
+                  <li>Aligns AI system design with operational, legal, safety, and cost constraints.</li>
+                </ul>
+              </div>
+            </div>
+
             <div class="center-panel">
               <h3>Portfolio Value</h3>
               <p>
-                The Ford Recall Readiness Co-Pilot positions the work at a solution-architect level. It shows the ability to design an Agentic RAG system that is not only technically sophisticated, but also deployable, auditable, and aligned to enterprise decision-making.
+                The Ford Recall Readiness Co-Pilot positions this work at a solution-architect level. It shows not only familiarity with generative AI, but the ability to design enterprise AI systems that are grounded, traceable, deployable, and tied to meaningful business outcomes.
               </p>
             </div>
 
