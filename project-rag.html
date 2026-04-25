@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ford Recall Readiness Co-Pilot | Ramya Srinivasan</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#050506;
+      --paper:#f3f0eb;
+      --paper-text:#292521;
+      --paper-muted:#6b645d;
+      --text:#f5f2eb;
+      --muted:#b8b0a1;
+      --gold:#ffd21f;
+      --gold-soft:#d7a85d;
+      --blue:#0d2c5c;
+      --line:rgba(255,210,31,0.24);
+      --line-soft:rgba(255,255,255,0.08);
+      --shadow:0 24px 70px rgba(0,0,0,0.55);
+      --max:1180px;
+    }
+
+    *{box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+
+    body{
+      margin:0;
+      font-family:Inter,system-ui,sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(255,210,31,0.10), transparent 20%),
+        radial-gradient(circle at top right, rgba(13,44,92,0.35), transparent 26%),
+        linear-gradient(180deg, #020203 0%, #050506 52%, #080809 100%);
+      color:var(--text);
+      line-height:1.7;
+    }
+
+    a{text-decoration:none;color:inherit;}
+    img{display:block;max-width:100%;}
+
+    .page{
+      width:min(calc(100% - 32px), 1320px);
+      margin:18px auto;
+      border:1px solid var(--line);
+      border-radius:32px;
+      overflow:hidden;
+      background:linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0.01));
+      box-shadow:var(--shadow);
+    }
+
+    .container{
+      width:min(calc(100% - 56px), var(--max));
+      margin:0 auto;
+    }
+
+    .top{
+      padding:24px 0;
+      border-bottom:1px solid var(--line-soft);
+      background:rgba(0,0,0,0.42);
+      backdrop-filter:blur(14px);
+    }
+
+    .top-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+
+    .back-link{
+      color:var(--gold);
+      font-weight:800;
+    }
+
+    .hero{
+      padding:58px 0 66px;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:0.96fr 1.04fr;
+      gap:34px;
+      align-items:center;
+    }
+
+    .hero-meta{
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+      margin-bottom:26px;
+      color:#d6c17e;
+      font-size:0.76rem;
+      letter-spacing:0.16em;
+      text-transform:uppercase;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      padding:10px 18px;
+      border-radius:999px;
+      border:1px solid rgba(255,210,31,0.34);
+      color:var(--gold);
+      letter-spacing:0.16em;
+      text-transform:uppercase;
+      font-size:0.76rem;
+      margin-bottom:22px;
+      background:rgba(255,210,31,0.05);
+    }
+
+    h1{
+      margin:0 0 18px;
+      font-family:Manrope,Inter,sans-serif;
+      font-size:clamp(3rem, 6.8vw, 6.6rem);
+      line-height:0.92;
+      letter-spacing:-0.07em;
+      max-width:980px;
+    }
+
+    h1 span{color:var(--gold);}
+
+    .hero-subtitle{
+      margin:0 0 18px;
+      max-width:820px;
+      color:#e5ddd0;
+      font-size:1.12rem;
+    }
+
+    .hero-note{
+      max-width:800px;
+      color:var(--muted);
+      font-size:0.98rem;
+    }
+
+    .hero-pills{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:26px;
+    }
+
+    .pill{
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid rgba(255,210,31,0.22);
+      background:rgba(255,255,255,0.025);
+      color:#efe6da;
+      font-size:0.92rem;
+    }
+
+    .hero-art{
+      border-radius:28px;
+      border:1px solid rgba(255,210,31,0.34);
+      padding:10px;
+      background:linear-gradient(180deg, rgba(255,210,31,0.08), rgba(255,255,255,0.018));
+      box-shadow:var(--shadow);
+    }
+
+    .hero-art img{
+      width:100%;
+      border-radius:22px;
+      border:1px solid rgba(255,255,255,0.10);
+    }
+
+    .divider{
+      height:1px;
+      background:linear-gradient(90deg, transparent, rgba(255,210,31,0.30), transparent);
+    }
+
+    .paper{
+      background:var(--paper);
+      color:var(--paper-text);
+    }
+
+    .paper-section{
+      padding:82px 0;
+      border-bottom:1px solid rgba(0,0,0,0.08);
+    }
+
+    .section-grid{
+      display:grid;
+      grid-template-columns:110px 1fr;
+      gap:28px;
+      align-items:start;
+    }
+
+    .section-num{
+      font-family:Cormorant Garamond, serif;
+      font-size:3.1rem;
+      line-height:1;
+      color:#d3ccc5;
+      padding-top:8px;
+    }
+
+    .section-label{
+      margin:0 0 10px;
+      font-size:0.74rem;
+      letter-spacing:0.18em;
+      text-transform:uppercase;
+      color:#9a782e;
+      font-weight:800;
+    }
+
+    .section-title{
+      margin:0 0 22px;
+      font-family:Cormorant Garamond, serif;
+      font-size:3rem;
+      line-height:0.98;
+      font-weight:600;
+      letter-spacing:-0.02em;
+    }
+
+    .lead{
+      font-size:1.16rem;
+      color:var(--paper-muted);
+      max-width:900px;
+      margin:0 0 28px;
+    }
+
+    .dropcap{
+      font-size:1.06rem;
+      color:#5f5852;
+      max-width:900px;
+    }
+
+    .dropcap::first-letter{
+      float:left;
+      font-family:Cormorant Garamond, serif;
+      font-size:4.4rem;
+      line-height:0.9;
+      padding-right:10px;
+      color:#2e2824;
+    }
+
+    .quote-block{
+      margin:34px 0;
+      padding:26px 28px;
+      background:#efe5c7;
+      border-left:3px solid #c89c21;
+      font-family:Cormorant Garamond, serif;
+      font-size:1.24rem;
+      line-height:1.6;
+      color:#5a4510;
+    }
+
+    .two-col,
+    .comparison{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:28px;
+      margin-top:28px;
+    }
+
+    .info-card,
+    .compare-box{
+      background:#fffdfb;
+      border:1px solid rgba(0,0,0,0.08);
+      padding:30px;
+      min-height:100%;
+    }
+
+    .info-card h3,
+    .compare-box h3{
+      margin:0 0 14px;
+      font-size:1.35rem;
+      color:#231f1c;
+    }
+
+    .info-card p{
+      margin:0;
+      color:#5b5550;
+    }
+
+    .info-card p + p{margin-top:14px;}
+
+    .compare-box .tag{
+      display:inline-block;
+      margin-bottom:16px;
+      padding:8px 12px;
+      border:1px solid rgba(0,0,0,0.1);
+      border-radius:999px;
+      font-size:0.78rem;
+      letter-spacing:0.12em;
+      text-transform:uppercase;
+      color:#7d7268;
+    }
+
+    .compare-box ul{
+      margin:0;
+      padding-left:18px;
+      color:#5b5550;
+    }
+
+    .compare-box li + li{margin-top:10px;}
+
+    .metrics{
+      display:grid;
+      grid-template-columns:repeat(4, minmax(0,1fr));
+      gap:18px;
+      margin-top:30px;
+    }
+
+    .metric{
+      padding:24px;
+      background:#0b0b0d;
+      color:#f5f2eb;
+      border:1px solid rgba(255,210,31,0.22);
+    }
+
+    .metric strong{
+      display:block;
+      color:var(--gold);
+      font-size:2rem;
+      line-height:1;
+      margin-bottom:10px;
+    }
+
+    .metric span{
+      color:#d9d0c4;
+      font-size:0.96rem;
+    }
+
+    .center-panel{
+      margin-top:34px;
+      padding:36px;
+      background:#0b0b0d;
+      color:#f5f2eb;
+      border:1px solid rgba(255,210,31,0.24);
+    }
+
+    .center-panel h3{
+      margin:0 0 14px;
+      font-family:Cormorant Garamond, serif;
+      font-size:2rem;
+      font-weight:600;
+    }
+
+    .center-panel p{
+      margin:0;
+      color:#d9d0c4;
+      max-width:900px;
+    }
+
+    .artifact-frame{
+      margin-top:28px;
+      background:#fffdfb;
+      border:1px solid rgba(0,0,0,0.08);
+      padding:22px;
+    }
+
+    .artifact-frame img{
+      width:100%;
+      height:auto;
+      object-fit:contain;
+      border:1px solid rgba(0,0,0,0.08);
+    }
+
+    .button-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+      margin-top:26px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:14px 22px;
+      border-radius:999px;
+      border:1px solid #b88432;
+      background:linear-gradient(180deg, #ffd84a 0%, #d7a85d 100%);
+      color:#111111;
+      font-weight:900;
+      letter-spacing:0.01em;
+      box-shadow:0 10px 24px rgba(0,0,0,0.18);
+    }
+
+    .btn.secondary{
+      background:#fffdfb;
+      color:#2f2924;
+      border:1px solid rgba(0,0,0,0.16);
+      box-shadow:none;
+    }
+
+    .pdf-frame{
+      margin-top:28px;
+      background:#fffdfb;
+      border:1px solid rgba(0,0,0,0.08);
+      padding:14px;
+    }
+
+    .pdf-frame embed,
+    .pdf-frame iframe{
+      display:block;
+      width:100%;
+      height:980px;
+      border:1px solid rgba(0,0,0,0.08);
+      background:#ffffff;
+    }
+
+    .pdf-note{
+      margin-top:14px;
+      color:#6b645d;
+      font-size:0.95rem;
+    }
+
+    .bottom-nav{
+      text-align:center;
+      margin-top:34px;
+    }
+
+    @media (max-width: 1080px){
+      .hero-grid,
+      .two-col,
+      .comparison,
+      .metrics{
+        grid-template-columns:1fr;
+      }
+
+      .section-grid{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width: 760px){
+      .page{
+        width:min(calc(100% - 14px), 1320px);
+        border-radius:22px;
+      }
+
+      .container{
+        width:min(calc(100% - 24px), var(--max));
+      }
+
+      .hero{
+        padding:42px 0 46px;
+      }
+
+      h1{
+        font-size:clamp(2.5rem, 13vw, 4.2rem);
+      }
+
+      .section-title{
+        font-size:2.35rem;
+      }
+
+      .paper-section{
+        padding:58px 0;
+      }
+
+      .pdf-frame embed,
+      .pdf-frame iframe{
+        height:720px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <div class="top">
+      <div class="container top-inner">
+        <a class="back-link" href="index.html">← Back to Portfolio</a>
+        <div>Ramya Srinivasan • AI Solutions Architect</div>
+      </div>
+    </div>
+
+    <section class="hero">
+      <div class="container">
+        <div class="hero-meta">
+          <span>Featured Capstone Project</span>
+          <span>Agentic RAG • Azure OpenAI • Automotive AI</span>
+        </div>
+
+        <div class="hero-grid">
+          <div>
+            <div class="eyebrow">Featured Project</div>
+            <h1>Ford Recall <span>Readiness Co-Pilot</span></h1>
+
+            <p class="hero-subtitle">
+              An Agentic RAG-based warranty risk intelligence system designed to help Ford detect recall-worthy failure patterns earlier using warranty claims, Technical Service Bulletins, NHTSA complaint signals, and structured component risk scoring.
+            </p>
+
+            <p class="hero-note">
+              This project is framed as an enterprise AI architecture case study: business problem first, technology second. The system retrieves evidence, reasons across multiple data layers, generates confidence-scored recall recommendations, and keeps every output grounded, cited, and human-reviewable.
+            </p>
+
+            <div class="hero-pills">
+              <span class="pill">Azure OpenAI</span>
+              <span class="pill">Azure AI Search</span>
+              <span class="pill">Agentic RAG</span>
+              <span class="pill">NHTSA Signals</span>
+              <span class="pill">Warranty Risk Intelligence</span>
+            </div>
+          </div>
+
+          <div class="hero-art">
+            <img src="project-rag-hero.png" alt="Ford Recall Readiness Co-Pilot hero card">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <main class="paper">
+      <section class="paper-section">
+        <div class="container section-grid">
+          <div class="section-num">00</div>
+          <div>
+            <div class="section-label">Executive Overview</div>
+            <h2 class="section-title">A Business-First AI System for Recall Readiness</h2>
+
+            <p class="dropcap">
+              The Ford Recall Readiness Co-Pilot is designed to solve a high-cost enterprise problem: recall-worthy vehicle failure patterns often emerge across fragmented systems long before they become formal recall decisions. Warranty claims, Technical Service Bulletins, NHTSA complaints, engineering notes, and component risk registries may each contain part of the signal, but no single layer synthesizes them into an actionable view fast enough.
+            </p>
+
+            <div class="quote-block">
+              This project demonstrates the shift from chatbot thinking to enterprise AI architecture: retrieval, reasoning, confidence scoring, governance, and decision support working together.
+            </div>
+
+            <p class="lead">
+              The system uses Agentic RAG to retrieve and reason across three evidence layers: a static document corpus, live NHTSA-style complaint signals, and structured warranty claim data. GPT-4o then synthesizes a grounded output with risk level, confidence score, key signals, and a specific recommendation.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="paper-section">
+        <div class="container section-grid">
+          <div class="section-num">01</div>
+          <div>
+            <div class="section-label">Business Problem</div>
+            <h2 class="section-title">The Hidden Cost of Reactive Recall Management</h2>
+
+            <p class="lead">
+              The capstone deck frames Ford’s recall challenge around fragmented signals, slow detection, and costly reactive escalation. The current-state problem includes warranty data, NHTSA complaints, TSB patterns, and claim clusters living across disconnected systems, requiring manual analyst effort before a recall readiness decision can be formed.
+            </p>
+
+            <div class="metrics">
+              <div class="metric">
+                <strong>$3.4B</strong>
+                <span>Annual warranty cost cited in the project scenario.</span>
+              </div>
+              <div class="metric">
+                <strong>18–24</strong>
+                <span>Months from early signal to recall decision in the reactive model.</span>
+              </div>
+              <div class="metric">
+                <strong>50K+</strong>
+                <span>NHTSA complaints received annually in the project framing.</span>
+              </div>
+              <div class="metric">
+                <strong>$100M+</strong>
+                <span>Estimated cost exposure per major reactive recall event.</span>
+              </div>
+            </div>
+
+            <div class="center-panel">
+              <h3>Strategic Interpretation</h3>
+              <p>
+                This is not merely a document-search problem. It is a decision-intelligence problem. The value comes from connecting scattered evidence into a structured recall readiness assessment before regulatory escalation, brand damage, or large-scale remediation costs increase.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="paper-section">
+        <div class="container section-grid">
+          <div class="section-num">02</div>
+          <div>
+            <div class="section-label">Why Agentic RAG</div>
+            <h2 class="section-title">Why Traditional ML and Basic Chatbots Are Not Enough</h2>
+
+            <div class="comparison">
+              <div class="compare-box">
+                <span class="tag">Traditional ML Limitation</span>
+                <h3>Stale and Hard to Explain</h3>
+                <ul>
+                  <li>Traditional ML depends on fixed historical training data.</li>
+                  <li>Recall signals evolve continuously as new claims, complaints, and TSB updates appear.</li>
+                  <li>Prediction without retrieved evidence is difficult to defend in safety, legal, and engineering contexts.</li>
+                </ul>
+              </div>
+
+              <div class="compare-box">
+                <span class="tag">Agentic RAG Advantage</span>
+                <h3>Current, Grounded, and Traceable</h3>
+                <ul>
+                  <li>Agentic RAG retrieves fresh context at query time.</li>
+                  <li>It reasons across multiple evidence layers before generation.</li>
+                  <li>Every recommendation can be tied back to source material, confidence, and signal strength.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="center-panel">
+              <h3>Design Principle</h3>
+              <p>
+                Recall intelligence requires freshness, explainability, and source grounding. RAG is not chosen because it is trendy; it is chosen because the decision environment changes constantly and every output must be auditable.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="paper-section">
+        <div class="container section-grid">
+          <div class="section-num">03</div>
+          <div>
+            <div class="section-label">Architecture</div>
+            <h2 class="section-title">An Azure-Native Agentic RAG Pipeline</h2>
+
+            <div class="comparison">
+              <div class="compare-box">
+                <span class="tag">Retrieval Foundation</span>
+                <h3>Chunk, Embed, and Index</h3>
+                <ul>
+                  <li>Raw documents are chunked into 512-token segments with overlap.</li>
+                  <li>Embeddings are generated using Azure OpenAI embedding models.</li>
+                  <li>Azure AI Search stores the vector index and supports semantic retrieval.</li>
+                </ul>
+              </div>
+
+              <div class="compare-box">
+                <span class="tag">Reasoning Layer</span>
+                <h3>Agentic Retriever</h3>
+                <ul>
+                  <li>The agent decomposes user queries into sub-tasks.</li>
+                  <li>It retrieves from static documents, live complaint signals, and structured claim data.</li>
+                  <li>It ranks passages by relevance, confidence, and recency before synthesis.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="comparison">
+              <div class="compare-box">
+                <span class="tag">Synthesis</span>
+                <h3>GPT-4o Grounded Response</h3>
+                <ul>
+                  <li>The model synthesizes only from retrieved context.</li>
+                  <li>If evidence is insufficient, the system should return manual review rather than inventing an answer.</li>
+                  <li>This prevents unsupported recall recommendations.</li>
+                </ul>
+              </div>
+
+              <div class="compare-box">
+                <span class="tag">Enterprise Fit</span>
+                <h3>Azure Ecosystem Integration</h3>
+                <ul>
+                  <li>Warranty engineering portal integration through Azure Bot Service.</li>
+                  <li>Power BI risk-score tiles for quality dashboards.</li>
+                  <li>REST API feed into warranty or ERP systems with Teams/mobile alerts.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="paper-section">
+        <div class="container section-grid">
+          <div class="section-num">04</div>
+          <div>
+            <div class="section-label">Data Corpus</div>
+            <h2 class="section-title">Five Synthetic Ford Documents as the Grounding Layer</h2>
+
+            <p class="lead">
+              The project corpus includes synthetic but structurally realistic Ford documents: warranty policy reference, TSB collection, historical warranty claim summary, recall decision framework, and a component risk registry. These provide the domain-specific knowledge base needed for grounded recall reasoning.
+            </p>
+
+            <div class="comparison">
+              <div class="compare-box">
+                <span class="tag">Policy Layer</span>
+                <h3>Warranty & Recall Rules</h3>
+                <ul>
+                  <li>Warranty eligibility, coverage duration, exclusions, and claim submission requirements.</li>
+                  <li>Recall readiness thresholds such as claim-rate triggers, NHTSA complaint spikes, and similarity to prior recalls.</li>
+                </ul>
+              </div>
+
+              <div class="compare-box">
+                <span class="tag">Evidence Layer</span>
+                <h3>Claims, TSBs, and Component Risk</h3>
+                <ul>
+                  <li>TSB records describe symptoms, root causes, repair procedures, and NHTSA complaint references.</li>
+                  <li>Risk registry records active high-watch components, composite scores, trend direction, and threshold distance to recall trigger.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="paper-section">
+        <div class="container section-grid">
+          <div class="section-num">05</div>
+          <div>
+            <div class="section-label">Decision Output</div>
+            <h2 class="section-title">From Evidence Retrieval to Recall Recommendation</h2>
+
+            <div class="two-col">
+              <div class="info-card">
+                <h3>Structured Output</h3>
+                <p>
+                  Every Co-Pilot response is designed to return a repeatable intelligence report: recall readiness risk, trend direction, confidence score, key signals detected, and a specific recommendation for engineering or committee review.
+                </p>
+              </div>
+
+              <div class="info-card">
+                <h3>Why This Matters</h3>
+                <p>
+                  Recall decisions involve safety, legal exposure, brand trust, and cost. A vague answer is not enough. The system must provide structured decision support that leaders can inspect, challenge, and validate.
+                </p>
+              </div>
+            </div>
+
+            <div class="center-panel">
+              <h3>Example Decision Logic</h3>
+              <p>
+                A high-risk output may combine rising NHTSA complaints, a matching historical recall pattern, increasing warranty claims, and an active TSB that has not reduced incident rates. The recommendation is then grounded in converging signals rather than a single isolated metric.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="paper-section">
+        <div class="container section-grid">
+          <div class="section-num">06</div>
+          <div>
+            <div class="section-label">Validation & Responsible AI</div>
+            <h2 class="section-title">Trust Is Built Into the Architecture</h2>
+
+            <div class="comparison">
+              <div class="compare-box">
+                <span class="tag">Grounding</span>
+                <h3>Grounded Generation Constraint</h3>
+                <ul>
+                  <li>Responses are restricted to retrieved context.</li>
+                  <li>Unsupported claims are blocked by architecture, not just by prompt wording.</li>
+                  <li>Low-evidence cases are routed to manual review.</li>
+                </ul>
+              </div>
+
+              <div class="compare-box">
+                <span class="tag">Human Oversight</span>
+                <h3>Engineer-in-the-Loop</h3>
+                <ul>
+                  <li>High-risk recommendations require warranty engineer validation.</li>
+                  <li>Overrides and validation outcomes feed back into relevance scoring.</li>
+                  <li>Monthly audits compare Co-Pilot recommendations against actual recall outcomes.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="center-panel">
+              <h3>Responsible AI Positioning</h3>
+              <p>
+                The system is not designed to replace recall committees or safety engineers. It is designed to compress evidence gathering, improve signal visibility, and make human review faster, more traceable, and more consistent.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="paper-section">
+        <div class="container section-grid">
+          <div class="section-num">07</div>
+          <div>
+            <div class="section-label">ROI & Enterprise Value</div>
+            <h2 class="section-title">Faster Decisions, Safer Vehicles, Lower Costs</h2>
+
+            <div class="metrics">
+              <div class="metric">
+                <strong>40%</strong>
+                <span>Projected reduction in recall decision time.</span>
+              </div>
+              <div class="metric">
+                <strong>3–6</strong>
+                <span>Months earlier issue detection.</span>
+              </div>
+              <div class="metric">
+                <strong>15 hrs</strong>
+                <span>Analyst time saved per engineer per week.</span>
+              </div>
+              <div class="metric">
+                <strong>$100M+</strong>
+                <span>Potential reactive recall escalation costs avoided.</span>
+              </div>
+            </div>
+
+            <div class="center-panel">
+              <h3>Business Value</h3>
+              <p>
+                The business value is not only cost avoidance. The stronger value is recall readiness maturity: earlier detection, more consistent signal interpretation, audit-ready recommendations, and decision confidence across engineering, quality, legal, and compliance stakeholders.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="paper-section">
+        <div class="container section-grid">
+          <div class="section-num">08</div>
+          <div>
+            <div class="section-label">Capstone Deck</div>
+            <h2 class="section-title">Embedded Presentation Artifact</h2>
+
+            <p class="lead">
+              The full deck is embedded below as the formal presentation artifact. It walks through the business problem, RAG architecture, data sources, agent reasoning, validation methods, ROI, live demo framing, and future roadmap.
+            </p>
+
+            <div class="button-row">
+              <a class="btn" href="ford-recall-readiness-copilot.pdf" target="_blank" rel="noopener noreferrer">Open PDF in New Tab</a>
+              <a class="btn secondary" href="index.html">← Back to Homepage</a>
+            </div>
+
+            <div class="pdf-frame">
+              <embed src="ford-recall-readiness-copilot.pdf" type="application/pdf">
+            </div>
+
+            <p class="pdf-note">
+              If the PDF does not render on your browser or mobile device, use the “Open PDF in New Tab” button above.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="paper-section">
+        <div class="container section-grid">
+          <div class="section-num">09</div>
+          <div>
+            <div class="section-label">Final Synthesis</div>
+            <h2 class="section-title">Why This Is the Flagship Portfolio Project</h2>
+
+            <p class="lead">
+              This project demonstrates the strongest version of enterprise AI solution design: a real business problem, a defensible technical architecture, a grounded retrieval strategy, governance controls, human oversight, and measurable operational value.
+            </p>
+
+            <div class="center-panel">
+              <h3>Portfolio Value</h3>
+              <p>
+                The Ford Recall Readiness Co-Pilot positions the work at a solution-architect level. It shows the ability to design an Agentic RAG system that is not only technically sophisticated, but also deployable, auditable, and aligned to enterprise decision-making.
+              </p>
+            </div>
+
+            <div class="bottom-nav">
+              <a class="btn secondary" href="index.html">← Back to Homepage</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
