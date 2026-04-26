@@ -6,7 +6,7 @@
   <title>Ramya Srinivasan | AI Solutions Architect</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root{
@@ -19,6 +19,7 @@
       --line:rgba(215,168,93,0.22);
       --line-soft:rgba(255,255,255,0.08);
       --gold:#d7a85d;
+      --gold-2:#f0c777;
       --shadow:0 24px 60px rgba(0,0,0,0.45);
       --max:1280px;
       --radius:28px;
@@ -60,7 +61,7 @@
       top:0;
       z-index:20;
       backdrop-filter:blur(16px);
-      background:rgba(5,5,5,0.82);
+      background:rgba(5,5,5,0.84);
       border-bottom:1px solid var(--line-soft);
     }
 
@@ -104,8 +105,9 @@
       padding:12px 20px;
       border-radius:999px;
       border:1px solid rgba(215,168,93,0.35);
-      background:linear-gradient(180deg, rgba(215,168,93,0.18), rgba(215,168,93,0.08));
-      font-weight:700;
+      background:linear-gradient(180deg, rgba(215,168,93,0.20), rgba(215,168,93,0.08));
+      font-weight:800;
+      color:#fff2dc;
     }
 
     .section{
@@ -123,6 +125,7 @@
       text-transform:uppercase;
       font-size:0.76rem;
       margin-bottom:24px;
+      font-weight:800;
     }
 
     .section-title{
@@ -134,7 +137,7 @@
     }
 
     .section-subtitle{
-      max-width:820px;
+      max-width:860px;
       margin:0;
       color:#d1c8bb;
       font-size:1.04rem;
@@ -165,9 +168,17 @@
 
     .hero-copy{
       margin-top:22px;
-      max-width:760px;
+      max-width:780px;
       color:#ddd4c8;
       font-size:1.1rem;
+    }
+
+    .hero-value{
+      margin-top:18px;
+      max-width:760px;
+      color:#f2e7d7;
+      font-size:1.05rem;
+      font-weight:700;
     }
 
     .hero-stats{
@@ -183,16 +194,16 @@
     .edu-card,
     .skill-card,
     .contact-card,
-    .cert-card{
+    .cert-card,
+    .recognition-card,
+    .stack-card{
       background:linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
       border:1px solid var(--line-soft);
       border-radius:24px;
       box-shadow:var(--shadow);
     }
 
-    .stat-card{
-      padding:20px;
-    }
+    .stat-card{padding:20px;}
 
     .stat-card strong{
       display:block;
@@ -221,7 +232,7 @@
       padding:14px 22px;
       border-radius:999px;
       border:1px solid var(--line-soft);
-      font-weight:700;
+      font-weight:800;
       transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
     }
 
@@ -233,6 +244,7 @@
     .hero-actions .primary{
       background:linear-gradient(180deg, rgba(215,168,93,0.24), rgba(215,168,93,0.10));
       border-color:rgba(215,168,93,0.34);
+      color:#fff2dc;
     }
 
     .portrait-card{
@@ -293,9 +305,8 @@
       margin-top:34px;
     }
 
-    .glass-card{
-      padding:28px;
-    }
+    .glass-card{padding:28px;}
+    .glass-card p + p{margin-top:14px;}
 
     .pill-grid{
       display:flex;
@@ -319,9 +330,7 @@
       margin-top:34px;
     }
 
-    .timeline-item{
-      padding:28px;
-    }
+    .timeline-item{padding:28px;}
 
     .timeline-top{
       display:flex;
@@ -348,13 +357,9 @@
       color:#ddd4c8;
     }
 
-    .timeline-item li + li{
-      margin-top:10px;
-    }
+    .timeline-item li + li{margin-top:10px;}
 
-    .featured-project{
-      margin-top:38px;
-    }
+    .featured-project{margin-top:38px;}
 
     .featured-label{
       margin-bottom:16px;
@@ -362,12 +367,12 @@
       font-size:0.8rem;
       letter-spacing:0.18em;
       text-transform:uppercase;
-      font-weight:700;
+      font-weight:800;
     }
 
     .featured-card{
       display:grid;
-      grid-template-columns:1.15fr 0.85fr;
+      grid-template-columns:1.05fr 0.95fr;
       gap:30px;
       align-items:center;
       padding:34px;
@@ -396,6 +401,17 @@
       font-size:1rem;
     }
 
+    .featured-copy p + p{
+      margin-top:10px;
+    }
+
+    .impact-line{
+      margin-top:16px;
+      color:#f0d49d;
+      font-weight:800;
+      font-size:0.98rem;
+    }
+
     .featured-tags{
       display:flex;
       flex-wrap:wrap;
@@ -417,7 +433,7 @@
       overflow:hidden;
       border:1px solid rgba(255,255,255,0.08);
       background:#0b0c10;
-      min-height:260px;
+      min-height:300px;
       display:flex;
       align-items:center;
       justify-content:center;
@@ -427,6 +443,55 @@
       width:100%;
       height:100%;
       object-fit:cover;
+    }
+
+    .product-card{
+      grid-template-columns:1fr 0.78fr;
+      background:
+        radial-gradient(circle at top right, rgba(224,42,118,0.16), transparent 32%),
+        linear-gradient(135deg, rgba(255,255,255,0.045), rgba(255,255,255,0.02));
+    }
+
+    .product-card .featured-image{
+      min-height:340px;
+    }
+
+    .recognition-card{
+      margin-top:28px;
+      padding:28px;
+      border-color:rgba(215,168,93,0.20);
+      background:
+        radial-gradient(circle at top right, rgba(215,168,93,0.09), transparent 34%),
+        linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.02));
+    }
+
+    .recognition-top{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+
+    .recognition-card h3{
+      margin:0 0 10px;
+      font-size:1.45rem;
+    }
+
+    .recognition-card p{
+      margin:0;
+      color:#d4cbbf;
+      max-width:860px;
+    }
+
+    .recognition-badge{
+      color:#111;
+      background:linear-gradient(180deg, #f0c777, #d7a85d);
+      border-radius:999px;
+      padding:10px 14px;
+      font-weight:900;
+      font-size:0.82rem;
+      white-space:nowrap;
     }
 
     .projects-grid{
@@ -472,13 +537,9 @@
       background:#08090c;
     }
 
-    .project-tile:hover .project-image-wrap img{
-      transform:scale(1.04);
-    }
+    .project-tile:hover .project-image-wrap img{transform:scale(1.04);}
 
-    .project-content{
-      padding:18px 8px 8px;
-    }
+    .project-content{padding:18px 8px 8px;}
 
     .project-content h3{
       margin:0 0 8px;
@@ -490,7 +551,15 @@
       margin:0;
       color:#d1c8bb;
       font-size:0.95rem;
-      min-height:74px;
+      min-height:100px;
+    }
+
+    .project-impact{
+      display:block;
+      margin-top:12px;
+      color:#f0d49d;
+      font-size:0.9rem;
+      font-weight:800;
     }
 
     .project-open{
@@ -499,46 +568,38 @@
       gap:8px;
       margin-top:14px;
       color:var(--gold);
-      font-weight:700;
+      font-weight:800;
       font-size:0.92rem;
     }
 
     .edu-grid,
     .skills-grid,
     .contact-grid,
-    .cert-grid{
+    .cert-grid,
+    .stack-grid{
       display:grid;
       gap:22px;
       margin-top:34px;
     }
 
-    .edu-grid{
-      grid-template-columns:repeat(2, minmax(0,1fr));
-    }
-
-    .skills-grid{
-      grid-template-columns:repeat(3, minmax(0,1fr));
-    }
-
-    .contact-grid{
-      grid-template-columns:repeat(3, minmax(0,1fr));
-    }
-
-    .cert-grid{
-      grid-template-columns:repeat(4, minmax(0,1fr));
-    }
+    .edu-grid{grid-template-columns:repeat(2, minmax(0,1fr));}
+    .skills-grid,.stack-grid{grid-template-columns:repeat(3, minmax(0,1fr));}
+    .contact-grid{grid-template-columns:repeat(3, minmax(0,1fr));}
+    .cert-grid{grid-template-columns:repeat(4, minmax(0,1fr));}
 
     .edu-card,
     .skill-card,
     .contact-card,
-    .cert-card{
+    .cert-card,
+    .stack-card{
       padding:24px;
     }
 
     .edu-card h3,
     .skill-card h3,
     .contact-card h3,
-    .cert-card h3{
+    .cert-card h3,
+    .stack-card h3{
       margin:0 0 10px;
       font-size:1.1rem;
     }
@@ -546,7 +607,8 @@
     .edu-card p,
     .skill-card p,
     .contact-card p,
-    .cert-card p{
+    .cert-card p,
+    .stack-card p{
       margin:0;
       color:#d1c8bb;
     }
@@ -567,24 +629,11 @@
     }
 
     @media (max-width: 1180px){
-      .hero-grid,
-      .two-col,
-      .projects-grid,
-      .edu-grid,
-      .skills-grid,
-      .contact-grid,
-      .cert-grid,
-      .featured-card{
+      .hero-grid,.two-col,.projects-grid,.edu-grid,.skills-grid,.contact-grid,.cert-grid,.featured-card,.stack-grid{
         grid-template-columns:1fr;
       }
-
-      .hero-stats{
-        grid-template-columns:1fr;
-      }
-
-      .project-image-wrap{
-        min-height:460px;
-      }
+      .hero-stats{grid-template-columns:1fr;}
+      .project-image-wrap{min-height:460px;}
     }
 
     @media (max-width: 760px){
@@ -592,40 +641,19 @@
         width:min(calc(100% - 14px), 1360px);
         border-radius:24px;
       }
-
-      .container{
-        width:min(calc(100% - 26px), var(--max));
-      }
-
+      .container{width:min(calc(100% - 26px), var(--max));}
       .topbar-inner{
         padding:14px 0;
         align-items:flex-start;
         flex-direction:column;
       }
-
-      nav{
-        gap:16px;
-      }
-
-      .section{
-        padding:58px 0;
-      }
-
-      .hero{
-        padding:30px 0 54px;
-      }
-
-      .hero h1{
-        font-size:clamp(2.8rem, 13vw, 4.5rem);
-      }
-
-      .project-image-wrap{
-        min-height:360px;
-      }
-
-      .portrait-meta{
-        grid-template-columns:1fr;
-      }
+      nav{gap:16px;}
+      .section{padding:58px 0;}
+      .hero{padding:30px 0 54px;}
+      .hero h1{font-size:clamp(2.8rem, 13vw, 4.5rem);}
+      .project-image-wrap{min-height:360px;}
+      .portrait-meta{grid-template-columns:1fr;}
+      .product-card .featured-image{min-height:300px;}
     }
   </style>
 </head>
@@ -642,10 +670,10 @@
           <a href="#about">About</a>
           <a href="#experience">Experience</a>
           <a href="#projects">Projects</a>
+          <a href="#stack">Tech Stack</a>
           <a href="#education">Education</a>
-          <a href="#skills">Skills</a>
           <a href="#contact">Contact</a>
-          <a class="resume-btn" href="resume.pdf" target="_blank">Resume</a>
+          <a class="resume-btn" href="resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
         </nav>
       </div>
     </header>
@@ -654,7 +682,7 @@
       <section class="hero">
         <div class="container hero-grid">
           <div>
-            <div class="eyebrow">Enterprise AI • Cloud Architecture • GenAI Strategy</div>
+            <div class="eyebrow">Enterprise AI • Azure Architecture • GenAI Strategy</div>
             <h1>
               Designing <span class="accent">AI</span><br>
               systems<br>
@@ -665,26 +693,30 @@
             </h1>
 
             <p class="hero-copy">
-              I’m Ramya Srinivasan — an AI Solutions Architect focused on enterprise AI integration, Azure-based solution design, conversational AI, applied machine learning strategy, and responsible AI architecture across healthcare, retail, and emerging automotive use cases.
+              I’m Ramya Srinivasan, an AI Solutions Architect focused on enterprise AI integration, Azure-based solution design, conversational AI, applied machine learning strategy, responsible AI governance, and retrieval augmented generation systems across retail, healthcare, automotive, and product innovation contexts.
+            </p>
+
+            <p class="hero-value">
+              I design AI systems that reduce operational friction, improve decision quality, and accelerate responsible enterprise adoption.
             </p>
 
             <div class="hero-actions">
               <a class="primary" href="#projects">View Projects</a>
-              <a href="resume.pdf" target="_blank">Open Resume</a>
+              <a href="resume.pdf" target="_blank" rel="noopener noreferrer">Open Resume</a>
             </div>
 
             <div class="hero-stats">
               <div class="stat-card">
                 <strong>10+</strong>
-                <span>Years across enterprise solution design, business analysis, and delivery leadership</span>
+                <span>Years across enterprise solution design, business analysis, stakeholder leadership, and delivery execution</span>
               </div>
               <div class="stat-card">
-                <strong>Up to 25%</strong>
-                <span>Projected support-volume reduction through conversational AI solution modeling</span>
+                <strong>25%</strong>
+                <span>Modeled support-volume reduction through conversational AI and workflow automation concepts</span>
               </div>
               <div class="stat-card">
-                <strong>Up to 40%</strong>
-                <span>Estimated administrative effort reduction in AI-assisted workflow design scenarios</span>
+                <strong>40%</strong>
+                <span>Projected administrative effort reduction through AI-assisted healthcare and recall readiness workflows</span>
               </div>
             </div>
           </div>
@@ -710,31 +742,33 @@
       <section class="section" id="about">
         <div class="container">
           <div class="eyebrow">About</div>
-          <h2 class="section-title">A portfolio shaped by architecture, delivery, and real-world AI adoption.</h2>
+          <h2 class="section-title">Architecture-led AI work grounded in business value, governance, and deployment reality.</h2>
           <p class="section-subtitle">
-            My work sits at the intersection of business strategy, AI solution design, and enterprise execution. I translate ambiguous business needs into scalable architectures, roadmap-ready plans, and practical AI systems that leaders can trust.
+            My work connects business strategy, AI system design, cloud architecture, and enterprise execution. I translate ambiguous needs into structured solution patterns, stakeholder-ready roadmaps, and AI systems that can be evaluated, governed, and deployed responsibly.
           </p>
 
           <div class="two-col">
             <div class="glass-card">
               <p>
-                With experience spanning US healthcare and retail e-commerce, I bring a systems-level view to AI transformation. My background combines product thinking, architectural clarity, stakeholder leadership, and a strong focus on responsible, grounded AI.
+                With experience across US healthcare and retail e-commerce, I bring a systems-level view to AI transformation. My background combines product thinking, architectural clarity, workflow analysis, stakeholder leadership, and responsible AI design.
               </p>
               <p>
-                I am currently completing an MS in Artificial Intelligence with Data Analytics while advancing my cloud architecture track through Microsoft Azure certifications and applied work in Azure OpenAI, retrieval-augmented generation, and enterprise AI design.
+                I am completing an MS in Artificial Intelligence with Data Analytics while advancing my cloud architecture track through Microsoft Azure certifications and applied work in Azure OpenAI, Azure AI Search, retrieval augmented generation, conversational AI, and enterprise decision intelligence.
               </p>
             </div>
 
             <div class="glass-card">
               <h3>Core strengths</h3>
               <div class="pill-grid">
-                <span class="pill">AI/ML Solution Design</span>
-                <span class="pill">Enterprise AI Architecture</span>
+                <span class="pill">AI Solution Architecture</span>
                 <span class="pill">RAG System Design</span>
+                <span class="pill">Azure OpenAI</span>
+                <span class="pill">Azure AI Search</span>
+                <span class="pill">Conversational AI</span>
                 <span class="pill">Responsible AI Governance</span>
-                <span class="pill">Conversational AI Orchestration</span>
-                <span class="pill">Azure Architecture</span>
-                <span class="pill">Prompt & Workflow Design</span>
+                <span class="pill">LLMOps Thinking</span>
+                <span class="pill">Workflow Automation</span>
+                <span class="pill">API Integration Strategy</span>
                 <span class="pill">Executive Stakeholder Alignment</span>
               </div>
             </div>
@@ -745,7 +779,7 @@
       <section class="section" id="experience">
         <div class="container">
           <div class="eyebrow">Experience</div>
-          <h2 class="section-title">Enterprise experience across healthcare, retail, and AI-driven transformation.</h2>
+          <h2 class="section-title">Enterprise experience across retail, healthcare, and AI-driven transformation.</h2>
 
           <div class="timeline">
             <article class="timeline-item">
@@ -757,9 +791,10 @@
                 <div class="meta">Sep 2019 – Present</div>
               </div>
               <ul>
-                <li>Designed Azure OpenAI and Azure AI Search solution concepts for enterprise retail use cases with emphasis on governance, access control, and responsible AI architecture.</li>
-                <li>Modeled retail operations support concepts grounded in return policies, delivery procedures, and warranty workflows to improve knowledge access and frontline decision support.</li>
-                <li>Architected conversational AI service patterns to support personalized customer interactions and scalable service automation.</li>
+                <li>Designed Azure OpenAI and Azure AI Search solution patterns for retail operations, emphasizing governed retrieval, policy-grounded responses, secure access control, and responsible AI adoption.</li>
+                <li>Modeled RAG-based knowledge workflows across return policies, delivery procedures, warranty operations, and customer service scenarios to improve frontline decision support and reduce repeated manual lookup effort.</li>
+                <li>Architected conversational AI service patterns for personalized customer interactions, escalation routing, and scalable support automation with a modeled support-volume reduction of up to 25%.</li>
+                <li>Translated business requirements into AI solution concepts, BRDs, UAT scenarios, stakeholder-ready roadmaps, and implementation plans aligned with enterprise delivery constraints.</li>
               </ul>
             </article>
 
@@ -772,9 +807,10 @@
                 <div class="meta">Mar 2017 – Aug 2019</div>
               </div>
               <ul>
-                <li>Contributed to the design of AI virtual assistant workflows for clinical query resolution, appointment support, medication guidance, and billing navigation.</li>
-                <li>Defined intents, entities, and domain-specific dialogue flows tailored to healthcare terminology and regulated workflows.</li>
-                <li>Supported NLP-oriented solution planning aimed at reducing administrative burden and improving service responsiveness.</li>
+                <li>Contributed to healthcare virtual assistant workflows for clinical query resolution, appointment support, medication guidance, billing navigation, and service routing.</li>
+                <li>Defined healthcare-specific intents, entities, dialogue flows, and domain vocabulary structures to support accurate NLP classification in regulated service environments.</li>
+                <li>Supported AI-assisted workflow concepts intended to reduce administrative burden, improve patient support responsiveness, and route routine requests away from overloaded human queues.</li>
+                <li>Partnered with clinical, administrative, and compliance stakeholders to align automation boundaries with patient safety, privacy, and operational accountability.</li>
               </ul>
             </article>
           </div>
@@ -786,30 +822,70 @@
           <div class="eyebrow">Projects</div>
           <h2 class="section-title">Selected Work</h2>
           <p class="section-subtitle">
-            A portfolio of AI architecture, comparative analysis, responsible AI research, and enterprise service transformation.
+            A portfolio of enterprise AI architecture, Agentic RAG, conversational AI, responsible AI, analytics strategy, and domain-specific decision support.
           </p>
 
-         <div class="featured-project">
-  <div class="featured-label">Featured Capstone Project</div>
-  <a href="project-rag.html" class="featured-card">
-    <div class="featured-copy">
-      <h3>Ford Recall Readiness Co-Pilot</h3>
-      <p>
-        An Agentic RAG-based warranty risk intelligence system designed to detect recall-worthy failure patterns early by analyzing warranty claims, Technical Service Bulletins, NHTSA complaint signals, and structured component risk data.
-      </p>
-      <div class="featured-tags">
-        <span>Agentic RAG</span>
-        <span>Azure OpenAI</span>
-        <span>Azure AI Search</span>
-        <span>Warranty Intelligence</span>
-        <span>Recall Risk Detection</span>
-      </div>
-    </div>
-    <div class="featured-image">
-      <img src="project-rag-featured.png" alt="Ford Recall Readiness Co-Pilot featured project">
-    </div>
-  </a>
-</div>
+          <div class="featured-project">
+            <div class="featured-label">Featured Capstone Project</div>
+            <a href="project-rag.html" class="featured-card">
+              <div class="featured-copy">
+                <h3>Ford Recall Readiness Co-Pilot</h3>
+                <p>
+                  An Agentic RAG decision intelligence system that transforms warranty claims, Technical Service Bulletins, NHTSA complaint signals, and component risk data into early recall readiness assessments.
+                </p>
+                <div class="impact-line">
+                  Modeled impact: 40% faster recall decision cycles, 3 to 6 months earlier issue detection, and reduced exposure to major reactive recall costs.
+                </div>
+                <div class="featured-tags">
+                  <span>Agentic RAG</span>
+                  <span>Azure OpenAI</span>
+                  <span>Azure AI Search</span>
+                  <span>Warranty Intelligence</span>
+                  <span>Recall Risk Detection</span>
+                </div>
+              </div>
+              <div class="featured-image">
+                <img src="project-rag-featured.png" alt="Ford Recall Readiness Co-Pilot featured project">
+              </div>
+            </a>
+          </div>
+
+          <div class="featured-project">
+            <div class="featured-label">Applied AI Product Build</div>
+            <div class="featured-card product-card">
+              <div class="featured-copy">
+                <h3>HerVoice — AI Communication Practice Tool</h3>
+
+                <p>
+                  A live AI application built with OpenAI and React that helps users practice real-world conversations by generating calm, assertive, and boundary-setting responses from situational input.
+                </p>
+
+                <p>
+                  The product creates a safe practice space where users can compare response styles, understand emotional impact, and build confidence before difficult conversations.
+                </p>
+
+                <div class="impact-line">
+                  Live deployment demonstrating conversational AI design, user-centered interaction, and rapid GenAI product development.
+                </div>
+
+                <div class="featured-tags">
+                  <span>OpenAI</span>
+                  <span>React</span>
+                  <span>Conversational AI</span>
+                  <span>UX Interaction Design</span>
+                  <span>Live Deployment</span>
+                </div>
+
+                <div class="hero-actions">
+                  <a class="primary" href="https://unrivaled-taffy-aee625.netlify.app/" target="_blank" rel="noopener noreferrer">Launch HerVoice →</a>
+                </div>
+              </div>
+
+              <div class="featured-image">
+                <img src="hervoice-hero.png" alt="HerVoice AI Communication Practice Tool">
+              </div>
+            </div>
+          </div>
 
           <div class="projects-grid">
             <a href="project1.html" class="project-tile">
@@ -818,7 +894,8 @@
               </div>
               <div class="project-content">
                 <h3>The AI Odyssey</h3>
-                <p>A research-driven visual and architectural study of AI evolution from symbolic systems to foundation-scale generative models.</p>
+                <p>A research-driven study of AI evolution from symbolic reasoning to foundation-scale generative systems, connecting model architecture shifts to enterprise adoption patterns.</p>
+                <span class="project-impact">Outcome focus: technical fluency across AI history, model capability, and adoption strategy.</span>
                 <span class="project-open">Open Project →</span>
               </div>
             </a>
@@ -829,7 +906,8 @@
               </div>
               <div class="project-content">
                 <h3>AI-Powered Retail Support Transformation</h3>
-                <p>An enterprise conversational AI case study focused on service orchestration, intent routing, integration, and support automation.</p>
+                <p>An enterprise conversational AI architecture for service orchestration, intent routing, knowledge retrieval, escalation design, and support automation.</p>
+                <span class="project-impact">Modeled impact: up to 25% support-volume reduction through AI-assisted workflows.</span>
                 <span class="project-open">Open Project →</span>
               </div>
             </a>
@@ -840,7 +918,8 @@
               </div>
               <div class="project-content">
                 <h3>Machine Learning vs. Deep Learning in Automotive</h3>
-                <p>A comparative case study using GM OnStar and Waymo to show how model selection depends on problem structure and operational context.</p>
+                <p>A comparative systems analysis using GM OnStar and Waymo to evaluate model fit, interpretability, scalability, and operational context.</p>
+                <span class="project-impact">Outcome focus: model-selection judgment for structured prediction versus perception-heavy autonomy.</span>
                 <span class="project-open">Open Project →</span>
               </div>
             </a>
@@ -851,7 +930,8 @@
               </div>
               <div class="project-content">
                 <h3>Architecting Fairness in Automotive AI</h3>
-                <p>A responsible AI research artifact analyzing bias across the ML lifecycle and the guardrails needed for fairer deployment.</p>
+                <p>A responsible AI research artifact analyzing bias across data collection, model evaluation, deployment monitoring, and safety-critical decision workflows.</p>
+                <span class="project-impact">Outcome focus: governance controls for fairer, safer, and more auditable AI systems.</span>
                 <span class="project-open">Open Project →</span>
               </div>
             </a>
@@ -862,7 +942,8 @@
               </div>
               <div class="project-content">
                 <h3>Architecting Clinical AI Systems for Healthcare Operations</h3>
-                <p>An enterprise-level AI architecture case study focused on HIPAA-compliant clinical NLP, virtual assistants, and large-scale healthcare workflow automation using IBM Watson.</p>
+                <p>A healthcare AI architecture case study focused on HIPAA-aware clinical NLP, virtual assistants, EHR integration, and workflow automation.</p>
+                <span class="project-impact">Modeled impact: up to 40% administrative effort reduction through intelligent routing and automation.</span>
                 <span class="project-open">Open Project →</span>
               </div>
             </a>
@@ -873,10 +954,38 @@
               </div>
               <div class="project-content">
                 <h3>Data Analytics for Streaming Strategy and Content Intelligence</h3>
-                <p>A Netflix case study showing how data analytics can guide content strategy, personalization, international growth, and subscriber retention through visualization-driven insight.</p>
+                <p>A Netflix analytics case study using content mix, genre distribution, release trends, and audience strategy to guide platform decision-making.</p>
+                <span class="project-impact">Outcome focus: data-backed content strategy, retention logic, and international growth planning.</span>
                 <span class="project-open">Open Project →</span>
               </div>
             </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="stack">
+        <div class="container">
+          <div class="eyebrow">Tech Stack</div>
+          <h2 class="section-title">Tools and platforms aligned to enterprise AI implementation.</h2>
+          <p class="section-subtitle">
+            A practical architecture toolkit spanning cloud AI, retrieval systems, analytics, governance, integration, and delivery execution.
+          </p>
+
+          <div class="stack-grid">
+            <article class="stack-card">
+              <h3>Cloud AI & RAG</h3>
+              <p>Azure OpenAI, Azure AI Search, vector search, semantic retrieval, prompt orchestration, Agentic RAG, grounded generation, and knowledge architecture.</p>
+            </article>
+
+            <article class="stack-card">
+              <h3>Data & Analytics</h3>
+              <p>Python, SQL, Power BI, Excel analytics, data preparation, dashboard storytelling, structured data reasoning, and KPI-driven decision support.</p>
+            </article>
+
+            <article class="stack-card">
+              <h3>Enterprise Delivery</h3>
+              <p>API integration strategy, BRDs, UAT planning, Agile delivery, stakeholder management, governance controls, responsible AI review, and LLMOps concepts.</p>
+            </article>
           </div>
         </div>
       </section>
@@ -937,17 +1046,17 @@
           <div class="skills-grid">
             <article class="skill-card">
               <h3>AI Architecture</h3>
-              <p>RAG system design, conversational AI orchestration, prompt workflow design, enterprise AI integration, and grounded LLM solution planning.</p>
+              <p>RAG system design, conversational AI orchestration, prompt workflow design, enterprise AI integration, grounded LLM solution planning, and human-in-the-loop architecture.</p>
             </article>
 
             <article class="skill-card">
               <h3>Governance & Responsible AI</h3>
-              <p>Fairness-aware design, AI risk framing, human-in-the-loop controls, secure architecture patterns, and deployment-aware governance thinking.</p>
+              <p>Fairness-aware design, AI risk framing, source traceability, confidence scoring, secure architecture patterns, deployment boundaries, and audit-ready workflows.</p>
             </article>
 
             <article class="skill-card">
               <h3>Cloud & Delivery</h3>
-              <p>Azure architecture, Azure OpenAI, Azure AI Search, Python, SQL, Power BI, Agile leadership, BRDs, UAT, and enterprise transformation delivery.</p>
+              <p>Azure architecture, Azure OpenAI, Azure AI Search, Python, SQL, Power BI, Agile leadership, BRDs, UAT, API integration, and enterprise transformation delivery.</p>
             </article>
           </div>
         </div>
@@ -960,8 +1069,8 @@
 
           <div class="contact-grid">
             <article class="contact-card">
-              <h3>Preferred Contact</h3>
-              <p>Please connect with me through LinkedIn or resume contact details for professional inquiries.</p>
+              <h3>Professional Inquiries</h3>
+              <p>Please connect through LinkedIn or the contact details provided in my resume for AI solutions architecture, enterprise AI strategy, or applied GenAI opportunities.</p>
             </article>
 
             <article class="contact-card">
@@ -971,8 +1080,13 @@
 
             <article class="contact-card">
               <h3>Status</h3>
-              <p>Open to AI solutions architecture, enterprise AI strategy, and applied GenAI platform opportunities.</p>
+              <p>Open to AI solutions architecture, enterprise AI strategy, responsible AI, and applied GenAI platform roles.</p>
             </article>
+          </div>
+
+          <div class="hero-actions">
+            <a class="primary" href="resume.pdf" target="_blank" rel="noopener noreferrer">Download Resume</a>
+            <a href="#projects">Review Projects</a>
           </div>
         </div>
       </section>
